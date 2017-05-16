@@ -167,6 +167,8 @@
 		6C2439041EB09E23008C3BFE /* t53点击@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2438D01EB09E23008C3BFE /* t53点击@2x.png */; };
 		6C2439051EB09E23008C3BFE /* t53点击@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2438D11EB09E23008C3BFE /* t53点击@3x.png */; };
 		6C797D271ECAF5DB00D6C7D7 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C797D261ECAF5DB00D6C7D7 /* iflyMSC.framework */; };
+		6C797D2C1ECB00BB00D6C7D7 /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C797D291ECB00BB00D6C7D7 /* IATConfig.m */; };
+		6C797D2D1ECB00BB00D6C7D7 /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C797D2B1ECB00BB00D6C7D7 /* ISRDataHelper.m */; };
 		6C9EFCEC1EC1B1B100D06AF4 /* Text-bold-tilt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9EFCEA1EC1B1B100D06AF4 /* Text-bold-tilt@2x.png */; };
 		6C9EFCED1EC1B1B100D06AF4 /* Text-bold-tilt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9EFCEB1EC1B1B100D06AF4 /* Text-bold-tilt@3x.png */; };
 		6CD1FE6E1EB8989D007C9461 /* RYIndicatorBackgroudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD1FE6D1EB8989D007C9461 /* RYIndicatorBackgroudView.m */; };
@@ -369,6 +371,10 @@
 		6C2438D01EB09E23008C3BFE /* t53点击@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "t53点击@2x.png"; path = "Source/Images/t53点击@2x.png"; sourceTree = "<group>"; };
 		6C2438D11EB09E23008C3BFE /* t53点击@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "t53点击@3x.png"; path = "Source/Images/t53点击@3x.png"; sourceTree = "<group>"; };
 		6C797D261ECAF5DB00D6C7D7 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		6C797D281ECB00BB00D6C7D7 /* IATConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IATConfig.h; path = Source/IATConfig.h; sourceTree = "<group>"; };
+		6C797D291ECB00BB00D6C7D7 /* IATConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IATConfig.m; path = Source/IATConfig.m; sourceTree = "<group>"; };
+		6C797D2A1ECB00BB00D6C7D7 /* ISRDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISRDataHelper.h; path = Source/ISRDataHelper.h; sourceTree = "<group>"; };
+		6C797D2B1ECB00BB00D6C7D7 /* ISRDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISRDataHelper.m; path = Source/ISRDataHelper.m; sourceTree = "<group>"; };
 		6C9EFCEA1EC1B1B100D06AF4 /* Text-bold-tilt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-bold-tilt@2x.png"; sourceTree = "<group>"; };
 		6C9EFCEB1EC1B1B100D06AF4 /* Text-bold-tilt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-bold-tilt@3x.png"; sourceTree = "<group>"; };
 		6CD1FE6C1EB8989D007C9461 /* RYIndicatorBackgroudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYIndicatorBackgroudView.h; sourceTree = "<group>"; };
@@ -678,6 +684,10 @@
 		45EC1D6018763A75009B6B61 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				6C797D281ECB00BB00D6C7D7 /* IATConfig.h */,
+				6C797D291ECB00BB00D6C7D7 /* IATConfig.m */,
+				6C797D2A1ECB00BB00D6C7D7 /* ISRDataHelper.h */,
+				6C797D2B1ECB00BB00D6C7D7 /* ISRDataHelper.m */,
 				6C797D261ECAF5DB00D6C7D7 /* iflyMSC.framework */,
 				4552C4821899DD1D004EF847 /* CYRTextView */,
 				45EC1D6218763BDE009B6B61 /* ColorPicker */,
@@ -928,6 +938,7 @@
 				2343B1DD199B34B500349048 /* ZSSColorViewController.m in Sources */,
 				4581EB901848457A0048CAB0 /* ZSSAppDelegate.m in Sources */,
 				45A0CA3E18A8521600F3F35E /* CYRToken.m in Sources */,
+				6C797D2D1ECB00BB00D6C7D7 /* ISRDataHelper.m in Sources */,
 				4581EBBB184B0F5C0048CAB0 /* ZSSRichTextEditor.m in Sources */,
 				2343B229199D237100349048 /* ZSSPlaceholderViewController.m in Sources */,
 				45A0CA5118A8522A00F3F35E /* HRColorUtil.m in Sources */,
@@ -935,6 +946,7 @@
 				45A0CA3B18A8521600F3F35E /* CYRLayoutManager.m in Sources */,
 				45A0CA4E18A8522A00F3F35E /* HRColorCursor.m in Sources */,
 				4581EBB81848F8190048CAB0 /* ZSSDemoViewController.m in Sources */,
+				6C797D2C1ECB00BB00D6C7D7 /* IATConfig.m in Sources */,
 				DB1D27A61D79F62D00EC1CBD /* DemoModalViewController.m in Sources */,
 				45F80458189B1E9300A1EDD9 /* ZSSDemoPickerViewController.m in Sources */,
 				4513B3D8184E8F5100A9CA86 /* ZSSBarButtonItem.m in Sources */,
