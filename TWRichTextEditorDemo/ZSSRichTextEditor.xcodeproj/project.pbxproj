@@ -166,6 +166,7 @@
 		6C2439031EB09E23008C3BFE /* t53@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2438CF1EB09E23008C3BFE /* t53@3x.png */; };
 		6C2439041EB09E23008C3BFE /* t53点击@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2438D01EB09E23008C3BFE /* t53点击@2x.png */; };
 		6C2439051EB09E23008C3BFE /* t53点击@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C2438D11EB09E23008C3BFE /* t53点击@3x.png */; };
+		6C797D271ECAF5DB00D6C7D7 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C797D261ECAF5DB00D6C7D7 /* iflyMSC.framework */; };
 		6C9EFCEC1EC1B1B100D06AF4 /* Text-bold-tilt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9EFCEA1EC1B1B100D06AF4 /* Text-bold-tilt@2x.png */; };
 		6C9EFCED1EC1B1B100D06AF4 /* Text-bold-tilt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C9EFCEB1EC1B1B100D06AF4 /* Text-bold-tilt@3x.png */; };
 		6CD1FE6E1EB8989D007C9461 /* RYIndicatorBackgroudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD1FE6D1EB8989D007C9461 /* RYIndicatorBackgroudView.m */; };
@@ -367,6 +368,7 @@
 		6C2438CF1EB09E23008C3BFE /* t53@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "t53@3x.png"; path = "Source/Images/t53@3x.png"; sourceTree = "<group>"; };
 		6C2438D01EB09E23008C3BFE /* t53点击@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "t53点击@2x.png"; path = "Source/Images/t53点击@2x.png"; sourceTree = "<group>"; };
 		6C2438D11EB09E23008C3BFE /* t53点击@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "t53点击@3x.png"; path = "Source/Images/t53点击@3x.png"; sourceTree = "<group>"; };
+		6C797D261ECAF5DB00D6C7D7 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		6C9EFCEA1EC1B1B100D06AF4 /* Text-bold-tilt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-bold-tilt@2x.png"; sourceTree = "<group>"; };
 		6C9EFCEB1EC1B1B100D06AF4 /* Text-bold-tilt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Text-bold-tilt@3x.png"; sourceTree = "<group>"; };
 		6CD1FE6C1EB8989D007C9461 /* RYIndicatorBackgroudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYIndicatorBackgroudView.h; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			files = (
 				4581EB82184845790048CAB0 /* CoreGraphics.framework in Frameworks */,
 				4581EB84184845790048CAB0 /* UIKit.framework in Frameworks */,
+				6C797D271ECAF5DB00D6C7D7 /* iflyMSC.framework in Frameworks */,
 				4581EB80184845790048CAB0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,6 +678,7 @@
 		45EC1D6018763A75009B6B61 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				6C797D261ECAF5DB00D6C7D7 /* iflyMSC.framework */,
 				4552C4821899DD1D004EF847 /* CYRTextView */,
 				45EC1D6218763BDE009B6B61 /* ColorPicker */,
 			);
@@ -1000,6 +1004,12 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZSSRichTextEditor/Source/Third\\ Party",
+					"$(PROJECT_DIR)/ZSSRichTextEditor/Source/Third\\ Party",
+					"$(PROJECT_DIR)/ZSSRichTextEditor",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZSSRichTextEditor/ZSSRichTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "ZSSRichTextEditor/ZSSRichTextEditor-Info.plist";
@@ -1104,6 +1114,12 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZSSRichTextEditor/Source/Third\\ Party",
+					"$(PROJECT_DIR)/ZSSRichTextEditor/Source/Third\\ Party",
+					"$(PROJECT_DIR)/ZSSRichTextEditor",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZSSRichTextEditor/ZSSRichTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "ZSSRichTextEditor/ZSSRichTextEditor-Info.plist";
@@ -1123,6 +1139,12 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZSSRichTextEditor/Source/Third\\ Party",
+					"$(PROJECT_DIR)/ZSSRichTextEditor/Source/Third\\ Party",
+					"$(PROJECT_DIR)/ZSSRichTextEditor",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZSSRichTextEditor/ZSSRichTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "ZSSRichTextEditor/ZSSRichTextEditor-Info.plist";

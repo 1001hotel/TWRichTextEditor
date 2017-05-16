@@ -2402,6 +2402,8 @@ static CGFloat kDefaultScale = 0.5;
 #pragma mark - canPerformAction
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
 
+    self.pasteBoardText = [UIPasteboard generalPasteboard].string;
+
     [UIPasteboard generalPasteboard].string = self.pasteBoardText;
     return [super canPerformAction:action withSender:sender];
 }
