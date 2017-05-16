@@ -120,7 +120,7 @@ s.requires_arc = true
   #
 
   # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+   s.frameworks = "iflyMSC.framework", "AnotherFramework"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
