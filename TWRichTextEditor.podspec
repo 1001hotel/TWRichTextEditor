@@ -93,7 +93,7 @@ s.requires_arc = true
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "TWRichTextEditor/**/*.{h,m,pch,plist}"
+  s.source_files  = "TWRichTextEditor/**/*.{h,m,pch,plist,framework}"
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -119,7 +119,7 @@ s.requires_arc = true
   #  the lib prefix of their name.
   #
 
-   s.framework  = "iflyMSC"
+  # s.framework  = "iflyMSC"
   # s.frameworks = "iflyMSC", "AnotherFramework"
 
   # s.library   = "iconv"
