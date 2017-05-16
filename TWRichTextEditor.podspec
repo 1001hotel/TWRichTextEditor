@@ -119,8 +119,8 @@ s.requires_arc = true
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
-   s.frameworks = "iflyMSC.framework", "AnotherFramework"
+   s.framework  = "iflyMSC.framework"
+  # s.frameworks = "iflyMSC.framework", "AnotherFramework"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
