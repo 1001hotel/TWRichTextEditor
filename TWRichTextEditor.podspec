@@ -93,7 +93,7 @@ s.requires_arc = true
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "TWRichTextEditor/**/*.{h,m,pch,plist,framework}"
+  s.source_files  = "TWRichTextEditor/**/*.{h,m,pch,plist}"
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -108,7 +108,7 @@ s.requires_arc = true
   #
 
   # s.resource  = "icon.png"
-   s.resources = "TWRichTextEditor/**/*.png", "TWRichTextEditor/**/ZSSRichTextEditor.js", "TWRichTextEditor/**/editor.html", "TWRichTextEditor/**/jQuery.js", "TWRichTextEditor/**/JSBeautifier.js"
+   s.resources = "TWRichTextEditor/**/*.png", "TWRichTextEditor/**/ZSSRichTextEditor.js", "TWRichTextEditor/**/editor.html", "TWRichTextEditor/**/jQuery.js", "TWRichTextEditor/**/JSBeautifier.js, "TWRichTextEditor/**/*.framework""
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
