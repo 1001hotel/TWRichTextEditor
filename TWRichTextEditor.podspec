@@ -108,7 +108,7 @@ s.requires_arc = true
   #
 
   # s.resource  = "icon.png"
-   s.resources = "TWRichTextEditor/**/*.png", "TWRichTextEditor/**/ZSSRichTextEditor.js", "TWRichTextEditor/**/editor.html", "TWRichTextEditor/**/jQuery.js", "TWRichTextEditor/**/JSBeautifier.js, "TWRichTextEditor/**/*.framework""
+   s.resources = "TWRichTextEditor/**/*.png", "TWRichTextEditor/**/ZSSRichTextEditor.js", "TWRichTextEditor/**/editor.html", "TWRichTextEditor/**/jQuery.js", "TWRichTextEditor/**/JSBeautifier.js, "TWRichTextEditor/**/*.framework"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
