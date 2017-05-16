@@ -53,6 +53,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
+
   s.author             = { "xurenyan" => "812610313@qq.com" }
   # Or just: s.author    = "xurenyan"
   # s.authors            = { "xurenyan" => "812610313@qq.com" }
@@ -107,7 +108,7 @@ s.requires_arc = true
   #
 
   # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+   s.resources = "**/*.png", "**/ZSSRichTextEditor.js", "**/editor.html", "**/jQuery.js", "**/JSBeautifier.js"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -131,7 +132,7 @@ s.requires_arc = true
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  s.requires_arc = true
+  # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
