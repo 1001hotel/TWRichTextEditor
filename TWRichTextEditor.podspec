@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
 
  
-   s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephone", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics"
+   s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics"
    # s.libraries = "libz", "libc++"
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
