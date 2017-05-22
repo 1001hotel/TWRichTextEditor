@@ -18,6 +18,7 @@
 #import <iflyMSC/iflyMSC.h>
 #import "IATConfig.h"
 #import "ISRDataHelper.h"
+#import "FreshLoadingView.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -29,6 +30,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define CORNER_RADIUS_7     7
 
 #define SCREEN_SIZE         [UIScreen mainScreen].bounds.size
+
+#define TOOL_ITEM_NUM       7.0
+
+#define NAVIGATIONBAR_HEIGHT                44
+#define NAVIGATIONBAR_LABEL_WIDTH           160
+#define NAVIGATIONBAR_BUTTON_HEIGHT         44
+#define NAVIGATIONBAR_BUTTON_TEXT_WIDTH     24
+#define NAVIGATIONBAR_BUTTON_FONT_SIZE      16
+
+
 
 
 @import JavaScriptCore;
@@ -109,8 +120,15 @@ IFlyRecognizerViewDelegate,
 IFlyPcmRecorderDelegate
 >
 {
-
+    
     float _keyboardOringalY;
+    FreshLoadingView *_loadingView;
+    
+    float _keyBoardHeight;
+    
+    BOOL _isActionStyle;
+    BOOL _isActionColor;
+    BOOL _isActionAlignment;
     
 }
 
@@ -293,6 +311,8 @@ IFlyPcmRecorderDelegate
 @property (nonatomic, strong) NSArray *textColorArray;
 
 @property (nonatomic, copy) NSString *pasteBoardText;
+@property (nonatomic, copy) NSString *lastHtmlString;
+
 
 
 /*
@@ -316,8 +336,110 @@ IFlyPcmRecorderDelegate
 
 @implementation ZSSRichTextEditor (private)
 
-- (void)_removeLast{
+#pragma mark -
+#pragma mark - Loading
+- (void)startLoading{
+    
+    if (!_loadingView) {
+        _loadingView = [[FreshLoadingView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    }
+    
+    if ([[NSThread mainThread] isMainThread]) {
+        
+        [_loadingView startAnimating];
+        [self.view addSubview:_loadingView];
+        [self.view bringSubviewToFront:_loadingView];
+        @try {
+            // 可能会出现崩溃的代码
+            self.view.userInteractionEnabled = NO;
+            
+        }
+        @catch (NSException *exception) {
+            // 捕获到的异常exception
+        }
+        @finally {
+            // 结果处理
+        }
+        
+    }
+    else{
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            [_loadingView startAnimating];
+            [self.view addSubview:_loadingView];
+            [self.view bringSubviewToFront:_loadingView];
+            @try {
+                // 可能会出现崩溃的代码
+                self.view.userInteractionEnabled = NO;
+                
+            }
+            @catch (NSException *exception) {
+                // 捕获到的异常exception
+            }
+            @finally {
+                // 结果处理
+            }
+        });
+    }
+}
+- (void)stopLoading{
+    
+    
+    if ([[NSThread mainThread] isMainThread]) {
+        
+        [_loadingView stopAnimating];
+        [_loadingView removeFromSuperview];
+        _loadingView = nil;
+        @try {
+            // 可能会出现崩溃的代码
+            self.view.userInteractionEnabled = YES;
+            
+        }
+        @catch (NSException *exception) {
+            // 捕获到的异常exception
+        }
+        @finally {
+            // 结果处理
+        }
+    }
+    else{
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            [_loadingView stopAnimating];
+            [_loadingView removeFromSuperview];
+            _loadingView = nil;
+            @try {
+                // 可能会出现崩溃的代码
+                self.view.userInteractionEnabled = YES;
+                
+            }
+            @catch (NSException *exception) {
+                // 捕获到的异常exception
+            }
+            @finally {
+                // 结果处理
+            }
+        });
+    }
+}
 
+
+- (UIImage *)createImageWithColor:(UIColor *) color{
+    
+    CGRect rect = CGRectMake(0.0f,0.0f,22.0f,22.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context =UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *myImage =UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return myImage;
+}
+
+- (void)_removeLast{
+    
     if ([self.selectView superview]) {
         
         [self.selectView removeFromSuperview];
@@ -340,18 +462,25 @@ IFlyPcmRecorderDelegate
     }
 }
 
+
+#pragma mark -
+#pragma mark - keyboardNotification
 - (void)keyboardWasShown:(NSNotification*)aNotification{
     //键盘高度
     CGRect keyBoardFrame = [[[aNotification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
     _keyboardOringalY = keyBoardFrame.origin.y;
+    _keyBoardHeight = keyBoardFrame.size.height;
+
     
 }
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification{
     
     CGRect keyBoardFrame = [[[aNotification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-
+    
     _keyboardOringalY = keyBoardFrame.origin.y;
+//    _keyBoardHeight = 0;
+
 }
 - (void)keyboardDidChangeFrame:(NSNotification*)aNotification{
     
@@ -360,6 +489,9 @@ IFlyPcmRecorderDelegate
     _keyboardOringalY = keyBoardFrame.origin.y;
 }
 
+
+#pragma mark -
+#pragma mark - voice
 - (void)_voice{
     
     [self _removeLast];
@@ -411,8 +543,6 @@ IFlyPcmRecorderDelegate
             rightView.layer.cornerRadius = 1.5f;
             [self.voiceView addSubview:rightView];
         }
-        NSLog(@"%ld", count);
-        
     }
     
     
@@ -423,16 +553,14 @@ IFlyPcmRecorderDelegate
     
     [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer * _Nonnull timer) {
         
-      
-            }];
+        
+    }];
     
-   
     
-  
+    
+    
 }
 - (IBAction)startBtnHandler:(id)sender {
-    
-    NSLog(@"%s[IN]",__func__);
     
     if (self.isRecording) {
         
@@ -501,13 +629,11 @@ IFlyPcmRecorderDelegate
     }
     
 }
-
 /**
  停止录音
  *****/
 - (IBAction)stopBtnHandler:(id)sender {
     
-    NSLog(@"%s",__func__);
     
     if(self.isStreamRec && !self.isBeginOfSpeech){
         
@@ -519,35 +645,24 @@ IFlyPcmRecorderDelegate
     [self.iFlySpeechRecognizer stopListening];
     //    [_textView resignFirstResponder];
 }
-
 /**
  取消听写
  *****/
 - (IBAction)cancelBtnHandler:(id)sender {
     
-    NSLog(@"%s",__func__);
-    
     if(self.isStreamRec && !self.isBeginOfSpeech){
+        
         [self.pcmRecorder stop];
-        //xry
-        //        [self alertMessage:@"停止录音" delayFordisimissComplete:1.0f];
     }
     
     self.isCanceled = YES;
     self.isRecording = NO;
     [self.iFlySpeechRecognizer cancel];
-    
-    //    [_textView resignFirstResponder];
-    
 }
-
-
-
 /**
  设置识别参数
  ****/
--(void)initRecognizer{
-    NSLog(@"%s",__func__);
+- (void)initRecognizer{
     
     if ([IATConfig sharedInstance].haveView == NO) {//无界面
         
@@ -645,14 +760,28 @@ IFlyPcmRecorderDelegate
         }
     }
 }
-
-
 - (void)_done{
-
+    
     [self stopBtnHandler:nil];
+    
+    if (self.voiceView.superview) {
+        [self.voiceView removeFromSuperview];
+    }
 }
 
 
+#pragma mark -
+#pragma mark - recognitionText
+- (void)_recognition{
+    
+    [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.prepareInsert();"];
+    UIViewController *vc = [AipGeneralVC ViewControllerWithDelegate:self];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+
+#pragma mark -
+#pragma mark - selectText
 - (void)_select{
     
     if ([self.textAlignmentView superview]) {
@@ -676,10 +805,10 @@ IFlyPcmRecorderDelegate
         [self.selectView removeFromSuperview];
     }
     else{
-    
+        
         float width = 42;
         float height = 36;
-        float oringalX = SCREEN_SIZE.width / 6.0 * 1 + SCREEN_SIZE.width / 6.0 / 2.0 - (width / 2.0);
+        float oringalX = SCREEN_SIZE.width / TOOL_ITEM_NUM * 2 + SCREEN_SIZE.width / TOOL_ITEM_NUM / 2.0 - (width / 2.0);
         float oringalY = _keyboardOringalY - 64 - height - TOOL_BAR_HEIGHT;
         
         if (!self.selectView) {
@@ -706,6 +835,9 @@ IFlyPcmRecorderDelegate
     [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
 }
 
+
+#pragma mark -
+#pragma mark - textStyle
 - (void)_textStyle{
     
     if ([self.selectView superview]) {
@@ -729,10 +861,10 @@ IFlyPcmRecorderDelegate
         [self.textStyleView removeFromSuperview];
     }
     else{
-    
+        
         float width = 42 * 3;
         float height = 36;
-        float oringalX = SCREEN_SIZE.width / 6.0 * 2 + SCREEN_SIZE.width / 6.0 / 2.0 - (width / 2.0);
+        float oringalX = SCREEN_SIZE.width / TOOL_ITEM_NUM * 3 + SCREEN_SIZE.width / TOOL_ITEM_NUM / 2.0 - (width / 2.0);
         float oringalY = _keyboardOringalY - 64 - height - TOOL_BAR_HEIGHT;
         if (!self.textStyleView) {
             
@@ -759,7 +891,8 @@ IFlyPcmRecorderDelegate
     }
 }
 - (void)_style:(UIButton *)sender{
-
+    
+    _isActionStyle = YES;
     switch (sender.tag) {
         case 100:
         {
@@ -771,7 +904,7 @@ IFlyPcmRecorderDelegate
         {
             NSString *trigger = @"zss_editor.clearStyle();";
             [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-
+            
         }
             break;
         case 102:
@@ -786,6 +919,9 @@ IFlyPcmRecorderDelegate
     }
 }
 
+
+#pragma mark -
+#pragma mark - textSize
 - (void)_textSize{
     
     if ([self.selectView superview]) {
@@ -809,10 +945,10 @@ IFlyPcmRecorderDelegate
         [self.textSizeView removeFromSuperview];
     }
     else{
-    
+        
         float width = 42 * 2;
         float height = 36;
-        float oringalX = SCREEN_SIZE.width / 6.0 * 3 + SCREEN_SIZE.width / 6.0 / 2.0 - (width / 2.0);
+        float oringalX = SCREEN_SIZE.width / TOOL_ITEM_NUM * 4 + SCREEN_SIZE.width / TOOL_ITEM_NUM / 2.0 - (width / 2.0);
         float oringalY = _keyboardOringalY - 64 - height - TOOL_BAR_HEIGHT;
         if (!self.textSizeView) {
             
@@ -859,8 +995,12 @@ IFlyPcmRecorderDelegate
     }
 }
 
+
+#pragma mark -
+#pragma mark - textAlignment
 - (void)_textAlignment{
- 
+    
+    _isActionAlignment = YES;
     if ([self.selectView superview]) {
         
         [self.selectView removeFromSuperview];
@@ -882,10 +1022,10 @@ IFlyPcmRecorderDelegate
         [self.textAlignmentView removeFromSuperview];
     }
     else{
-    
+        
         float width = 42 * 3;
         float height = 36;
-        float oringalX = SCREEN_SIZE.width / 6.0 * 4 + SCREEN_SIZE.width / 6.0 / 2.0 - (width / 2.0);
+        float oringalX = SCREEN_SIZE.width / TOOL_ITEM_NUM * 5 + SCREEN_SIZE.width / TOOL_ITEM_NUM / 2.0 - (width / 2.0);
         float oringalY = _keyboardOringalY - 64 - height - TOOL_BAR_HEIGHT;
         if (!self.textAlignmentView) {
             
@@ -911,7 +1051,7 @@ IFlyPcmRecorderDelegate
     }
 }
 - (void)_alignment:(UIButton *)sender{
-
+    
     switch (sender.tag) {
         case 100:
         {
@@ -935,9 +1075,12 @@ IFlyPcmRecorderDelegate
         default:
             break;
     }
-
+    
 }
 
+
+#pragma mark -
+#pragma mark - textColor
 - (void)_textColor{
     
     if ([self.selectView superview]) {
@@ -962,43 +1105,41 @@ IFlyPcmRecorderDelegate
     }
     else{
         
-    
-//        float width = 42 * 7;
-        float width = 225;
-
-        float height = 30 * 2 + 9;
+        float width = SCREEN_SIZE.width;
+        
+        float height = 30 * 1 + 9;
         float oringalX = SCREEN_SIZE.width - width;
         float oringalY = _keyboardOringalY - 64 - height - TOOL_BAR_HEIGHT;
         
         if (!self.textColorView) {
             
-            self.textColorView = [[RYIndicatorBackgroudView alloc] initWithFrame:CGRectMake(oringalX, oringalY, width, height) withRightDistance:SCREEN_SIZE.width / 6.0 / 3];
+            self.textColorView = [[RYIndicatorBackgroudView alloc] initWithFrame:CGRectMake(oringalX, oringalY, width, height) withRightDistance:SCREEN_SIZE.width / TOOL_ITEM_NUM / 3];
             
             NSArray *images = [NSArray arrayWithArray:self.textColorArray];
             
-            float buttonWidth = width / 7.0;
+            float buttonWidth = width / 10;
             float buttonHeight = 30;
             
             for (int i = 0; i < images.count; i ++) {
                 
                 
                 NSString *imagestr = [images objectAtIndex:i];
-
+                
                 CGRect rect = CGRectZero;
-                if (i < 7) {
-                    
+//                if (i < 10) {
+//                    
                     rect = CGRectMake(buttonWidth * i, 0, buttonWidth, buttonHeight);
-                }
-                else{
-                    
-                    rect = CGRectMake(buttonWidth * (i - 7), 30, buttonWidth, buttonHeight);
-                }
+//                }
+//                else{
+//                    
+//                    rect = CGRectMake(buttonWidth * (i - 7), 30, buttonWidth, buttonHeight);
+//                }
                 
                 UIView *view = [[UIView alloc] initWithFrame:rect];
                 UIView *colorView = [[UIView alloc] initWithFrame:CGRectMake((view.frame.size.width - 22) / 2.0, (view.frame.size.height - 22) / 2.0, 22, 22)];
                 
                 long colorLong = strtoul([imagestr cStringUsingEncoding:NSUTF8StringEncoding], 0, 16);
-
+                
                 colorView.backgroundColor = UIColorFromRGB(colorLong);
                 colorView.clipsToBounds = YES;
                 colorView.layer.cornerRadius = 6.0f;
@@ -1022,6 +1163,7 @@ IFlyPcmRecorderDelegate
 }
 - (void)_color:(UIButton *)sender{
     
+    _isActionColor = YES;
     [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.prepareInsert();"];
     NSArray *images = [NSArray arrayWithArray:self.textColorArray];
     
@@ -1033,12 +1175,39 @@ IFlyPcmRecorderDelegate
         UIColor *color = UIColorFromRGB(colorLong);
         NSString *hex = [NSString stringWithFormat:@"#%06x",HexColorFromUIColor(color)];
         
+        UIImage *image = [self createImageWithColor:color];
+        [self.textColorButton setImage:image forState:UIControlStateNormal];
+        [self.textColorButton setImage:image forState:UIControlStateSelected];
+        
         NSString *trigger = [NSString stringWithFormat:@"zss_editor.setTextColor(\"%@\");", hex];
         
-            [self.editorView stringByEvaluatingJavaScriptFromString:trigger];            
+        [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
     }
 }
 
+
+
+- (void)_setAipOcr{
+    
+    [[AipOcrService shardService] authWithAK:@"dO3s3M785v8q5l2D8i8ne3yG" andSK:@"3o16M5QECFC8PVzwZdtlUXGCL1qLt3y4"];
+    
+    /*
+    // 授权方法2： 下载授权文件，添加至资源
+    NSString *licenseFile = [[NSBundle mainBundle] pathForResource:@"aip" ofType:@"license"];
+    NSData *licenseFileData = [NSData dataWithContentsOfFile:licenseFile];
+    if(!licenseFileData) {
+        [[[UIAlertView alloc] initWithTitle:@"授权失败" message:@"授权文件不存在" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    }
+    [[AipOcrService shardService] authWithLicenseFileData:licenseFileData];
+    //*/
+    
+    /*
+    // 授权方法3： 自行搭建服务器，分配token
+    [[AipOcrService shardService] authWithToken:@"24.37a8f6e5c4d75d228a6d4c1b35a67a3e.2592000.1497587841.282335-9640420"];
+    //*/
+    
+    
+}
 
 
 @end
@@ -1054,7 +1223,8 @@ IFlyPcmRecorderDelegate
 static CGFloat kJPEGCompression = 0.8;
 static CGFloat kDefaultScale = 0.5;
 
-#pragma mark - View Did Load Section
+#pragma mark -
+#pragma mark - lifeCycle
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -1063,9 +1233,8 @@ static CGFloat kDefaultScale = 0.5;
     self.editorLoaded = NO;
     self.receiveEditorDidChangeEvents = NO;
     self.alwaysShowToolbar = YES;
-    self.shouldShowKeyboard = YES;
+    self.shouldShowKeyboard = NO;
     self.formatHTML = YES;
-    
     
     //Frame for the source view and editor view
     CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
@@ -1075,7 +1244,6 @@ static CGFloat kDefaultScale = 0.5;
     
     //Editor View
     [self createEditorViewWithFrame:frame];
-    
     
     //Scrolling View
     [self createToolBarScroll];
@@ -1089,18 +1257,19 @@ static CGFloat kDefaultScale = 0.5;
     self.textColorArray = [NSArray arrayWithObjects:
                            @"0xE70012",
                            @"0xF39900",
-                           @"0xF7EF14",
+//                           @"0xF7EF14",
                            @"0x22AD38",
                            @"0x03A1E9",
-                           @"0x181C62",
+//                           @"0x181C62",
                            @"0x930883",
-                           @"0x956034",
+//                           @"0x956034",
                            @"0x6A3806",
                            @"0x000000",
                            @"0x595858",
                            @"0x898989",
                            @"0xCACACB",
-                           @"0xF0F0F0", nil];
+//                           @"0xF0F0F0",
+                           nil];
     
     [self.view addSubview:self.toolbarHolder];
     
@@ -1113,6 +1282,7 @@ static CGFloat kDefaultScale = 0.5;
         [self loadResources];
         
     }
+    [self _setAipOcr];
     
     //初始化数据上传类
     self.uploader = [[IFlyDataUploader alloc] init];
@@ -1126,11 +1296,22 @@ static CGFloat kDefaultScale = 0.5;
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardDidChangeFrame:) name:UIKeyboardDidChangeFrameNotification object:nil];
-
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+    
+    if ([self getText].length == 0) {
+        
+        _isActionColor = NO;
+        _isActionStyle = NO;
+        _isActionAlignment = NO;
+    }
+    else{
+    
+        _isActionColor = YES;
+        _isActionStyle = YES;
+        _isActionAlignment = YES;
+    }
 }
-
-#pragma mark - View Will Appear Section
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
@@ -1138,14 +1319,7 @@ static CGFloat kDefaultScale = 0.5;
     //Add observers for keyboard showing or hiding notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowOrHide:) name:UIKeyboardWillHideNotification object:nil];
-    
-    NSLog(@"%@", [UIPasteboard generalPasteboard].string);
-    
-//    [UIPasteboard generalPasteboard].string = [UIPasteboard generalPasteboard].string;
-
 }
-
-#pragma mark - View Will Disappear Section
 - (void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
@@ -1155,13 +1329,73 @@ static CGFloat kDefaultScale = 0.5;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     
 }
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark -
+#pragma mark - public
+- (void)alertMessage:(NSString *)message delayFordisimissComplete:(float)delay{
+    if (delay<=0) {
+        delay = 2.0f;
+    }
+    delay = 1.5f;
+    
+    
+    CGFloat gapHeight = hundredLenthForIPhone6s;
+    MyLog(@"%f-----%f",self.view.frame.size.height,SCREEN_HEIGHT);
+    __block UIView *alertDefineView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*0.25*0.5, self.view.frame.size.height-gapHeight-_keyBoardHeight, SCREEN_WIDTH*0.75, 30)];
+    alertDefineView.backgroundColor = [UIColor colorTransferToRGB:@"#333333"];
+    alertDefineView.alpha = 0;
+    alertDefineView.layer.cornerRadius = 6;
+    
+    __block UILabel *alertLabel = [[UILabel alloc]initWithFrame:alertDefineView.frame];
+    alertLabel.backgroundColor = [UIColor clearColor];
+    alertLabel.textColor = [UIColor whiteColor];
+    alertLabel.textAlignment = NSTextAlignmentCenter;
+    alertLabel.font = [UIFont systemFontOfSize:15];
+    alertLabel.numberOfLines = 0;
+    alertLabel.alpha = 0;
+    
+    alertLabel.text = message;
+    CGRect alterRect_0 = [message boundingRectWithSize:CGSizeMake(MAXFLOAT, alertLabel.frame.size.height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil];
+    alertDefineView.frame = CGRectMake((SCREEN_WIDTH-alterRect_0.size.width-30)*0.5, self.view.frame.size.height-gapHeight-_keyBoardHeight, alterRect_0.size.width+30, 30);
+    alertDefineView.layer.cornerRadius = 6;
+    alertLabel.frame = alertDefineView.frame;
+    
+    if (alterRect_0.size.width>=SCREEN_WIDTH*0.75) {
+        CGRect alterRect_1 = [message boundingRectWithSize:CGSizeMake(SCREEN_WIDTH*0.75, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil];
+        alertDefineView.frame = CGRectMake((SCREEN_WIDTH-SCREEN_WIDTH*0.75-30)*0.5, self.view.frame.size.height-gapHeight-(alterRect_1.size.height+30-30)-_keyBoardHeight, SCREEN_WIDTH*0.75+20, alterRect_1.size.height+20);
+        alertDefineView.layer.cornerRadius = 6;
+        alertLabel.frame = alertDefineView.frame;
+    }
+    [self.view addSubview:alertDefineView];
+    [self.view addSubview:alertLabel];
+    [self.view bringSubviewToFront:alertDefineView];
+    [self.view bringSubviewToFront:alertLabel];
+    
+    [UIView animateWithDuration:0.2f animations:^{
+        alertDefineView.alpha = 0.8;
+        alertLabel.alpha =1;
+    }completion:^(BOOL finished) {
+        dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay/*延迟执行时间*/ * NSEC_PER_SEC));
+        dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.2f animations:^{
+                alertDefineView.alpha = 0;
+                alertLabel.alpha = 0;
+            }completion:^(BOOL finished) {
+                alertDefineView = nil;
+                alertLabel =nil;
+                [alertDefineView removeFromSuperview];
+                [alertLabel removeFromSuperview];
+            }];;
+        });
+    }];
+}
 
 
-
-
-
+#pragma mark -
 #pragma mark - Set Up View Section
-
 - (void)createSourceViewWithFrame:(CGRect)frame {
     
     self.sourceView = [[ZSSTextView alloc] initWithFrame:frame];
@@ -1172,10 +1406,10 @@ static CGFloat kDefaultScale = 0.5;
     self.sourceView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.sourceView.autoresizesSubviews = YES;
     self.sourceView.delegate = self;
+    self.sourceView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.sourceView];
     
 }
-
 - (void)createEditorViewWithFrame:(CGRect)frame {
     
     self.editorView = [[UIWebView alloc] initWithFrame:frame];
@@ -1189,8 +1423,10 @@ static CGFloat kDefaultScale = 0.5;
     self.editorView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.editorView];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_removeLast)];
+    [self.editorView addGestureRecognizer:tap];
+    
 }
-
 - (void)setUpImagePicker {
     
     self.imagePicker = [[UIImagePickerController alloc] init];
@@ -1200,16 +1436,14 @@ static CGFloat kDefaultScale = 0.5;
     self.selectedImageScale = kDefaultScale; //by default scale to half the size
     
 }
-
 - (void)createToolBarScroll {
     
     self.toolBarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, TOOL_BAR_HEIGHT)];
-
+    
     self.toolBarScroll.backgroundColor = [UIColor clearColor];
     self.toolBarScroll.showsHorizontalScrollIndicator = NO;
     
 }
-
 - (void)createToolbarView{
     
     self.toolbarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, TOOL_BAR_HEIGHT)];
@@ -1218,7 +1452,6 @@ static CGFloat kDefaultScale = 0.5;
     [self.toolBarScroll addSubview:self.toolbarView];
     self.toolBarScroll.autoresizingMask = self.toolbar.autoresizingMask;
 }
-
 - (void)createParentHoldingView {
     
     //Background Toolbar
@@ -1227,22 +1460,15 @@ static CGFloat kDefaultScale = 0.5;
     
     //Parent holding view
     self.toolbarHolder = [[UIView alloc] init];
-    self.toolbarHolder.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 44);
-
+    self.toolbarHolder.frame = CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width, 44);
     
     if (_alwaysShowToolbar) {
         
-        [UIView animateWithDuration:0.5 animations:^{
-            
-            self.toolbarHolder.frame = CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width, 44);
- 
-        }];
+        self.toolbarHolder.frame = CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width, 44);
+        
     } else {
-        [UIView animateWithDuration:0.5 animations:^{
-            
-            self.toolbarHolder.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 44);
-        }];
-       
+        
+        self.toolbarHolder.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 44);
     }
     
     self.toolbarHolder.autoresizingMask = self.toolbar.autoresizingMask;
@@ -1251,8 +1477,9 @@ static CGFloat kDefaultScale = 0.5;
     
 }
 
-#pragma mark - Resources Section
 
+#pragma mark -
+#pragma mark - Resources Section
 - (void)loadResources {
     
     //Define correct bundle for loading resources
@@ -1283,11 +1510,9 @@ static CGFloat kDefaultScale = 0.5;
     
 }
 
+
+#pragma mark -
 #pragma mark - Toolbar Section
-
-
-
-
 - (void)setToolbarItemTintColor:(UIColor *)toolbarItemTintColor {
     
     _toolbarItemTintColor = toolbarItemTintColor;
@@ -1299,21 +1524,16 @@ static CGFloat kDefaultScale = 0.5;
     self.keyboardItem.tintColor = toolbarItemTintColor;
     
 }
-
-
 - (void)setToolbarItemSelectedTintColor:(UIColor *)toolbarItemSelectedTintColor {
     
     _toolbarItemSelectedTintColor = toolbarItemSelectedTintColor;
     
 }
-
-
-
 - (void)buildToolbar {
     
     NSBundle* bundle = [NSBundle bundleForClass:[ZSSRichTextEditor class]];
     
-    float width = [UIScreen mainScreen].bounds.size.width / 6.0;
+    float width = [UIScreen mainScreen].bounds.size.width / TOOL_ITEM_NUM;
     
     
     UIButton *voice = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -1323,52 +1543,59 @@ static CGFloat kDefaultScale = 0.5;
     [voice addTarget:self action:@selector(_voice) forControlEvents:UIControlEventTouchUpInside];
     [self.toolbarView addSubview:voice];
     
+    UIButton *recognition = [UIButton buttonWithType:UIButtonTypeCustom];
+    recognition.frame = CGRectMake(width * 1, 0, width, 49);
+    [recognition setImage:[UIImage imageNamed:@"textrecognition.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+    [recognition setImage:[UIImage imageNamed:@"textrecognition.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+    [recognition addTarget:self action:@selector(_recognition) forControlEvents:UIControlEventTouchUpInside];
+    [self.toolbarView addSubview:recognition];
+    
     UIButton *select = [UIButton buttonWithType:UIButtonTypeCustom];
-    select.frame = CGRectMake(width * 1, 0, width, 49);
+    select.frame = CGRectMake(width * 2, 0, width, 49);
     [select setImage:[UIImage imageNamed:@"t2.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
     [select setImage:[UIImage imageNamed:@"t2.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
     [select addTarget:self action:@selector(_select) forControlEvents:UIControlEventTouchUpInside];
     [self.toolbarView addSubview:select];
     
     
-     UIButton *textStyle = [UIButton buttonWithType:UIButtonTypeCustom];
-     textStyle.frame = CGRectMake(width * 2, 0, width, 49);
-     [textStyle setImage:[UIImage imageNamed:@"t3.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-     [textStyle setImage:[UIImage imageNamed:@"t3.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
-     [textStyle addTarget:self action:@selector(_textStyle) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *textStyle = [UIButton buttonWithType:UIButtonTypeCustom];
+    textStyle.frame = CGRectMake(width * 3, 0, width, 49);
+    [textStyle setImage:[UIImage imageNamed:@"t3.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+    [textStyle setImage:[UIImage imageNamed:@"t3.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+    [textStyle addTarget:self action:@selector(_textStyle) forControlEvents:UIControlEventTouchUpInside];
     self.textStyleButton = textStyle;
-     [self.toolbarView addSubview:textStyle];
-     UIButton *size = [UIButton buttonWithType:UIButtonTypeCustom];
-     size.frame = CGRectMake(width * 3, 0, width, 49);
-     [size setImage:[UIImage imageNamed:@"t4.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-     [size setImage:[UIImage imageNamed:@"t4.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
-     [size addTarget:self action:@selector(_textSize) forControlEvents:UIControlEventTouchUpInside];
+    [self.toolbarView addSubview:textStyle];
+    UIButton *size = [UIButton buttonWithType:UIButtonTypeCustom];
+    size.frame = CGRectMake(width * 4, 0, width, 49);
+    [size setImage:[UIImage imageNamed:@"t4.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+    [size setImage:[UIImage imageNamed:@"t4.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+    [size addTarget:self action:@selector(_textSize) forControlEvents:UIControlEventTouchUpInside];
     self.textSizeButton = size;
-     [self.toolbarView addSubview:size];
-     
-     UIButton *alignment = [UIButton buttonWithType:UIButtonTypeCustom];
-     alignment.frame = CGRectMake(width * 4, 0, width, 49);
-     [alignment setImage:[UIImage imageNamed:@"t5.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-     [alignment setImage:[UIImage imageNamed:@"t5.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
-     [alignment addTarget:self action:@selector(_textAlignment) forControlEvents:UIControlEventTouchUpInside];
+    [self.toolbarView addSubview:size];
+    
+    UIButton *alignment = [UIButton buttonWithType:UIButtonTypeCustom];
+    alignment.frame = CGRectMake(width * 5, 0, width, 49);
+    [alignment setImage:[UIImage imageNamed:@"t5.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+    [alignment setImage:[UIImage imageNamed:@"t5.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+    [alignment addTarget:self action:@selector(_textAlignment) forControlEvents:UIControlEventTouchUpInside];
     self.textAlignmentButton = alignment;
-     [self.toolbarView addSubview:alignment];
-     
-     UIButton *color = [UIButton buttonWithType:UIButtonTypeCustom];
-     color.frame = CGRectMake(width * 5, 0, width, 49);
-     [color setImage:[UIImage imageNamed:@"t6.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-     [color setImage:[UIImage imageNamed:@"t6.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
-     [color addTarget:self action:@selector(_textColor) forControlEvents:UIControlEventTouchUpInside];
+    [self.toolbarView addSubview:alignment];
+    
+    UIButton *color = [UIButton buttonWithType:UIButtonTypeCustom];
+    color.frame = CGRectMake(width * 6, 0, width, 49);
+    [color setImage:[UIImage imageNamed:@"t6.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+    [color setImage:[UIImage imageNamed:@"t6.png" inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+    [color addTarget:self action:@selector(_textColor) forControlEvents:UIControlEventTouchUpInside];
     color.imageView.clipsToBounds = YES;
     color.imageView.layer.cornerRadius = 6.0f;
     self.textColorButton = color;
-     [self.toolbarView addSubview:color];
+    [self.toolbarView addSubview:color];
     [self.toolBarScroll addSubview:self.toolbarView];
 }
 
 
+#pragma mark -
 #pragma mark - Editor Modification Section
-
 - (void)setCSS:(NSString *)css {
     
     self.customCSS = css;
@@ -1378,7 +1605,6 @@ static CGFloat kDefaultScale = 0.5;
     }
     
 }
-
 - (void)updateCSS {
     
     if (self.customCSS != NULL && [self.customCSS length] != 0) {
@@ -1389,19 +1615,17 @@ static CGFloat kDefaultScale = 0.5;
     }
     
 }
-
 - (void)setPlaceholderText {
     
     //Call the setPlaceholder javascript method if a placeholder has been set
     if (self.placeholder != NULL && [self.placeholder length] != 0) {
-    
+        
         NSString *js = [NSString stringWithFormat:@"zss_editor.setPlaceholder(\"%@\");", self.placeholder];
         [self.editorView stringByEvaluatingJavaScriptFromString:js];
         
     }
     
 }
-
 - (void)setFooterHeight:(float)footerHeight {
     
     //Call the setFooterHeight javascript method
@@ -1409,7 +1633,6 @@ static CGFloat kDefaultScale = 0.5;
     [self.editorView stringByEvaluatingJavaScriptFromString:js];
     
 }
-
 - (void)setContentHeight:(float)contentHeight {
     
     //Call the contentHeight javascript method
@@ -1418,19 +1641,18 @@ static CGFloat kDefaultScale = 0.5;
     
 }
 
-#pragma mark - Editor Interaction
 
+#pragma mark -
+#pragma mark - Editor Interaction
 - (void)focusTextEditor {
     self.editorView.keyboardDisplayRequiresUserAction = NO;
     NSString *js = [NSString stringWithFormat:@"zss_editor.focusEditor();"];
     [self.editorView stringByEvaluatingJavaScriptFromString:js];
 }
-
 - (void)blurTextEditor {
     NSString *js = [NSString stringWithFormat:@"zss_editor.blurEditor();"];
     [self.editorView stringByEvaluatingJavaScriptFromString:js];
 }
-
 - (void)setHTML:(NSString *)html {
     
     self.internalHTML = html;
@@ -1440,7 +1662,6 @@ static CGFloat kDefaultScale = 0.5;
     }
     
 }
-
 - (void)updateHTML {
     
     NSString *html = self.internalHTML;
@@ -1450,7 +1671,6 @@ static CGFloat kDefaultScale = 0.5;
     [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
     
 }
-
 - (NSString *)getHTML {
     
     NSString *html = [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.getHTML();"];
@@ -1459,8 +1679,6 @@ static CGFloat kDefaultScale = 0.5;
     return html;
     
 }
-
-
 - (void)insertHTML:(NSString *)html {
     
     NSString *cleanedHTML = [self removeQuotesFromHTML:html];
@@ -1468,23 +1686,16 @@ static CGFloat kDefaultScale = 0.5;
     [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
     
 }
-- (void)insertText:(NSString *)text {
-    
-    NSString *trigger = [NSString stringWithFormat:@"zss_editor.insertText(\"%@\");", text];
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-    
-}
-
 - (NSString *)getText {
     
     return [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.getText();"];
     
 }
 
+
 - (void)dismissKeyboard {
     [self.view endEditing:YES];
 }
-
 - (void)showHTMLSource:(ZSSBarButtonItem *)barButtonItem {
     if (self.sourceView.hidden) {
         self.sourceView.text = [self getHTML];
@@ -1500,332 +1711,20 @@ static CGFloat kDefaultScale = 0.5;
         [self enableToolbarItems:YES];
     }
 }
-
-/*
-- (void)removeFormat {
-    NSString *trigger = @"zss_editor.removeFormating();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)alignLeft {
-    NSString *trigger = @"zss_editor.setJustifyLeft();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)alignCenter {
-    NSString *trigger = @"zss_editor.setJustifyCenter();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)alignRight {
-    NSString *trigger = @"zss_editor.setJustifyRight();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)alignFull {
-    NSString *trigger = @"zss_editor.setJustifyFull();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setBold {
-    NSString *trigger = @"zss_editor.setBold();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setItalic {
-    NSString *trigger = @"zss_editor.setItalic();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setSubscript {
-    NSString *trigger = @"zss_editor.setSubscript();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setUnderline {
-    NSString *trigger = @"zss_editor.setUnderline();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setSuperscript {
-    NSString *trigger = @"zss_editor.setSuperscript();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setStrikethrough {
-    NSString *trigger = @"zss_editor.setStrikeThrough();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setUnorderedList {
-    NSString *trigger = @"zss_editor.setUnorderedList();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setOrderedList {
-    NSString *trigger = @"zss_editor.setOrderedList();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setHR {
-    NSString *trigger = @"zss_editor.setHorizontalRule();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setIndent {
-    NSString *trigger = @"zss_editor.setIndent();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)setOutdent {
-    NSString *trigger = @"zss_editor.setOutdent();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)heading1 {
-    NSString *trigger = @"zss_editor.setHeading('h1');";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)heading2 {
-    NSString *trigger = @"zss_editor.setHeading('h2');";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)heading3 {
-    NSString *trigger = @"zss_editor.setHeading('h3');";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)heading4 {
-    NSString *trigger = @"zss_editor.setHeading('h4');";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)heading5 {
-    NSString *trigger = @"zss_editor.setHeading('h5');";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)heading6 {
-    NSString *trigger = @"zss_editor.setHeading('h6');";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)paragraph {
-    NSString *trigger = @"zss_editor.setParagraph();";
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-}
-
-- (void)showFontsPicker {
-        
-    // Save the selection location
-    [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.prepareInsert();"];
-    
-    //Call picker
-    ZSSFontsViewController *fontPicker = [ZSSFontsViewController cancelableFontPickerViewControllerWithFontFamily:ZSSFontFamilyDefault];
-    fontPicker.delegate = self;
-    [self.navigationController pushViewController:fontPicker animated:YES];
-    
-}
-
-- (void)setSelectedFontFamily:(ZSSFontFamily)fontFamily {
-    
-    NSString *fontFamilyString;
-    
-    switch (fontFamily) {
-        case ZSSFontFamilyDefault:
-            fontFamilyString = @"Arial, Helvetica, sans-serif";
-            break;
-        
-        case ZSSFontFamilyGeorgia:
-            fontFamilyString = @"Georgia, serif";
-            break;
-        
-        case ZSSFontFamilyPalatino:
-            fontFamilyString = @"Palatino Linotype, Book Antiqua, Palatino, serif";
-            break;
-        
-        case ZSSFontFamilyTimesNew:
-            fontFamilyString = @"Times New Roman, Times, serif";
-            break;
-        
-        case ZSSFontFamilyTrebuchet:
-            fontFamilyString = @"Trebuchet MS, Helvetica, sans-serif";
-            break;
-        
-        case ZSSFontFamilyVerdana:
-            fontFamilyString = @"Verdana, Geneva, sans-serif";
-            break;
-        
-        case ZSSFontFamilyCourierNew:
-            fontFamilyString = @"Courier New, Courier, monospace";
-            break;
-        
-        default:
-            fontFamilyString = @"Arial, Helvetica, sans-serif";
-            break;
-    }
-    
-    NSString *trigger = [NSString stringWithFormat:@"zss_editor.setFontFamily(\"%@\");", fontFamilyString];
-
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-    
-}
-
-- (void)textColor {
-    
-    // Save the selection location
-    [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.prepareInsert();"];
-    
-    // Call the picker
-    HRColorPickerViewController *colorPicker = [HRColorPickerViewController cancelableFullColorPickerViewControllerWithColor:[UIColor whiteColor]];
-    colorPicker.delegate = self;
-    colorPicker.tag = 1;
-    colorPicker.title = NSLocalizedString(@"Text Color", nil);
-    [self.navigationController pushViewController:colorPicker animated:YES];
-    
-}
-
-- (void)bgColor {
-    
-    // Save the selection location
-    [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.prepareInsert();"];
-    
-    // Call the picker
-    HRColorPickerViewController *colorPicker = [HRColorPickerViewController cancelableFullColorPickerViewControllerWithColor:[UIColor whiteColor]];
-    colorPicker.delegate = self;
-    colorPicker.tag = 2;
-    colorPicker.title = NSLocalizedString(@"BG Color", nil);
-    [self.navigationController pushViewController:colorPicker animated:YES];
-    
-}
-
-- (void)setSelectedColor:(UIColor*)color tag:(int)tag {
-    
-    NSString *hex = [NSString stringWithFormat:@"#%06x",HexColorFromUIColor(color)];
-    NSString *trigger;
-    if (tag == 1) {
-        trigger = [NSString stringWithFormat:@"zss_editor.setTextColor(\"%@\");", hex];
-    } else if (tag == 2) {
-        trigger = [NSString stringWithFormat:@"zss_editor.setBackgroundColor(\"%@\");", hex];
-    }
-    [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
-    
-}
-
-- (void)undo:(ZSSBarButtonItem *)barButtonItem {
-    [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.undo();"];
-}
-
-- (void)redo:(ZSSBarButtonItem *)barButtonItem {
-    [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.redo();"];
-}
-
-- (void)insertLink {
-    
-    // Save the selection location
-    [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.prepareInsert();"];
-    
-    // Show the dialog for inserting or editing a link
-    [self showInsertLinkDialogWithLink:self.selectedLinkURL title:self.selectedLinkTitle];
-    
-}
-
-
-- (void)showInsertLinkDialogWithLink:(NSString *)url title:(NSString *)title {
-    
-    // Insert Button Title
-    NSString *insertButtonTitle = !self.selectedLinkURL ? NSLocalizedString(@"Insert", nil) : NSLocalizedString(@"Update", nil);
-    
-    // Picker Button
-    UIButton *am = [UIButton buttonWithType:UIButtonTypeCustom];
-    am.frame = CGRectMake(0, 0, 25, 25);
-    [am setImage:[UIImage imageNamed:@"ZSSpicker.png" inBundle:[NSBundle bundleForClass:[ZSSRichTextEditor class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-    [am addTarget:self action:@selector(showInsertURLAlternatePicker) forControlEvents:UIControlEventTouchUpInside];
-    
-    if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)]) {
-        
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Insert Link", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-            textField.placeholder = NSLocalizedString(@"URL (required)", nil);
-            if (url) {
-                textField.text = url;
-            }
-            textField.rightView = am;
-            textField.rightViewMode = UITextFieldViewModeAlways;
-            textField.clearButtonMode = UITextFieldViewModeAlways;
-        }];
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-            textField.placeholder = NSLocalizedString(@"Title", nil);
-            textField.clearButtonMode = UITextFieldViewModeAlways;
-            textField.secureTextEntry = NO;
-            if (title) {
-                textField.text = title;
-            }
-        }];
-        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-            [self focusTextEditor];
-        }]];
-        [alertController addAction:[UIAlertAction actionWithTitle:insertButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            
-            UITextField *linkURL = [alertController.textFields objectAtIndex:0];
-            UITextField *title = [alertController.textFields objectAtIndex:1];
-            if (!self.selectedLinkURL) {
-                [self insertLink:linkURL.text title:title.text];
-                //NSLog(@"insert link");
-            } else {
-                [self updateLink:linkURL.text title:title.text];
-            }
-            [self focusTextEditor];
-        }]];
-        [self presentViewController:alertController animated:YES completion:NULL];
-        
-    } else {
-        
-        self.alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Insert Link", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:insertButtonTitle, nil];
-        self.alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
-        self.alertView.tag = 2;
-        UITextField *linkURL = [self.alertView textFieldAtIndex:0];
-        linkURL.placeholder = NSLocalizedString(@"URL (required)", nil);
-        if (url) {
-            linkURL.text = url;
-        }
-        
-        linkURL.rightView = am;
-        linkURL.rightViewMode = UITextFieldViewModeAlways;
-        
-        UITextField *alt = [self.alertView textFieldAtIndex:1];
-        alt.secureTextEntry = NO;
-        alt.placeholder = NSLocalizedString(@"Title", nil);
-        if (title) {
-            alt.text = title;
-        }
-        
-        [self.alertView show];
-    }
-    
-}
-//*/
-
 - (void)insertLink:(NSString *)url title:(NSString *)title {
     
     NSString *trigger = [NSString stringWithFormat:@"zss_editor.insertLink(\"%@\", \"%@\");", url, title];
     [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
     
 }
-
-
 - (void)updateLink:(NSString *)url title:(NSString *)title {
     NSString *trigger = [NSString stringWithFormat:@"zss_editor.updateLink(\"%@\", \"%@\");", url, title];
     [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
 }
-
-
 - (void)dismissAlertView {
+    
     [self.alertView dismissWithClickedButtonIndex:self.alertView.cancelButtonIndex animated:YES];
 }
-
 - (void)addCustomToolbarItemWithButton:(UIButton *)button {
     
     if(self.customBarButtonItems == nil)
@@ -1843,7 +1742,6 @@ static CGFloat kDefaultScale = 0.5;
     
     [self buildToolbar];
 }
-
 - (void)addCustomToolbarItem:(ZSSBarButtonItem *)item {
     
     if(self.customZSSBarButtonItems == nil)
@@ -1854,16 +1752,12 @@ static CGFloat kDefaultScale = 0.5;
     
     [self buildToolbar];
 }
-
-
 - (void)removeLink {
     [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.unlink();"];
 }
-
 - (void)quickLink {
     [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.quickLink();"];
 }
-
 - (void)insertImage {
     
     // Save the selection location
@@ -1872,7 +1766,6 @@ static CGFloat kDefaultScale = 0.5;
     [self showInsertImageDialogWithLink:self.selectedImageURL alt:self.selectedImageAlt];
     
 }
-
 - (void)insertImageFromDevice {
     
     // Save the selection location
@@ -1881,7 +1774,6 @@ static CGFloat kDefaultScale = 0.5;
     [self showInsertImageDialogFromDeviceWithScale:self.selectedImageScale alt:self.selectedImageAlt];
     
 }
-
 - (void)showInsertImageDialogWithLink:(NSString *)url alt:(NSString *)alt {
     
     // Insert Button Title
@@ -1956,7 +1848,6 @@ static CGFloat kDefaultScale = 0.5;
     }
     
 }
-
 - (void)showInsertImageDialogFromDeviceWithScale:(CGFloat)scale alt:(NSString *)alt {
     
     // Insert button title
@@ -1994,12 +1885,12 @@ static CGFloat kDefaultScale = 0.5;
         [alertController addAction:[UIAlertAction actionWithTitle:insertButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             UITextField *textFieldAlt = [alertController.textFields objectAtIndex:0];
             UITextField *textFieldScale = [alertController.textFields objectAtIndex:1];
-
+            
             self.selectedImageScale = [textFieldScale.text floatValue]?:kDefaultScale;
             self.selectedImageAlt = textFieldAlt.text?:@"";
             
             [self presentViewController:self.imagePicker animated:YES completion:nil];
-
+            
         }]];
         
         [self presentViewController:alertController animated:YES completion:NULL];
@@ -2026,33 +1917,26 @@ static CGFloat kDefaultScale = 0.5;
     }
     
 }
-
 - (void)insertImage:(NSString *)url alt:(NSString *)alt {
     NSString *trigger = [NSString stringWithFormat:@"zss_editor.insertImage(\"%@\", \"%@\");", url, alt];
     [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
 }
-
-
 - (void)updateImage:(NSString *)url alt:(NSString *)alt {
     NSString *trigger = [NSString stringWithFormat:@"zss_editor.updateImage(\"%@\", \"%@\");", url, alt];
     [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
 }
-
 - (void)insertImageBase64String:(NSString *)imageBase64String alt:(NSString *)alt {
     NSString *trigger = [NSString stringWithFormat:@"zss_editor.insertImageBase64String(\"%@\", \"%@\");", imageBase64String, alt];
     [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
 }
-
 - (void)updateImageBase64String:(NSString *)imageBase64String alt:(NSString *)alt {
     NSString *trigger = [NSString stringWithFormat:@"zss_editor.updateImageBase64String(\"%@\", \"%@\");", imageBase64String, alt];
     [self.editorView stringByEvaluatingJavaScriptFromString:trigger];
 }
-
-
 - (void)updateToolViewWithButtonName:(NSString *)name {
-
+    
     NSBundle* bundle = [NSBundle bundleForClass:[ZSSRichTextEditor class]];
-
+    
     NSArray *itemNames = [name componentsSeparatedByString:@","];
     
     NSString *styleStr = @"t3.png";
@@ -2062,33 +1946,41 @@ static CGFloat kDefaultScale = 0.5;
     }
     else if ([itemNames containsObject:@"bold"]) {
         
-       styleStr = @"t31点击.png";
+        styleStr = @"t31点击.png";
     }
     else if ([itemNames containsObject:@"italic"]) {
         
-       styleStr = @"t33点击.png";
+        styleStr = @"t33点击.png";
     }
-    [self.textStyleButton setImage:[UIImage imageNamed:styleStr inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-    [self.textStyleButton setImage:[UIImage imageNamed:styleStr inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+    if (_isActionStyle) {
+        
+        [self.textStyleButton setImage:[UIImage imageNamed:styleStr inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+        [self.textStyleButton setImage:[UIImage imageNamed:styleStr inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+    }
+    
     
     NSString *alignmentStr = @"t5.png";
     if ([itemNames containsObject:@"justifyLeft"]) {
         
-      alignmentStr = @"t5点击.png";
+        alignmentStr = @"t5点击.png";
     }
     else if ([itemNames containsObject:@"justifyCenter"]) {
         
-       alignmentStr = @"t52点击.png";
+        alignmentStr = @"t52点击.png";
     }
     else if ([itemNames containsObject:@"justifyRight"]) {
         
-     alignmentStr = @"t51点击.png";
+        alignmentStr = @"t51点击.png";
     }
     else{
-    
+        
     }
-    [self.textAlignmentButton setImage:[UIImage imageNamed:alignmentStr inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-    [self.textAlignmentButton setImage:[UIImage imageNamed:alignmentStr inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+    if (_isActionAlignment) {
+        
+        [self.textAlignmentButton setImage:[UIImage imageNamed:alignmentStr inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+        [self.textAlignmentButton setImage:[UIImage imageNamed:alignmentStr inBundle:bundle compatibleWithTraitCollection:nil] forState:UIControlStateSelected];
+    }
+    
     
     UIImage *image = [UIImage imageNamed:@"t6"];
     NSString *colorStr = @"";
@@ -2096,7 +1988,6 @@ static CGFloat kDefaultScale = 0.5;
         
         if ([item hasPrefix:@"#"]) {
             
-            NSLog(@"%@", item);
             colorStr = [item stringByReplacingOccurrencesOfString:@"#" withString:@"0x"];
         }
     }
@@ -2109,69 +2000,19 @@ static CGFloat kDefaultScale = 0.5;
         image = [self createImageWithColor:color];
     }
     
-    [self.textColorButton setImage:image forState:UIControlStateNormal];
-    [self.textColorButton setImage:image forState:UIControlStateSelected];
-    
-}
-
-- (UIImage *) createImageWithColor: (UIColor *) color
-{
-    CGRect rect = CGRectMake(0.0f,0.0f,22.0f,22.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context =UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *myImage =UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return myImage;
-}
-- (void)updateToolBarWithButtonName:(NSString *)name {
-    
+    if (_isActionColor) {
+        
+        [self.textColorButton setImage:image forState:UIControlStateNormal];
+        [self.textColorButton setImage:image forState:UIControlStateSelected];
+    }
    
-    // Items that are enabled
-    NSArray *itemNames = [name componentsSeparatedByString:@","];
-    
-    // Special case for link
-    NSMutableArray *itemsModified = [[NSMutableArray alloc] init];
-    for (NSString *linkItem in itemNames) {
-        NSString *updatedItem = linkItem;
-        if ([linkItem hasPrefix:@"link:"]) {
-            updatedItem = @"link";
-            self.selectedLinkURL = [linkItem stringByReplacingOccurrencesOfString:@"link:" withString:@""];
-        } else if ([linkItem hasPrefix:@"link-title:"]) {
-            self.selectedLinkTitle = [self stringByDecodingURLFormat:[linkItem stringByReplacingOccurrencesOfString:@"link-title:" withString:@""]];
-        } else if ([linkItem hasPrefix:@"image:"]) {
-            updatedItem = @"image";
-            self.selectedImageURL = [linkItem stringByReplacingOccurrencesOfString:@"image:" withString:@""];
-        } else if ([linkItem hasPrefix:@"image-alt:"]) {
-            self.selectedImageAlt = [self stringByDecodingURLFormat:[linkItem stringByReplacingOccurrencesOfString:@"image-alt:" withString:@""]];
-        } else {
-            self.selectedImageURL = nil;
-            self.selectedImageAlt = nil;
-            self.selectedLinkURL = nil;
-            self.selectedLinkTitle = nil;
-        }
-        [itemsModified addObject:updatedItem];
-    }
-    itemNames = [NSArray arrayWithArray:itemsModified];
-    
-    self.editorItemsEnabled = itemNames;
-    
-    // Highlight items
-    NSArray *items = self.toolbar.items;
-    for (ZSSBarButtonItem *item in items) {
-        if ([itemNames containsObject:item.label]) {
-            item.tintColor = [self barButtonItemSelectedDefaultColor];
-        } else {
-            item.tintColor = [self barButtonItemDefaultColor];
-        }
-    }
     
 }
 
 
-#pragma mark - UITextView Delegate
 
+#pragma mark -
+#pragma mark - UITextView Delegate
 - (void)textViewDidChange:(UITextView *)textView {
     CGRect line = [textView caretRectForPosition:textView.selectedTextRange.start];
     CGFloat overflow = line.origin.y + line.size.height - ( textView.contentOffset.y + textView.bounds.size.height - textView.contentInset.bottom - textView.contentInset.top );
@@ -2189,14 +2030,20 @@ static CGFloat kDefaultScale = 0.5;
 }
 
 
+#pragma mark -
 #pragma mark - UIWebView Delegate
-
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
     
+    NSString *text = [self getText];
+    if (text.length > 5000) {
+        
+        [self alertMessage:@"文字内容过长,不超过5000字" delayFordisimissComplete:1];
+        [self setHTML:self.lastHtmlString];
+    }
+    self.lastHtmlString = [self getHTML];
+    
     NSString *urlString = [[request URL] absoluteString];
-    //NSLog(@"web request");
-    //NSLog(@"%@", urlString);
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
         return NO;
     }
@@ -2204,38 +2051,44 @@ static CGFloat kDefaultScale = 0.5;
         
         // We recieved the callback
         NSString *className = [urlString stringByReplacingOccurrencesOfString:@"callback://0/" withString:@""];
-        [self updateToolBarWithButtonName:className];
-        [self updateToolViewWithButtonName:className];
+
+        NSLog(@"%@", [self getHTML]);
+        NSLog(@"%@", className);
+        //if (self.lastHtmlString.length > 0) {
+            
+            [self updateToolViewWithButtonName:className];
+        //}
         
     } else if ([urlString rangeOfString:@"debug://"].location != NSNotFound) {
         
-        NSLog(@"Debug Found");
         
         // We recieved the callback
         NSString *debug = [urlString stringByReplacingOccurrencesOfString:@"debug://" withString:@""];
         debug = [debug stringByReplacingPercentEscapesUsingEncoding:NSStringEncodingConversionAllowLossy];
-        NSLog(@"%@", debug);
         
-    } else if ([urlString rangeOfString:@"scroll://"].location != NSNotFound) {
+    }
+    else if ([urlString rangeOfString:@"scroll://"].location != NSNotFound) {
         
         NSInteger position = [[urlString stringByReplacingOccurrencesOfString:@"scroll://" withString:@""] integerValue];
         [self editorDidScrollWithPosition:position];
         
     }
+    else if ([urlString rangeOfString:@"iOSTourWay.keyUp"].location != NSNotFound) {
+        
+        [self _removeLast];
+    }
     
     return YES;
     
 }
-
-
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     self.editorLoaded = YES;
-
+    
     if (!self.internalHTML) {
         self.internalHTML = @"";
     }
     [self updateHTML];
-
+    
     if(self.placeholder) {
         [self setPlaceholderText];
     }
@@ -2243,10 +2096,10 @@ static CGFloat kDefaultScale = 0.5;
     if (self.customCSS) {
         [self updateCSS];
     }
-
+    
     if (self.shouldShowKeyboard) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self focusTextEditor];
+            //[self focusTextEditor];
         });
     }
     
@@ -2258,7 +2111,7 @@ static CGFloat kDefaultScale = 0.5;
     JSContext *ctx = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     ctx[@"contentUpdateCallback"] = ^(JSValue *msg) {
         
-        NSLog(@"%@", msg);
+
         if (_receiveEditorDidChangeEvents) {
             
             [self editorDidChangeWithText:[self getText] andHTML:[self getHTML]];
@@ -2270,10 +2123,19 @@ static CGFloat kDefaultScale = 0.5;
     };
     [ctx evaluateScript:@"document.getElementById('zss_editor_content').addEventListener('input', contentUpdateCallback, false);"];
     
+    JSContext  *context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    ;
+    context[@"native"] = self;
+    context[@"resultParams"] =
+    ^(NSString *jsonStr)
+    {
+        
+        [self _removeLast];
+    };
 }
 
-#pragma mark - Mention & Hashtag Support Section
 
+#pragma mark - Mention & Hashtag Support Section
 - (void)checkForMentionOrHashtagInText:(NSString *)text {
     
     if ([text containsString:@" "] && [text length] > 0) {
@@ -2287,7 +2149,7 @@ static CGFloat kDefaultScale = 0.5;
         lastWord = [text substringFromIndex:range.location];
         
         if (lastWord != nil) {
-        
+            
             //Check if last word typed starts with a #
             NSRegularExpression *hashtagRegex = [NSRegularExpression regularExpressionWithPattern:@"#(\\w+)" options:0 error:nil];
             NSArray *hashtagMatches = [hashtagRegex matchesInString:lastWord options:0 range:NSMakeRange(0, lastWord.length)];
@@ -2337,22 +2199,26 @@ static CGFloat kDefaultScale = 0.5;
 }
 
 #pragma mark - Callbacks
-
 //Blank implementation
-- (void)editorDidScrollWithPosition:(NSInteger)position {}
-
+- (void)editorDidScrollWithPosition:(NSInteger)position {
+    
+}
 //Blank implementation
-- (void)editorDidChangeWithText:(NSString *)text andHTML:(NSString *)html  {}
-
+- (void)editorDidChangeWithText:(NSString *)text andHTML:(NSString *)html  {
+    
+}
 //Blank implementation
-- (void)hashtagRecognizedWithWord:(NSString *)word {}
-
+- (void)hashtagRecognizedWithWord:(NSString *)word {
+    
+}
 //Blank implementation
-- (void)mentionRecognizedWithWord:(NSString *)word {}
+- (void)mentionRecognizedWithWord:(NSString *)word {
+    
+}
 
 
+#pragma mark -
 #pragma mark - AlertView
-
 - (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView {
     
     if (alertView.tag == 1) {
@@ -2370,9 +2236,8 @@ static CGFloat kDefaultScale = 0.5;
     
     return YES;
 }
-
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-
+    
     if (alertView.tag == 1) {
         if (buttonIndex == 1) {
             UITextField *imageURL = [alertView textFieldAtIndex:0];
@@ -2402,32 +2267,30 @@ static CGFloat kDefaultScale = 0.5;
             self.selectedImageAlt = textFieldAlt.text?:@"";
             
             [self presentViewController:self.imagePicker animated:YES completion:nil];
-
+            
         }
     }
 }
 
 
+#pragma mark -
 #pragma mark - Asset Picker
-
 - (void)showInsertURLAlternatePicker {
     // Blank method. User should implement this in their subclass
 }
-
-
 - (void)showInsertImageAlternatePicker {
     // Blank method. User should implement this in their subclass
 }
 
-#pragma mark - Image Picker Delegate
 
+#pragma mark -
+#pragma mark - Image Picker Delegate
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     //Dismiss the Image Picker
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info{
-
+    
     UIImage *selectedImage = info[UIImagePickerControllerEditedImage]?:info[UIImagePickerControllerOriginalImage];
     
     //Scale the image
@@ -2436,7 +2299,7 @@ static CGFloat kDefaultScale = 0.5;
     [selectedImage drawInRect:CGRectMake(0,0,targetSize.width,targetSize.height)];
     UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
     //Compress the image, as it is going to be encoded rather than linked
     NSData *scaledImageData = UIImageJPEGRepresentation(scaledImage, kJPEGCompression);
     
@@ -2451,14 +2314,14 @@ static CGFloat kDefaultScale = 0.5;
     }
     
     self.imageBase64String = imageBase64String;
-
+    
     //Dismiss the Image Picker
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
+#pragma mark -
 #pragma mark - Keyboard status
-
 - (void)keyboardWillShowOrHide:(NSNotification *)notification {
     
     // Orientation
@@ -2560,7 +2423,6 @@ static CGFloat kDefaultScale = 0.5;
 
 
 #pragma mark - Utilities
-
 - (NSString *)removeQuotesFromHTML:(NSString *)html {
     html = [html stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
     html = [html stringByReplacingOccurrencesOfString:@"“" withString:@"&quot;"];
@@ -2569,8 +2431,6 @@ static CGFloat kDefaultScale = 0.5;
     html = [html stringByReplacingOccurrencesOfString:@"\n"  withString:@"\\n"];
     return html;
 }
-
-
 - (NSString *)tidyHTML:(NSString *)html {
     html = [html stringByReplacingOccurrencesOfString:@"<br>" withString:@"<br />"];
     html = [html stringByReplacingOccurrencesOfString:@"<hr>" withString:@"<hr />"];
@@ -2579,8 +2439,6 @@ static CGFloat kDefaultScale = 0.5;
     }
     return html;
 }
-
-
 - (UIColor *)barButtonItemDefaultColor {
     
     if (self.toolbarItemTintColor) {
@@ -2589,8 +2447,6 @@ static CGFloat kDefaultScale = 0.5;
     
     return [UIColor colorWithRed:0.0f/255.0f green:122.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
 }
-
-
 - (UIColor *)barButtonItemSelectedDefaultColor {
     
     if (self.toolbarItemSelectedTintColor) {
@@ -2599,14 +2455,11 @@ static CGFloat kDefaultScale = 0.5;
     
     return [UIColor blackColor];
 }
-
-
 - (NSString *)stringByDecodingURLFormat:(NSString *)string {
     NSString *result = [string stringByReplacingOccurrencesOfString:@"+" withString:@" "];
     result = [result stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     return result;
 }
-
 - (void)enableToolbarItems:(BOOL)enable {
     NSArray *items = self.toolbar.items;
     for (ZSSBarButtonItem *item in items) {
@@ -2616,25 +2469,26 @@ static CGFloat kDefaultScale = 0.5;
     }
 }
 
-#pragma mark - Memory Warning Section
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 
 #pragma mark -
 #pragma mark - canPerformAction
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
     
-    self.pasteBoardText = [UIPasteboard generalPasteboard].string;
-    [UIPasteboard generalPasteboard].string = self.pasteBoardText;
+    NSString *temp = [UIPasteboard generalPasteboard].string;
+    if (![temp isEqualToString:self.pasteBoardText] && temp.length > 0) {
+        
+        self.pasteBoardText = temp;
+        [UIPasteboard generalPasteboard].string = self.pasteBoardText;
+        
+    }
+    //self.pasteBoardText = [UIPasteboard generalPasteboard].string;
     return [super canPerformAction:action withSender:sender];
 }
 
 
 
+#pragma mark -
 #pragma mark - IFlySpeechRecognizerDelegate
-
 /**
  音量回调函数
  volume 0－30
@@ -2679,24 +2533,20 @@ static CGFloat kDefaultScale = 0.5;
             [timer invalidate];
         }
     }];
- 
-   
+    
+    
 }
-
-
-
 /**
  开始识别回调
  ****/
 - (void) onBeginOfSpeech{
-    NSLog(@"onBeginOfSpeech");
+
     
     if (self.isStreamRec == NO){
         
         self.isBeginOfSpeech = YES;
     }
 }
-
 /**
  停止录音回调
  ****/
@@ -2706,8 +2556,6 @@ static CGFloat kDefaultScale = 0.5;
     [_pcmRecorder stop];
     [self.voiceView removeFromSuperview];
 }
-
-
 /**
  听写结束回调（注：无论听写是否正确都会回调）
  error.errorCode =
@@ -2715,17 +2563,8 @@ static CGFloat kDefaultScale = 0.5;
  other 听写出错
  ****/
 - (void) onError:(IFlySpeechError *) error{
-    NSLog(@"%s",__func__);
-   
     
     if ([IATConfig sharedInstance].haveView == NO ) {
-        
-        //        if (self.isStreamRec) {
-        //            //当音频流识别服务和录音器已打开但未写入音频数据时stop，只会调用onError不会调用onEndOfSpeech，导致录音器未关闭
-        //            [_pcmRecorder stop];
-        //            self.isStreamRec = NO;
-        //            NSLog(@"error录音停止");
-        //        }
         
         NSString *text ;
         
@@ -2742,7 +2581,6 @@ static CGFloat kDefaultScale = 0.5;
             }
         }else {
             text = [NSString stringWithFormat:@"发生错误：%d %@", error.errorCode,error.errorDesc];
-            NSLog(@"%@",text);
         }
         
         if (text.length > 0) {
@@ -2751,11 +2589,9 @@ static CGFloat kDefaultScale = 0.5;
     }
     else {
         //[self alertMessage:@"识别结束" delayFordisimissComplete:1.0f];
-        NSLog(@"errorCode:%d",[error errorCode]);
     }
     self.isRecording = NO;
 }
-
 /**
  无界面，听写结果回调
  results：听写结果
@@ -2768,22 +2604,17 @@ static CGFloat kDefaultScale = 0.5;
     for (NSString *key in dic) {
         [resultString appendFormat:@"%@",key];
     }
-
-     NSString * resultFromJson =  [ISRDataHelper stringFromJson:resultString];
+    
+    NSString * resultFromJson =  [ISRDataHelper stringFromJson:resultString];
     [self insertHTML:resultFromJson];
-   self.isRecording = NO;
+    self.isRecording = NO;
 }
-
-
-
-
 /**
  有界面，听写结果回调
  resultArray：听写结果
  isLast：表示最后一次
  ****/
-- (void)onResult:(NSArray *)resultArray isLast:(BOOL)isLast
-{
+- (void)onResult:(NSArray *)resultArray isLast:(BOOL)isLast{
     
     self.isRecording = NO;
     NSMutableString *result = [[NSMutableString alloc] init];
@@ -2794,18 +2625,90 @@ static CGFloat kDefaultScale = 0.5;
     }
     //_textView.text = [NSString stringWithFormat:@"%@%@",_textView.text,result];
 }
-
-
-
 /**
  听写取消回调
  ****/
-- (void) onCancel
-{
+- (void) onCancel{
     
     self.isRecording = NO;
-    NSLog(@"识别取消");
 }
+
+
+#pragma mark -
+#pragma mark - AipOcrResultDelegate
+- (void)ocrOnIdCardSuccessful:(id)result {
+
+    NSString *title = nil;
+    NSMutableString *message = [NSMutableString string];
+    
+    if(result[@"words_result"]){
+        [result[@"words_result"] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            [message appendFormat:@"%@: %@\n", key, obj[@"words"]];
+        }];
+    }
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alertView show];
+    }];
+}
+- (void)ocrOnBankCardSuccessful:(id)result {
+
+    NSString *title = nil;
+    NSMutableString *message = [NSMutableString string];
+    title = @"银行卡信息";
+    //    [message appendFormat:@"%@", result[@"result"]];
+    [message appendFormat:@"卡号：%@\n", result[@"result"][@"bank_card_number"]];
+    [message appendFormat:@"类型：%@\n", result[@"result"][@"bank_card_type"]];
+    [message appendFormat:@"发卡行：%@\n", result[@"result"][@"bank_name"]];
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alertView show];
+    }];
+}
+- (void)ocrOnGeneralSuccessful:(id)result {
+    
+//    [self stopLoading];
+    NSMutableString *message = [NSMutableString string];
+    if(result[@"words_result"]){
+        
+        for(NSDictionary *obj in result[@"words_result"]){
+            
+            [message appendFormat:@"%@", obj[@"words"]];
+        }
+    }
+    else{
+        [message appendFormat:@"%@", result];
+    }
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+            [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.restorerange()"];
+
+            if (message.length == 0) {
+                
+                
+                [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
+            }
+            else{
+            
+                [self insertHTML:message];
+
+            }
+            
+        }];
+    });
+}
+- (void)ocrOnFail:(NSError *)error {
+    
+    [self stopLoading];
+    [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
+}
+
 
 
 

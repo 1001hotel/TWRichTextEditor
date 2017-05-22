@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "HRColorPickerViewController.h"
 #import "ZSSFontsViewController.h"
+#import <AipOcrSdk/AipOcrSdk.h>
+
 
 /**
  *  The types of toolbar items that can be added
@@ -71,7 +73,8 @@ HRColorPickerViewControllerDelegate,
 UITextViewDelegate,
 UINavigationControllerDelegate,
 UIImagePickerControllerDelegate,
-ZSSFontsViewControllerDelegate
+ZSSFontsViewControllerDelegate,
+AipOcrDelegate
 >
 
 
@@ -239,7 +242,7 @@ ZSSFontsViewControllerDelegate
  */
 - (void)setCSS:(NSString *)css;
 
-- (void)insertText:(NSString *)text;
+- (void)alertMessage:(NSString *)message delayFordisimissComplete:(float)delay;
 
 @end
 
