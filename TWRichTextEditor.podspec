@@ -30,9 +30,9 @@ Pod::Spec.new do |s|
 
  
    s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics"
-   # s.libraries = "libz", "libc++"
+   s.libraries = "z", "c++"
 
-   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz" }
+  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz" }
   # s.dependency "JSONKit", "~> 1.4"
 
 end
