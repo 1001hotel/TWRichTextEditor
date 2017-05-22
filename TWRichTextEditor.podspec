@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/1001hotel/TWRichTextEditor"
   s.license      = "MIT"
   s.author             = { "xurenyan" => "812610313@qq.com" }
-  s.platform     = :ios, "5.0"
+  s.platform     = :ios, "8.0"
   s.requires_arc = true
   s.source       = { :git => "https://github.com/1001hotel/TWRichTextEditor.git", :tag => s.version.to_s }
   s.source_files  = "TWRichTextEditor/**/*.{h,m,pch,plist}"
