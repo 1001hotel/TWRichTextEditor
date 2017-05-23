@@ -18,7 +18,6 @@
 #import <iflyMSC/iflyMSC.h>
 #import "IATConfig.h"
 #import "ISRDataHelper.h"
-#import "FreshLoadingView.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -122,7 +121,6 @@ IFlyPcmRecorderDelegate
 {
     
     float _keyboardOringalY;
-    FreshLoadingView *_loadingView;
     
     float _keyBoardHeight;
     
@@ -336,94 +334,7 @@ IFlyPcmRecorderDelegate
 
 @implementation ZSSRichTextEditor (private)
 
-#pragma mark -
-#pragma mark - Loading
-- (void)startLoading{
-    
-    if (!_loadingView) {
-        _loadingView = [[FreshLoadingView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    }
-    
-    if ([[NSThread mainThread] isMainThread]) {
-        
-        [_loadingView startAnimating];
-        [self.view addSubview:_loadingView];
-        [self.view bringSubviewToFront:_loadingView];
-        @try {
-            // 可能会出现崩溃的代码
-            self.view.userInteractionEnabled = NO;
-            
-        }
-        @catch (NSException *exception) {
-            // 捕获到的异常exception
-        }
-        @finally {
-            // 结果处理
-        }
-        
-    }
-    else{
-        
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            
-            [_loadingView startAnimating];
-            [self.view addSubview:_loadingView];
-            [self.view bringSubviewToFront:_loadingView];
-            @try {
-                // 可能会出现崩溃的代码
-                self.view.userInteractionEnabled = NO;
-                
-            }
-            @catch (NSException *exception) {
-                // 捕获到的异常exception
-            }
-            @finally {
-                // 结果处理
-            }
-        });
-    }
-}
-- (void)stopLoading{
-    
-    
-    if ([[NSThread mainThread] isMainThread]) {
-        
-        [_loadingView stopAnimating];
-        [_loadingView removeFromSuperview];
-        _loadingView = nil;
-        @try {
-            // 可能会出现崩溃的代码
-            self.view.userInteractionEnabled = YES;
-            
-        }
-        @catch (NSException *exception) {
-            // 捕获到的异常exception
-        }
-        @finally {
-            // 结果处理
-        }
-    }
-    else{
-        
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            
-            [_loadingView stopAnimating];
-            [_loadingView removeFromSuperview];
-            _loadingView = nil;
-            @try {
-                // 可能会出现崩溃的代码
-                self.view.userInteractionEnabled = YES;
-                
-            }
-            @catch (NSException *exception) {
-                // 捕获到的异常exception
-            }
-            @finally {
-                // 结果处理
-            }
-        });
-    }
-}
+
 
 
 - (UIImage *)createImageWithColor:(UIColor *) color{
