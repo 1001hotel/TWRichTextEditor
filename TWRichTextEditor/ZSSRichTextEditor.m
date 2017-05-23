@@ -1255,7 +1255,7 @@ static CGFloat kDefaultScale = 0.5;
     
     CGFloat gapHeight = hundredLenthForIPhone6s;
     __block UIView *alertDefineView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_SIZE.width * 0.25 * 0.5, self.view.frame.size.height - gapHeight - _keyBoardHeight, SCREEN_SIZE.width * 0.75, 30)];
-    alertDefineView.backgroundColor = [UIColor colorTransferToRGB:@"#333333"];
+    alertDefineView.backgroundColor = [UIColor colorWithRed:51 /255.0 green:51 /255.0 blue:51 /255.0 alpha:1];
     alertDefineView.alpha = 0;
     alertDefineView.layer.cornerRadius = 6;
     
@@ -1269,13 +1269,13 @@ static CGFloat kDefaultScale = 0.5;
     
     alertLabel.text = message;
     CGRect alterRect_0 = [message boundingRectWithSize:CGSizeMake(MAXFLOAT, alertLabel.frame.size.height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil];
-    alertDefineView.frame = CGRectMake((SCREEN_WIDTH-alterRect_0.size.width-30)*0.5, self.view.frame.size.height-gapHeight-_keyBoardHeight, alterRect_0.size.width+30, 30);
+    alertDefineView.frame = CGRectMake((SCREEN_SIZE.width - alterRect_0.size.width - 30) * 0.5, self.view.frame.size.height-gapHeight - _keyBoardHeight, alterRect_0.size.width + 30, 30);
     alertDefineView.layer.cornerRadius = 6;
     alertLabel.frame = alertDefineView.frame;
     
-    if (alterRect_0.size.width>=SCREEN_WIDTH*0.75) {
-        CGRect alterRect_1 = [message boundingRectWithSize:CGSizeMake(SCREEN_WIDTH*0.75, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil];
-        alertDefineView.frame = CGRectMake((SCREEN_WIDTH-SCREEN_WIDTH*0.75-30)*0.5, self.view.frame.size.height-gapHeight-(alterRect_1.size.height+30-30)-_keyBoardHeight, SCREEN_WIDTH*0.75+20, alterRect_1.size.height+20);
+    if (alterRect_0.size.width >= SCREEN_SIZE.width * 0.75) {
+        CGRect alterRect_1 = [message boundingRectWithSize:CGSizeMake(SCREEN_SIZE.width * 0.75, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil];
+        alertDefineView.frame = CGRectMake((SCREEN_WIDTH-SCREEN_WIDTH * 0.75 - 30) * 0.5, self.view.frame.size.height - gapHeight - (alterRect_1.size.height + 30 - 30) - _keyBoardHeight, SCREEN_SIZE.width * 0.75 + 20, alterRect_1.size.height + 20);
         alertDefineView.layer.cornerRadius = 6;
         alertLabel.frame = alertDefineView.frame;
     }
