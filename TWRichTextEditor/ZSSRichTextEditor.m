@@ -1253,7 +1253,7 @@ static CGFloat kDefaultScale = 0.5;
     delay = 1.5f;
     
     
-    CGFloat gapHeight = hundredLenthForIPhone6s;
+    CGFloat gapHeight = [UIScreen mainScreen].bounds.size.width * 100.0 / 375.0;
     __block UIView *alertDefineView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_SIZE.width * 0.25 * 0.5, self.view.frame.size.height - gapHeight - _keyBoardHeight, SCREEN_SIZE.width * 0.75, 30)];
     alertDefineView.backgroundColor = [UIColor colorWithRed:51 /255.0 green:51 /255.0 blue:51 /255.0 alpha:1];
     alertDefineView.alpha = 0;
@@ -1275,7 +1275,7 @@ static CGFloat kDefaultScale = 0.5;
     
     if (alterRect_0.size.width >= SCREEN_SIZE.width * 0.75) {
         CGRect alterRect_1 = [message boundingRectWithSize:CGSizeMake(SCREEN_SIZE.width * 0.75, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil];
-        alertDefineView.frame = CGRectMake((SCREEN_WIDTH-SCREEN_WIDTH * 0.75 - 30) * 0.5, self.view.frame.size.height - gapHeight - (alterRect_1.size.height + 30 - 30) - _keyBoardHeight, SCREEN_SIZE.width * 0.75 + 20, alterRect_1.size.height + 20);
+        alertDefineView.frame = CGRectMake((SCREEN_SIZE.width - SCREEN_SIZE.width * 0.75 - 30) * 0.5, self.view.frame.size.height - gapHeight - (alterRect_1.size.height + 30 - 30) - _keyBoardHeight, SCREEN_SIZE.width * 0.75 + 20, alterRect_1.size.height + 20);
         alertDefineView.layer.cornerRadius = 6;
         alertLabel.frame = alertDefineView.frame;
     }
@@ -2579,7 +2579,6 @@ static CGFloat kDefaultScale = 0.5;
 }
 - (void)ocrOnGeneralSuccessful:(id)result {
     
-//    [self stopLoading];
     NSMutableString *message = [NSMutableString string];
     if(result[@"words_result"]){
         
@@ -2615,7 +2614,6 @@ static CGFloat kDefaultScale = 0.5;
 }
 - (void)ocrOnFail:(NSError *)error {
     
-    [self stopLoading];
     [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
 }
 
