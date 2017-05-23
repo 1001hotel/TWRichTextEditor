@@ -94,10 +94,6 @@
 		6C0C24131ED3E3DD00C12BA4 /* textrecognition@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C0C23DB1ED3E3DD00C12BA4 /* textrecognition@3x.png */; };
 		6C0C24181ED3E3FF00C12BA4 /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C24151ED3E3FF00C12BA4 /* IATConfig.m */; };
 		6C0C24191ED3E3FF00C12BA4 /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C24171ED3E3FF00C12BA4 /* ISRDataHelper.m */; };
-		6CC96F341ED41B3000715A50 /* CYRLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F2D1ED41B3000715A50 /* CYRLayoutManager.m */; };
-		6CC96F351ED41B3000715A50 /* CYRTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F2F1ED41B3000715A50 /* CYRTextStorage.m */; };
-		6CC96F361ED41B3000715A50 /* CYRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F311ED41B3000715A50 /* CYRTextView.m */; };
-		6CC96F371ED41B3000715A50 /* CYRToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F331ED41B3000715A50 /* CYRToken.m */; };
 		6CC96F451ED41B3E00715A50 /* HRBrightnessCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F391ED41B3E00715A50 /* HRBrightnessCursor.m */; };
 		6CC96F461ED41B3E00715A50 /* HRCgUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F3B1ED41B3E00715A50 /* HRCgUtil.m */; };
 		6CC96F471ED41B3E00715A50 /* HRColorCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F3D1ED41B3E00715A50 /* HRColorCursor.m */; };
@@ -119,6 +115,10 @@
 		6CFBF8ED1ED41D37003D574C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8EC1ED41D37003D574C /* QuartzCore.framework */; };
 		6CFBF8EF1ED41D56003D574C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8EE1ED41D56003D574C /* libz.tbd */; };
 		6CFBF8F11ED41D5D003D574C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8F01ED41D5D003D574C /* libc++.tbd */; };
+		6CFBF99F1ED42D22003D574C /* CYRLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBF9981ED42D22003D574C /* CYRLayoutManager.m */; };
+		6CFBF9A01ED42D22003D574C /* CYRTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBF99A1ED42D22003D574C /* CYRTextStorage.m */; };
+		6CFBF9A11ED42D22003D574C /* CYRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBF99C1ED42D22003D574C /* CYRTextView.m */; };
+		6CFBF9A21ED42D22003D574C /* CYRToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBF99E1ED42D22003D574C /* CYRToken.m */; };
 		DB1D27A61D79F62D00EC1CBD /* DemoModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1D27A51D79F62D00EC1CBD /* DemoModalViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -249,14 +249,6 @@
 		6C0C24391ED3E73000C12BA4 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/iflyMSC.framework"; sourceTree = "<group>"; };
 		6C0C243B1ED3E75400C12BA4 /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipBase.framework; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/AipBase.framework"; sourceTree = "<group>"; };
 		6C0C243C1ED3E75400C12BA4 /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipOcrSdk.framework; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/AipOcrSdk.framework"; sourceTree = "<group>"; };
-		6CC96F2C1ED41B3000715A50 /* CYRLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRLayoutManager.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRLayoutManager.h; sourceTree = SOURCE_ROOT; };
-		6CC96F2D1ED41B3000715A50 /* CYRLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRLayoutManager.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRLayoutManager.m; sourceTree = SOURCE_ROOT; };
-		6CC96F2E1ED41B3000715A50 /* CYRTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRTextStorage.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextStorage.h; sourceTree = SOURCE_ROOT; };
-		6CC96F2F1ED41B3000715A50 /* CYRTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRTextStorage.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextStorage.m; sourceTree = SOURCE_ROOT; };
-		6CC96F301ED41B3000715A50 /* CYRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRTextView.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextView.h; sourceTree = SOURCE_ROOT; };
-		6CC96F311ED41B3000715A50 /* CYRTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRTextView.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextView.m; sourceTree = SOURCE_ROOT; };
-		6CC96F321ED41B3000715A50 /* CYRToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRToken.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRToken.h; sourceTree = SOURCE_ROOT; };
-		6CC96F331ED41B3000715A50 /* CYRToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRToken.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRToken.m; sourceTree = SOURCE_ROOT; };
 		6CC96F381ED41B3E00715A50 /* HRBrightnessCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRBrightnessCursor.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRBrightnessCursor.h; sourceTree = SOURCE_ROOT; };
 		6CC96F391ED41B3E00715A50 /* HRBrightnessCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRBrightnessCursor.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRBrightnessCursor.m; sourceTree = SOURCE_ROOT; };
 		6CC96F3A1ED41B3E00715A50 /* HRCgUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRCgUtil.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRCgUtil.h; sourceTree = SOURCE_ROOT; };
@@ -283,6 +275,14 @@
 		6CFBF8EC1ED41D37003D574C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6CFBF8EE1ED41D56003D574C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		6CFBF8F01ED41D5D003D574C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		6CFBF9971ED42D22003D574C /* CYRLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRLayoutManager.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRLayoutManager.h; sourceTree = SOURCE_ROOT; };
+		6CFBF9981ED42D22003D574C /* CYRLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRLayoutManager.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRLayoutManager.m; sourceTree = SOURCE_ROOT; };
+		6CFBF9991ED42D22003D574C /* CYRTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRTextStorage.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextStorage.h; sourceTree = SOURCE_ROOT; };
+		6CFBF99A1ED42D22003D574C /* CYRTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRTextStorage.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextStorage.m; sourceTree = SOURCE_ROOT; };
+		6CFBF99B1ED42D22003D574C /* CYRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRTextView.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextView.h; sourceTree = SOURCE_ROOT; };
+		6CFBF99C1ED42D22003D574C /* CYRTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRTextView.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextView.m; sourceTree = SOURCE_ROOT; };
+		6CFBF99D1ED42D22003D574C /* CYRToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRToken.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRToken.h; sourceTree = SOURCE_ROOT; };
+		6CFBF99E1ED42D22003D574C /* CYRToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRToken.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRToken.m; sourceTree = SOURCE_ROOT; };
 		DB1D27A41D79F62D00EC1CBD /* DemoModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoModalViewController.h; sourceTree = "<group>"; };
 		DB1D27A51D79F62D00EC1CBD /* DemoModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoModalViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -342,14 +342,14 @@
 		4552C4821899DD1D004EF847 /* CYRTextView */ = {
 			isa = PBXGroup;
 			children = (
-				6CC96F2C1ED41B3000715A50 /* CYRLayoutManager.h */,
-				6CC96F2D1ED41B3000715A50 /* CYRLayoutManager.m */,
-				6CC96F2E1ED41B3000715A50 /* CYRTextStorage.h */,
-				6CC96F2F1ED41B3000715A50 /* CYRTextStorage.m */,
-				6CC96F301ED41B3000715A50 /* CYRTextView.h */,
-				6CC96F311ED41B3000715A50 /* CYRTextView.m */,
-				6CC96F321ED41B3000715A50 /* CYRToken.h */,
-				6CC96F331ED41B3000715A50 /* CYRToken.m */,
+				6CFBF9971ED42D22003D574C /* CYRLayoutManager.h */,
+				6CFBF9981ED42D22003D574C /* CYRLayoutManager.m */,
+				6CFBF9991ED42D22003D574C /* CYRTextStorage.h */,
+				6CFBF99A1ED42D22003D574C /* CYRTextStorage.m */,
+				6CFBF99B1ED42D22003D574C /* CYRTextView.h */,
+				6CFBF99C1ED42D22003D574C /* CYRTextView.m */,
+				6CFBF99D1ED42D22003D574C /* CYRToken.h */,
+				6CFBF99E1ED42D22003D574C /* CYRToken.m */,
 			);
 			path = CYRTextView;
 			sourceTree = "<group>";
@@ -701,30 +701,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				2343B1DA199B2C9300349048 /* ZSSDemoList.m in Sources */,
+				6CFBF9A01ED42D22003D574C /* CYRTextStorage.m in Sources */,
 				2343B22F199D6E6700349048 /* ZSSCustomButtonsViewController.m in Sources */,
 				2343B22C199D6D6400349048 /* ZSSSelectiveViewController.m in Sources */,
 				6C0C239B1ED3E38600C12BA4 /* ZSSRichTextEditor.m in Sources */,
 				6C0C23961ED3E36800C12BA4 /* ZSSBarButtonItem.m in Sources */,
 				6C0C23981ED3E36800C12BA4 /* ZSSTextView.m in Sources */,
+				6CFBF9A11ED42D22003D574C /* CYRTextView.m in Sources */,
 				6CC96F471ED41B3E00715A50 /* HRColorCursor.m in Sources */,
 				2343B1E0199BE4D000349048 /* ZSSLargeViewController.m in Sources */,
-				6CC96F351ED41B3000715A50 /* CYRTextStorage.m in Sources */,
 				6CC96F491ED41B3E00715A50 /* HRColorPickerViewController.m in Sources */,
 				4581EB8C1848457A0048CAB0 /* main.m in Sources */,
 				2343B1DD199B34B500349048 /* ZSSColorViewController.m in Sources */,
 				6C0C23971ED3E36800C12BA4 /* ZSSFontsViewController.m in Sources */,
 				6CC96F451ED41B3E00715A50 /* HRBrightnessCursor.m in Sources */,
-				6CC96F361ED41B3000715A50 /* CYRTextView.m in Sources */,
 				6CC96F481ED41B3E00715A50 /* HRColorPickerView.m in Sources */,
 				4581EB901848457A0048CAB0 /* ZSSAppDelegate.m in Sources */,
 				6C0C24191ED3E3FF00C12BA4 /* ISRDataHelper.m in Sources */,
+				6CFBF9A21ED42D22003D574C /* CYRToken.m in Sources */,
 				6CC96F461ED41B3E00715A50 /* HRCgUtil.m in Sources */,
 				6CC96F4A1ED41B3E00715A50 /* HRColorUtil.m in Sources */,
 				2343B229199D237100349048 /* ZSSPlaceholderViewController.m in Sources */,
+				6CFBF99F1ED42D22003D574C /* CYRLayoutManager.m in Sources */,
 				6C0C24181ED3E3FF00C12BA4 /* IATConfig.m in Sources */,
 				4581EBB81848F8190048CAB0 /* ZSSDemoViewController.m in Sources */,
-				6CC96F341ED41B3000715A50 /* CYRLayoutManager.m in Sources */,
-				6CC96F371ED41B3000715A50 /* CYRToken.m in Sources */,
 				6C0C23951ED3E36800C12BA4 /* RYIndicatorBackgroudView.m in Sources */,
 				DB1D27A61D79F62D00EC1CBD /* DemoModalViewController.m in Sources */,
 				45F80458189B1E9300A1EDD9 /* ZSSDemoPickerViewController.m in Sources */,
