@@ -1,0 +1,8 @@
+
+platform :ios, '8.0'
+
+target 'TWRichTextEditorDemo' do
+    
+pod 'TWRichTextEditor',  :git => 'https://github.com/1001hotel/TWRichTextEditor.git'
+
+end

@@ -1,0 +1,1 @@
+../../../../TWRichTextEditor/TWRichTextEditor/ThirdParty/AipBase.framework/Headers/AipOcrManager.h

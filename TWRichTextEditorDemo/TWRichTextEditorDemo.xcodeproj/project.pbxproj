@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6CFBF9B11ED42FE1003D574C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBF9B01ED42FE1003D574C /* main.m */; };
+		6CFBF9B41ED42FE1003D574C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBF9B31ED42FE1003D574C /* AppDelegate.m */; };
+		6CFBF9B71ED42FE1003D574C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBF9B61ED42FE1003D574C /* ViewController.m */; };
+		6CFBF9BA1ED42FE1003D574C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CFBF9B81ED42FE1003D574C /* Main.storyboard */; };
+		6CFBF9BC1ED42FE1003D574C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CFBF9BB1ED42FE1003D574C /* Assets.xcassets */; };
+		6CFBF9BF1ED42FE1003D574C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CFBF9BD1ED42FE1003D574C /* LaunchScreen.storyboard */; };
+		6CFBF9C81ED432D1003D574C /* TWDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFBF9C71ED432D1003D574C /* TWDemoViewController.m */; };
+		A01731D14D2A44353F9CE489 /* libPods-TWRichTextEditorDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B36718AD7CA3485A7D0272 /* libPods-TWRichTextEditorDemo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		424E7E63DB4045635481CB60 /* Pods-TWRichTextEditorDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWRichTextEditorDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TWRichTextEditorDemo/Pods-TWRichTextEditorDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		68350C35B3EC19A720C755D4 /* Pods-TWRichTextEditorDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TWRichTextEditorDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TWRichTextEditorDemo/Pods-TWRichTextEditorDemo.release.xcconfig"; sourceTree = "<group>"; };
+		6CFBF9AC1ED42FE1003D574C /* TWRichTextEditorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWRichTextEditorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CFBF9B01ED42FE1003D574C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6CFBF9B21ED42FE1003D574C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6CFBF9B31ED42FE1003D574C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6CFBF9B51ED42FE1003D574C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6CFBF9B61ED42FE1003D574C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6CFBF9B91ED42FE1003D574C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6CFBF9BB1ED42FE1003D574C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6CFBF9BE1ED42FE1003D574C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6CFBF9C01ED42FE1003D574C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CFBF9C61ED432D1003D574C /* TWDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWDemoViewController.h; sourceTree = "<group>"; };
+		6CFBF9C71ED432D1003D574C /* TWDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWDemoViewController.m; sourceTree = "<group>"; };
+		A0B36718AD7CA3485A7D0272 /* libPods-TWRichTextEditorDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TWRichTextEditorDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6CFBF9A91ED42FE1003D574C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A01731D14D2A44353F9CE489 /* libPods-TWRichTextEditorDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		35CFBFF5ECC2A64509F306CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0B36718AD7CA3485A7D0272 /* libPods-TWRichTextEditorDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CFBF9A31ED42FE1003D574C = {
+			isa = PBXGroup;
+			children = (
+				6CFBF9AE1ED42FE1003D574C /* TWRichTextEditorDemo */,
+				6CFBF9AD1ED42FE1003D574C /* Products */,
+				AC449D96CC537AF8DD6657B4 /* Pods */,
+				35CFBFF5ECC2A64509F306CB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6CFBF9AD1ED42FE1003D574C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CFBF9AC1ED42FE1003D574C /* TWRichTextEditorDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CFBF9AE1ED42FE1003D574C /* TWRichTextEditorDemo */ = {
+			isa = PBXGroup;
+			children = (
+				6CFBF9B21ED42FE1003D574C /* AppDelegate.h */,
+				6CFBF9B31ED42FE1003D574C /* AppDelegate.m */,
+				6CFBF9B51ED42FE1003D574C /* ViewController.h */,
+				6CFBF9B61ED42FE1003D574C /* ViewController.m */,
+				6CFBF9C61ED432D1003D574C /* TWDemoViewController.h */,
+				6CFBF9C71ED432D1003D574C /* TWDemoViewController.m */,
+				6CFBF9B81ED42FE1003D574C /* Main.storyboard */,
+				6CFBF9BB1ED42FE1003D574C /* Assets.xcassets */,
+				6CFBF9BD1ED42FE1003D574C /* LaunchScreen.storyboard */,
+				6CFBF9C01ED42FE1003D574C /* Info.plist */,
+				6CFBF9AF1ED42FE1003D574C /* Supporting Files */,
+			);
+			path = TWRichTextEditorDemo;
+			sourceTree = "<group>";
+		};
+		6CFBF9AF1ED42FE1003D574C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CFBF9B01ED42FE1003D574C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC449D96CC537AF8DD6657B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				424E7E63DB4045635481CB60 /* Pods-TWRichTextEditorDemo.debug.xcconfig */,
+				68350C35B3EC19A720C755D4 /* Pods-TWRichTextEditorDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6CFBF9AB1ED42FE1003D574C /* TWRichTextEditorDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CFBF9C31ED42FE1003D574C /* Build configuration list for PBXNativeTarget "TWRichTextEditorDemo" */;
+			buildPhases = (
+				9D16EA86B016048AF302C196 /* [CP] Check Pods Manifest.lock */,
+				6CFBF9A81ED42FE1003D574C /* Sources */,
+				6CFBF9A91ED42FE1003D574C /* Frameworks */,
+				6CFBF9AA1ED42FE1003D574C /* Resources */,
+				BA0C059608F5407E6A9629C0 /* [CP] Embed Pods Frameworks */,
+				76E3DB9436989EB06B1B48F6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TWRichTextEditorDemo;
+			productName = TWRichTextEditorDemo;
+			productReference = 6CFBF9AC1ED42FE1003D574C /* TWRichTextEditorDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6CFBF9A41ED42FE1003D574C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = XRY;
+				TargetAttributes = {
+					6CFBF9AB1ED42FE1003D574C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = BTM4Y3L66C;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6CFBF9A71ED42FE1003D574C /* Build configuration list for PBXProject "TWRichTextEditorDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6CFBF9A31ED42FE1003D574C;
+			productRefGroup = 6CFBF9AD1ED42FE1003D574C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CFBF9AB1ED42FE1003D574C /* TWRichTextEditorDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6CFBF9AA1ED42FE1003D574C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CFBF9BF1ED42FE1003D574C /* LaunchScreen.storyboard in Resources */,
+				6CFBF9BC1ED42FE1003D574C /* Assets.xcassets in Resources */,
+				6CFBF9BA1ED42FE1003D574C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		76E3DB9436989EB06B1B48F6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TWRichTextEditorDemo/Pods-TWRichTextEditorDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D16EA86B016048AF302C196 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BA0C059608F5407E6A9629C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TWRichTextEditorDemo/Pods-TWRichTextEditorDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6CFBF9A81ED42FE1003D574C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CFBF9C81ED432D1003D574C /* TWDemoViewController.m in Sources */,
+				6CFBF9B71ED42FE1003D574C /* ViewController.m in Sources */,
+				6CFBF9B41ED42FE1003D574C /* AppDelegate.m in Sources */,
+				6CFBF9B11ED42FE1003D574C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6CFBF9B81ED42FE1003D574C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CFBF9B91ED42FE1003D574C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6CFBF9BD1ED42FE1003D574C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CFBF9BE1ED42FE1003D574C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6CFBF9C11ED42FE1003D574C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6CFBF9C21ED42FE1003D574C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6CFBF9C41ED42FE1003D574C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 424E7E63DB4045635481CB60 /* Pods-TWRichTextEditorDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = TWRichTextEditorDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.Gallery;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6CFBF9C51ED42FE1003D574C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68350C35B3EC19A720C755D4 /* Pods-TWRichTextEditorDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = TWRichTextEditorDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.Gallery;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CFBF9A71ED42FE1003D574C /* Build configuration list for PBXProject "TWRichTextEditorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CFBF9C11ED42FE1003D574C /* Debug */,
+				6CFBF9C21ED42FE1003D574C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CFBF9C31ED42FE1003D574C /* Build configuration list for PBXNativeTarget "TWRichTextEditorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CFBF9C41ED42FE1003D574C /* Debug */,
+				6CFBF9C51ED42FE1003D574C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6CFBF9A41ED42FE1003D574C /* Project object */;
+}

@@ -1,0 +1,968 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0331EBE66ACFCDB27DD000A8E9352A98 /* AipGeneralVC.h in Headers */ = {isa = PBXBuildFile; fileRef = D0947F981F69B83422208F18930402C9 /* AipGeneralVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0341C7A4EA8A4EBD1D525344E0C3C8D5 /* HRColorPickerMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 507E650AF1318C64FD6913974F612D44 /* HRColorPickerMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A3D89705AE6F6858A6874D29520A987 /* IFlyRecognizerViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C77E136790B7F5ACAC1AD983A40417CB /* IFlyRecognizerViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0BEC8AF4BF72CAC352D1DFCF20D844B5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354798F5EDFCE25D2B3CE9B3838E5699 /* AudioToolbox.framework */; };
+		0E87511B49D0EE51D7A96E24930D79E2 /* ZSSFontsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C880E2CBAC38207593A915647085DEA /* ZSSFontsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0EF1CECC9EABCA7B453DB9B969BFE44B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0B54A97A1F2596E985CD980790BC7F /* QuartzCore.framework */; };
+		1007C73F9D112B65D30DC6EDB9B2669B /* CYRLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2390C8692496B04401EED57FE92EA5FB /* CYRLayoutManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10979137E7A5724C9B82B48A8CEC05C7 /* HRColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FA14B72369AE2C288DC85C5937BFB /* HRColorUtil.m */; };
+		1A0E4DC45027CAEC137338AAB1CE3152 /* AipCaptureCardVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 8964881664B18AE7791A5769C055AF67 /* AipCaptureCardVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E3911AEF9D92B8CD7781DDABAD5C7D8 /* CYRToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 8677D894FE95062F1B6DD691A168F18C /* CYRToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E5E2ADD727149B5DA9182207F031090 /* Pods-TWRichTextEditorDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD844E95D52535499862F66B011E322B /* Pods-TWRichTextEditorDemo-dummy.m */; };
+		1EAEEC7225C61AFFBE6F5AC3B7BDB978 /* IFlySpeechUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = B609AAB237F00B13C56EE571186B7504 /* IFlySpeechUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FC000094A48AD5B71011DF32C7F87B1 /* ZSSFontsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B45569CE87DD305A467A68AB60B7A /* ZSSFontsViewController.m */; };
+		2267A84ECC9FC971FAB952535B8E9D8A /* ISRDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A6A8191D1B5A82EBB377E4D6E8B38C0 /* ISRDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23406466742C845846E02D5A6AD8C005 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5DE566647D973E2BA882B716A06905 /* UIKit.framework */; };
+		28B86CB27810D18DDDC26B55B69258A4 /* IFlySpeechEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 759F85CAC3E1C87E811BE98BCF818868 /* IFlySpeechEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30E08A9DA48B44F838C66126D8D8F6D6 /* IFlyVoiceWakeuper.h in Headers */ = {isa = PBXBuildFile; fileRef = B6C06847131F0856BD6FA8377A4AF06C /* IFlyVoiceWakeuper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38D95F3517230A08C56D338478CB44A1 /* IFlyDataUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 843242FCC4E04F98D246C9F083C238B6 /* IFlyDataUploader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38FE7637FFD414C6CF03C956757180DA /* ZSSTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F2B79BF21CD9435D2A740F0D92C8A7E /* ZSSTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4057D9A4F815EE46A1042B8444DBFC99 /* RYIndicatorBackgroudView.m in Sources */ = {isa = PBXBuildFile; fileRef = A79DD6BB1980D9A2667F76C12729D1A1 /* RYIndicatorBackgroudView.m */; };
+		42712B0B8A4472C392F9BE539CCEC06B /* IFlyResourceUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = C87AD77754AEC027E42DFC168184219A /* IFlyResourceUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4389517EA477F0463F59ABC0A189E12F /* IFlySpeechRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA57B74C1C9D26587116209EAED59687 /* IFlySpeechRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A67A4429C9ED66024525D8677A5137E /* IFlySpeechConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 327F7552720281608779A6A4141EDB31 /* IFlySpeechConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AB534E5D03654A5FE1E72BA38668DE6 /* HRColorCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4FF1E365C71A7206D125AEFCDC630 /* HRColorCursor.m */; };
+		4E15DDF30CCFDE138C290B1E64A87F15 /* HRBrightnessCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F4BED4D2CEC659EE0DDDACC9091864 /* HRBrightnessCursor.m */; };
+		52A71143F838129D52A8B9790B0814D9 /* HRColorPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = CB152E590A6D97DD41CE13584E248F0E /* HRColorPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55377774F47611D3B9C91496D1918C86 /* IFlyMSC.h in Headers */ = {isa = PBXBuildFile; fileRef = DE99455C243E7A72CC59CF8FD19ADECF /* IFlyMSC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56E1E4E70367F2250ED71C12D16F10CD /* AipOcrSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D6B1D37F4CCA3568D0D4A5E06361C20 /* AipOcrSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		595B3B78593EC4D244F63BB2668B3279 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EB5119C814EA2DBEAF3CE01B09C5672 /* CoreTelephony.framework */; };
+		6214F4213C49308D2AC3081965774508 /* TWRichTextEditor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 473DCE1494D7703B6592DF56B88DB68C /* TWRichTextEditor-dummy.m */; };
+		6289A8E7C5C2E0FDF2D71124EE1DA7CB /* HRCgUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E92FD3F2C2C0B8891ED3A72FD51BC7A /* HRCgUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62A83FE7DDA0CEEE428BACF34DB08009 /* CYRTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 833A97AE4EA5BDDCD9A8D1B96528F12F /* CYRTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6349BAF3E911F4A5A52B8C987CAC9188 /* IFlyISVDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A16E49B0384E8EABC28546102094241B /* IFlyISVDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6616108842CBBE6B219AEC51E1597AE5 /* IFlySpeechEvaluator.h in Headers */ = {isa = PBXBuildFile; fileRef = C3BFECC43DCF1632BD4B9BDDAA33D15A /* IFlySpeechEvaluator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69BFA6049AF994B24E406C14FDB759B4 /* IFlyAudioSession.h in Headers */ = {isa = PBXBuildFile; fileRef = F58DB28208613AEC5EADCD43BB47369C /* IFlyAudioSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69CE53F9AC271B45ECB9F381D8CC5B87 /* IFlySpeechSynthesizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 343F5F65753EEBFF41DD9625CFF5A428 /* IFlySpeechSynthesizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A4D6D347EEAE60D9DA8B2ADC530BDF7 /* AipOcrService.h in Headers */ = {isa = PBXBuildFile; fileRef = 36FFC31789A93902DDF45FCBC7888AE7 /* AipOcrService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74A2ECC6B49AC9F4238ED2F33651A367 /* AipOcrDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AD2EF36298BC790D74BD34027F7D0FB5 /* AipOcrDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74CBD60A35599F0343956B7528166398 /* IFlySpeechError.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EC44F1BE3052107B98E20C446534A1 /* IFlySpeechError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		755B4BE3E1CCD605AEF0D1B0DB714BBC /* CYRTextStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 699D5BBD257EB298BFD48D475B6015C1 /* CYRTextStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		783C4E25D5FA79B68460735879BCDFB6 /* CYRLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E25E9CF50A75B631FEFC342909F24 /* CYRLayoutManager.m */; };
+		7939DFA964368C0F8A2B98CF01C78539 /* IFlyDebugLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 39B81E0465669582F2B22CDBE01E6CD4 /* IFlyDebugLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A57DB832E72180E3C777EEBAEA921E9 /* IFlyUserWords.h in Headers */ = {isa = PBXBuildFile; fileRef = E3F801222BC233026F0C7C332FA5D4E0 /* IFlyUserWords.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F64F7C1A0C2D5CBD95D069E74C10E95 /* HRCgUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAF84D081655053286E60E341694107 /* HRCgUtil.m */; };
+		7FA06CD6A551EBC287D1670E33CEA444 /* IFlySpeechEvaluatorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ED09CFC1FDAE370F5CDB48D90FA38CE9 /* IFlySpeechEvaluatorDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		829500B20B28F1507E9E4D8C89387C82 /* IFlyVoiceWakeuperDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF7F11923CAA2CC43530EF0EE4672B7 /* IFlyVoiceWakeuperDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8604E5933C3744636EA282D2B7A2F878 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06014E603DAFE06A51D5361C659EFCA7 /* SystemConfiguration.framework */; };
+		861259DD7F889FC9B19E1A710AB41D28 /* CYRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DE42DEA2F7730803BD44C1E57EB5F3 /* CYRTextView.m */; };
+		8D753EE3DC02FB4675433FFEC76E75EC /* HRBrightnessCursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C8F7B39519F343B8AB51C02EFA9FBD1 /* HRBrightnessCursor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93DF71C4BD02089F1F135E9CB7B52AFD /* IFlyISVRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BF3F0D4A59653C287FEFEC62F36E1C7 /* IFlyISVRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		952EB7AA102CEEDE680611AE2CCCB815 /* HRColorUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = B69E8E33D1FAF7FD16C3F2B2913B3A84 /* HRColorUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96FDB4ADA8CDBF670552FEFB83343F86 /* ZSSRichTextEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7EAD301FC954D23A75C4FBCCD0F4C4 /* ZSSRichTextEditor.m */; };
+		9E4B0EC435B6DE3264BB43F34C3936E3 /* ZSSBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB575A41AB16CDC05E69F3845E5E861 /* ZSSBarButtonItem.m */; };
+		9E917C004F5E94F9E62A4F8ED2B03E26 /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F22FC9D221C9E56BA4F80A13793893 /* IATConfig.m */; };
+		A08349D5933ED45D7FBDE6545AF0110C /* ZSSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C12B6133141C2C018B329EE4DE9229 /* ZSSTextView.m */; };
+		A2ED1813D212B6E5EC93DED677C9D6F1 /* ZSSBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A0766CCD785C4E57E7552ADA364A952F /* ZSSBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A571DF6513428E8FD29DF5C33D0C31C7 /* AipBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BEBB0886FE477C9F70E6EBEE64BC2C5 /* AipBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC178704B161DBF671BE2104E1C2D6BB /* ZSSRichTextEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AC926D38DB6225F65400E6229559FAD /* ZSSRichTextEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ADBFAC9D9F8ED9DA903EBE94C987DA19 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186B72BA565C6D3841C670E86238CE83 /* AVFoundation.framework */; };
+		B07BE3A43F5201B018946FAEF31480B9 /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D66531A3E1D10F010CAA3D3E0203A1 /* ISRDataHelper.m */; };
+		B73713D1FE33A8A4151864C446F363AD /* IFlySetting.h in Headers */ = {isa = PBXBuildFile; fileRef = CADE5006A794BBA8CD1BE3596B96565B /* IFlySetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA408B10547C4E4F9171FDA6EF5D5769 /* IFlyTextUnderstander.h in Headers */ = {isa = PBXBuildFile; fileRef = 22B908D36AC058B538E0091B4760F423 /* IFlyTextUnderstander.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF0CF15EC0D12743084F0F2AA08001EE /* HRColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 531047D9DFBF2675A78BEF5D37883E5E /* HRColorPickerView.m */; };
+		C10B6F038DAAE232DFA56CFBD0C9B668 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AF2E33051BF8BD48F4757313AF462C /* AddressBook.framework */; };
+		C1F8C42CD2F1A0FC4086152101CFE6E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DB6F1CAFF2426F8404AC8277D18680 /* CoreGraphics.framework */; };
+		C36A0F659C8A6BC8953E3D21666BB4E1 /* HRColorCursor.h in Headers */ = {isa = PBXBuildFile; fileRef = 858C2D91048D9796C4EDC1CA10D17043 /* HRColorCursor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3B2A43492BFE7333609C7B3A1D89121 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2641E25F490DF459CBB29A8FDB5218 /* Contacts.framework */; };
+		C6AC5430145EA0CE0F855491C14A746E /* IFlyRecognizerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E226E7CEC8296AD7107718BB408884E /* IFlyRecognizerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7CEE1855EECEBC0AE38216849B5A991 /* RYIndicatorBackgroudView.h in Headers */ = {isa = PBXBuildFile; fileRef = A65EF34AAA00AA97D1E94F8F8B761361 /* RYIndicatorBackgroudView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D58A7E94940AFDA37ECF569E5AD2C69A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDFAC13FB23688EF355BCAE6739DAC5 /* Foundation.framework */; };
+		D9B783EF078B090FDFBBD22F52F5BDF6 /* IFlySpeechSynthesizerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BBF8B481B2958E3ACA86B4A3A7811B8 /* IFlySpeechSynthesizerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1D4F3E311B27A8A052119BDD9B40F2C /* CYRTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = D39315F76CD52E0EEC4D1EA070A2F74A /* CYRTextStorage.m */; };
+		E4CD8B462AAD5693F4DFE20EB14B6132 /* HRColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8BE0E03675F63B670D7D5F256589DE9 /* HRColorPickerViewController.m */; };
+		EA681F53DCB3A2FA347D6DC786B37F03 /* AipOpenUDID.h in Headers */ = {isa = PBXBuildFile; fileRef = FDD5347DB2CA1621472E42195AD77747 /* AipOpenUDID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB99708B7E6AFE969D0ED3D42B335935 /* IFlySpeechUnderstander.h in Headers */ = {isa = PBXBuildFile; fileRef = 314423CEFDEB4747A2065C74BD92B2C2 /* IFlySpeechUnderstander.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED6390AD6D02F58246592442AB299B19 /* IATConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 651DC5AB0CD140B1EA7C3B6888EDDA51 /* IATConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EED629AB176B558B8565291C8EB72836 /* IFlyContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A8BBFE0AAE2390EBED6F90EF03F8539 /* IFlyContact.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F00DFC7DFDE67B3D603EDA24043A9885 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDFAC13FB23688EF355BCAE6739DAC5 /* Foundation.framework */; };
+		F342856414038D41CE84B67729820D8E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2352997DFA1871A208FA5FC3F2CB6FA /* CoreLocation.framework */; };
+		F458196CDBD41C4D086BFA4CBFCE662C /* IFlySpeechRecognizerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 45EFC32D4FB40672F399C71E4CDD8B4C /* IFlySpeechRecognizerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F472E6CDAA61E35F2E2A2C350685219F /* CYRToken.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C6215188DD93B8C053E5F5AA119A47 /* CYRToken.m */; };
+		FC749E26CAE3B68C4D563258DD15F8CE /* HRColorPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FECAFCE97AC07092B770FD8A8CC66BF /* HRColorPickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD25D1D8F404F13F8D8780D54ED81C18 /* IFlyPcmRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = D6559B4A467AE77B9CDA8CB523CC9E9E /* IFlyPcmRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FECFAEF6F55B4FD7DB4210EDCA05FA81 /* AipOcrManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3003E028321CC70F7A1680C2D0A9107C /* AipOcrManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		521E0822A6381F623840CD365CA7333D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F22BEFF071E785CDE46F20EE736D2737;
+			remoteInfo = TWRichTextEditor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01D87EE5B0BEDB442D2AF80025B940C1 /* t51点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t51点击@3x.png"; path = "TWRichTextEditor/Images/t51点击@3x.png"; sourceTree = "<group>"; };
+		037970A8B8DB7DBFF3F553CAF1E7DBF1 /* t41@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t41@2x.png"; path = "TWRichTextEditor/Images/t41@2x.png"; sourceTree = "<group>"; };
+		046877241D6524B055691850BB6E8B3A /* t53点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t53点击@2x.png"; path = "TWRichTextEditor/Images/t53点击@2x.png"; sourceTree = "<group>"; };
+		04A507F205FD6581EDFEBEEAFBEA6197 /* t31点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t31点击@3x.png"; path = "TWRichTextEditor/Images/t31点击@3x.png"; sourceTree = "<group>"; };
+		06014E603DAFE06A51D5361C659EFCA7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		066FCF9F5A58F49421E1425CBA021A33 /* t51@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t51@2x.png"; path = "TWRichTextEditor/Images/t51@2x.png"; sourceTree = "<group>"; };
+		0685A995625CF5756944033ED756E5AC /* Pods-TWRichTextEditorDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TWRichTextEditorDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		06C12B6133141C2C018B329EE4DE9229 /* ZSSTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZSSTextView.m; path = TWRichTextEditor/ZSSTextView.m; sourceTree = "<group>"; };
+		095F609A015292181C9B03671725F4FB /* textrecognition@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "textrecognition@2x.png"; path = "TWRichTextEditor/Images/textrecognition@2x.png"; sourceTree = "<group>"; };
+		0AE4FF1E365C71A7206D125AEFCDC630 /* HRColorCursor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorCursor.m; path = TWRichTextEditor/ThirdParty/HRColorCursor.m; sourceTree = "<group>"; };
+		119EAD92A64F5513B7289640527F99E5 /* t33点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t33点击@2x.png"; path = "TWRichTextEditor/Images/t33点击@2x.png"; sourceTree = "<group>"; };
+		127066789FFDFF52C0F789340A72EDD3 /* t5点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t5点击@2x.png"; path = "TWRichTextEditor/Images/t5点击@2x.png"; sourceTree = "<group>"; };
+		1356206F7D3E55F1FC11D2B15C97E9A8 /* t52@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t52@3x.png"; path = "TWRichTextEditor/Images/t52@3x.png"; sourceTree = "<group>"; };
+		13AC69FAA6A46B8ECDB861487EA6B097 /* paizhaoanniu_dianjihou@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "paizhaoanniu_dianjihou@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/paizhaoanniu_dianjihou@3x.png"; sourceTree = "<group>"; };
+		141D9798BF011DFAF6366889C1978655 /* jQuery.js */ = {isa = PBXFileReference; includeInIndex = 1; name = jQuery.js; path = TWRichTextEditor/Resource/jQuery.js; sourceTree = "<group>"; };
+		165F6A72FD46A3904698D7C291AEC807 /* t42点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t42点击@2x.png"; path = "TWRichTextEditor/Images/t42点击@2x.png"; sourceTree = "<group>"; };
+		186B72BA565C6D3841C670E86238CE83 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		1A7EAD301FC954D23A75C4FBCCD0F4C4 /* ZSSRichTextEditor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZSSRichTextEditor.m; path = TWRichTextEditor/ZSSRichTextEditor.m; sourceTree = "<group>"; };
+		1BBF8B481B2958E3ACA86B4A3A7811B8 /* IFlySpeechSynthesizerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechSynthesizerDelegate.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechSynthesizerDelegate.h; sourceTree = "<group>"; };
+		1CB3EE2F63D25F5A1DE2BEB3DCEDF117 /* paizhaoanniu@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "paizhaoanniu@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/paizhaoanniu@2x.png"; sourceTree = "<group>"; };
+		1CF2AF7E8FEDCDE40B657BF581035392 /* t51@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t51@3x.png"; path = "TWRichTextEditor/Images/t51@3x.png"; sourceTree = "<group>"; };
+		1FE0E1C9014C37B41F3E56922C291036 /* t3点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t3点击@3x.png"; path = "TWRichTextEditor/Images/t3点击@3x.png"; sourceTree = "<group>"; };
+		221D2BDA35D11C1C16BC3EC1C3311AAD /* Page 1@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Page 1@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/Page 1@2x.png"; sourceTree = "<group>"; };
+		226F3DB1CCEE8ACC18C0D001F6CD6C3A /* editor.html */ = {isa = PBXFileReference; includeInIndex = 1; name = editor.html; path = TWRichTextEditor/Resource/editor.html; sourceTree = "<group>"; };
+		22B908D36AC058B538E0091B4760F423 /* IFlyTextUnderstander.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyTextUnderstander.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyTextUnderstander.h; sourceTree = "<group>"; };
+		2390C8692496B04401EED57FE92EA5FB /* CYRLayoutManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CYRLayoutManager.h; path = TWRichTextEditor/ThirdParty/CYRLayoutManager.h; sourceTree = "<group>"; };
+		261737CCDBAA11C40A06BCDAB4262650 /* dengpao@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "dengpao@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/dengpao@2x.png"; sourceTree = "<group>"; };
+		280B7183CD7597102BC5F7BCC99AC9FF /* guanbi@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "guanbi@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/guanbi@3x.png"; sourceTree = "<group>"; };
+		28516C78A54E976504E8478365530773 /* t3@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t3@3x.png"; path = "TWRichTextEditor/Images/t3@3x.png"; sourceTree = "<group>"; };
+		2AC926D38DB6225F65400E6229559FAD /* ZSSRichTextEditor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZSSRichTextEditor.h; path = TWRichTextEditor/ZSSRichTextEditor.h; sourceTree = "<group>"; };
+		2B50FEC68751A3794C04F07A8B28EE40 /* t1@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t1@3x.png"; path = "TWRichTextEditor/Images/t1@3x.png"; sourceTree = "<group>"; };
+		2BB78445B1C17DE6E31193DA995A9BBD /* t42@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t42@3x.png"; path = "TWRichTextEditor/Images/t42@3x.png"; sourceTree = "<group>"; };
+		2BF3F0D4A59653C287FEFEC62F36E1C7 /* IFlyISVRecognizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyISVRecognizer.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyISVRecognizer.h; sourceTree = "<group>"; };
+		2C880E2CBAC38207593A915647085DEA /* ZSSFontsViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZSSFontsViewController.h; path = TWRichTextEditor/ZSSFontsViewController.h; sourceTree = "<group>"; };
+		2FFFA504EE13AD19825908ADDEAC5F8C /* t52点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t52点击@2x.png"; path = "TWRichTextEditor/Images/t52点击@2x.png"; sourceTree = "<group>"; };
+		3003E028321CC70F7A1680C2D0A9107C /* AipOcrManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AipOcrManager.h; path = TWRichTextEditor/ThirdParty/AipBase.framework/Headers/AipOcrManager.h; sourceTree = "<group>"; };
+		314423CEFDEB4747A2065C74BD92B2C2 /* IFlySpeechUnderstander.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechUnderstander.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechUnderstander.h; sourceTree = "<group>"; };
+		327F7552720281608779A6A4141EDB31 /* IFlySpeechConstant.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechConstant.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechConstant.h; sourceTree = "<group>"; };
+		3430F6E30CD861A09193E02C8A193D88 /* t32@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t32@2x.png"; path = "TWRichTextEditor/Images/t32@2x.png"; sourceTree = "<group>"; };
+		343F5F65753EEBFF41DD9625CFF5A428 /* IFlySpeechSynthesizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechSynthesizer.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechSynthesizer.h; sourceTree = "<group>"; };
+		354798F5EDFCE25D2B3CE9B3838E5699 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		3623CF9B85797396F8293B2774A950D1 /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipOcrSdk.framework; path = TWRichTextEditor/ThirdParty/AipOcrSdk.framework; sourceTree = "<group>"; };
+		36FFC31789A93902DDF45FCBC7888AE7 /* AipOcrService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AipOcrService.h; path = TWRichTextEditor/ThirdParty/AipOcrSdk.framework/Headers/AipOcrService.h; sourceTree = "<group>"; };
+		37AF2E33051BF8BD48F4757313AF462C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/AddressBook.framework; sourceTree = DEVELOPER_DIR; };
+		395D57353231B238DE5FCDBA7B77B03B /* t53点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t53点击@3x.png"; path = "TWRichTextEditor/Images/t53点击@3x.png"; sourceTree = "<group>"; };
+		39B81E0465669582F2B22CDBE01E6CD4 /* IFlyDebugLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyDebugLog.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyDebugLog.h; sourceTree = "<group>"; };
+		3A8BBFE0AAE2390EBED6F90EF03F8539 /* IFlyContact.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyContact.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyContact.h; sourceTree = "<group>"; };
+		3CF879A8DF3F911B36D629A064C68ACD /* t53@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t53@2x.png"; path = "TWRichTextEditor/Images/t53@2x.png"; sourceTree = "<group>"; };
+		3D3233CEA1ACCE33EE4722982B810287 /* tuku@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "tuku@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/tuku@2x.png"; sourceTree = "<group>"; };
+		3EE25F0505190BB62825809DD7D61588 /* Pods-TWRichTextEditorDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TWRichTextEditorDemo-frameworks.sh"; sourceTree = "<group>"; };
+		3FECAFCE97AC07092B770FD8A8CC66BF /* HRColorPickerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorPickerViewController.h; path = TWRichTextEditor/ThirdParty/HRColorPickerViewController.h; sourceTree = "<group>"; };
+		403143B61A268E3F06371761B1758347 /* t52@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t52@2x.png"; path = "TWRichTextEditor/Images/t52@2x.png"; sourceTree = "<group>"; };
+		41EA22B0FEA0C1C70886949250939C94 /* t5@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t5@2x.png"; path = "TWRichTextEditor/Images/t5@2x.png"; sourceTree = "<group>"; };
+		4473B2569322B67B3588B418C7FC898E /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipBase.framework; path = TWRichTextEditor/ThirdParty/AipBase.framework; sourceTree = "<group>"; };
+		45C4A37CD233472F01D6F0EE9105B7D4 /* t3点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t3点击@2x.png"; path = "TWRichTextEditor/Images/t3点击@2x.png"; sourceTree = "<group>"; };
+		45DB6F1CAFF2426F8404AC8277D18680 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		45EFC32D4FB40672F399C71E4CDD8B4C /* IFlySpeechRecognizerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechRecognizerDelegate.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechRecognizerDelegate.h; sourceTree = "<group>"; };
+		473DCE1494D7703B6592DF56B88DB68C /* TWRichTextEditor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TWRichTextEditor-dummy.m"; sourceTree = "<group>"; };
+		4B564D0A8E6E38558E26C47F58A656EE /* tuku@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "tuku@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/tuku@3x.png"; sourceTree = "<group>"; };
+		4B784E7747145D46FB7313A35E747E48 /* t32点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t32点击@2x.png"; path = "TWRichTextEditor/Images/t32点击@2x.png"; sourceTree = "<group>"; };
+		4B9BA5043BF0464AA43673F3B2B11593 /* t33点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t33点击@3x.png"; path = "TWRichTextEditor/Images/t33点击@3x.png"; sourceTree = "<group>"; };
+		4BE31190BC92E812989B71A145EC033B /* t31点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t31点击@2x.png"; path = "TWRichTextEditor/Images/t31点击@2x.png"; sourceTree = "<group>"; };
+		4DE5D60DB09ED11BF24C7EFDD81E08D7 /* t42@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t42@2x.png"; path = "TWRichTextEditor/Images/t42@2x.png"; sourceTree = "<group>"; };
+		4E0B54A97A1F2596E985CD980790BC7F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		4E226E7CEC8296AD7107718BB408884E /* IFlyRecognizerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyRecognizerView.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyRecognizerView.h; sourceTree = "<group>"; };
+		507E650AF1318C64FD6913974F612D44 /* HRColorPickerMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorPickerMacros.h; path = TWRichTextEditor/ThirdParty/HRColorPickerMacros.h; sourceTree = "<group>"; };
+		531047D9DFBF2675A78BEF5D37883E5E /* HRColorPickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorPickerView.m; path = TWRichTextEditor/ThirdParty/HRColorPickerView.m; sourceTree = "<group>"; };
+		564D1B279EBDBE953A301656229641AC /* t31@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t31@3x.png"; path = "TWRichTextEditor/Images/t31@3x.png"; sourceTree = "<group>"; };
+		5917775A9356BC50FF6FC8B66793A194 /* xuxian@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "xuxian@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/xuxian@2x.png"; sourceTree = "<group>"; };
+		5A6A8191D1B5A82EBB377E4D6E8B38C0 /* ISRDataHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISRDataHelper.h; path = TWRichTextEditor/ISRDataHelper.h; sourceTree = "<group>"; };
+		5AE96161E638ACF25F1C9917B70026CF /* guan@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "guan@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/guan@2x.png"; sourceTree = "<group>"; };
+		5E94D22EC67C202379123F0F54F5E3DC /* paizhaoanniu_dianjihou@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "paizhaoanniu_dianjihou@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/paizhaoanniu_dianjihou@2x.png"; sourceTree = "<group>"; };
+		5F41F81D4CB74BF81E7046F6C764D474 /* t33@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t33@2x.png"; path = "TWRichTextEditor/Images/t33@2x.png"; sourceTree = "<group>"; };
+		611D51699F37919F8E8A691463AD8A61 /* dengpao_dianjihou@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "dengpao_dianjihou@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/dengpao_dianjihou@3x.png"; sourceTree = "<group>"; };
+		62EC44F1BE3052107B98E20C446534A1 /* IFlySpeechError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechError.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechError.h; sourceTree = "<group>"; };
+		651DC5AB0CD140B1EA7C3B6888EDDA51 /* IATConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IATConfig.h; path = TWRichTextEditor/IATConfig.h; sourceTree = "<group>"; };
+		66D66531A3E1D10F010CAA3D3E0203A1 /* ISRDataHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISRDataHelper.m; path = TWRichTextEditor/ISRDataHelper.m; sourceTree = "<group>"; };
+		699D5BBD257EB298BFD48D475B6015C1 /* CYRTextStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CYRTextStorage.h; path = TWRichTextEditor/ThirdParty/CYRTextStorage.h; sourceTree = "<group>"; };
+		6ACBAFB49A733F6406F62435FD0F52F5 /* xuanzhuan@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "xuanzhuan@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/xuanzhuan@2x.png"; sourceTree = "<group>"; };
+		6C82FB841FE08E8B05E85F2959C8AE83 /* libTWRichTextEditor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libTWRichTextEditor.a; path = libTWRichTextEditor.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D6B1D37F4CCA3568D0D4A5E06361C20 /* AipOcrSdk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AipOcrSdk.h; path = TWRichTextEditor/ThirdParty/AipOcrSdk.framework/Headers/AipOcrSdk.h; sourceTree = "<group>"; };
+		6FB5D512E92B27E3F020B01FD4C926C6 /* TWRichTextEditor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TWRichTextEditor-prefix.pch"; sourceTree = "<group>"; };
+		701C8BD714F64E39AFE99EC24B4C4347 /* t5点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t5点击@3x.png"; path = "TWRichTextEditor/Images/t5点击@3x.png"; sourceTree = "<group>"; };
+		70983918714CC221E1734518760AD58C /* t2@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t2@2x.png"; path = "TWRichTextEditor/Images/t2@2x.png"; sourceTree = "<group>"; };
+		70F22FC9D221C9E56BA4F80A13793893 /* IATConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IATConfig.m; path = TWRichTextEditor/IATConfig.m; sourceTree = "<group>"; };
+		73637106B6C7077E76B3B3E5D674E1CE /* Text-bold-tilt@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Text-bold-tilt@3x.png"; path = "TWRichTextEditor/Images/Text-bold-tilt@3x.png"; sourceTree = "<group>"; };
+		747751AEEBAA1776335078876C1DA1A7 /* t4@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t4@3x.png"; path = "TWRichTextEditor/Images/t4@3x.png"; sourceTree = "<group>"; };
+		754FA14B72369AE2C288DC85C5937BFB /* HRColorUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorUtil.m; path = TWRichTextEditor/ThirdParty/HRColorUtil.m; sourceTree = "<group>"; };
+		759F85CAC3E1C87E811BE98BCF818868 /* IFlySpeechEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechEvent.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechEvent.h; sourceTree = "<group>"; };
+		7734732929A1D9C1C5428D0C45EA6DDC /* TWRichTextEditor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TWRichTextEditor.xcconfig; sourceTree = "<group>"; };
+		779BD0E4BC676160F8235803F5E4EE0D /* t4点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t4点击@2x.png"; path = "TWRichTextEditor/Images/t4点击@2x.png"; sourceTree = "<group>"; };
+		78728E74B4261497F1EDD41CFAD8AD76 /* ZSSRichTextEditor.js */ = {isa = PBXFileReference; includeInIndex = 1; name = ZSSRichTextEditor.js; path = TWRichTextEditor/Resource/ZSSRichTextEditor.js; sourceTree = "<group>"; };
+		78D30991A2A8AF11633806A8C4E765C2 /* Pods-TWRichTextEditorDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TWRichTextEditorDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		7BEBB0886FE477C9F70E6EBEE64BC2C5 /* AipBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AipBase.h; path = TWRichTextEditor/ThirdParty/AipBase.framework/Headers/AipBase.h; sourceTree = "<group>"; };
+		7E92FD3F2C2C0B8891ED3A72FD51BC7A /* HRCgUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRCgUtil.h; path = TWRichTextEditor/ThirdParty/HRCgUtil.h; sourceTree = "<group>"; };
+		833A97AE4EA5BDDCD9A8D1B96528F12F /* CYRTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CYRTextView.h; path = TWRichTextEditor/ThirdParty/CYRTextView.h; sourceTree = "<group>"; };
+		8395275AB7153BDE5DFC163752B6D770 /* t41点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t41点击@3x.png"; path = "TWRichTextEditor/Images/t41点击@3x.png"; sourceTree = "<group>"; };
+		843242FCC4E04F98D246C9F083C238B6 /* IFlyDataUploader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyDataUploader.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyDataUploader.h; sourceTree = "<group>"; };
+		858C2D91048D9796C4EDC1CA10D17043 /* HRColorCursor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorCursor.h; path = TWRichTextEditor/ThirdParty/HRColorCursor.h; sourceTree = "<group>"; };
+		85F4BED4D2CEC659EE0DDDACC9091864 /* HRBrightnessCursor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRBrightnessCursor.m; path = TWRichTextEditor/ThirdParty/HRBrightnessCursor.m; sourceTree = "<group>"; };
+		8677D894FE95062F1B6DD691A168F18C /* CYRToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CYRToken.h; path = TWRichTextEditor/ThirdParty/CYRToken.h; sourceTree = "<group>"; };
+		8964881664B18AE7791A5769C055AF67 /* AipCaptureCardVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AipCaptureCardVC.h; path = TWRichTextEditor/ThirdParty/AipOcrSdk.framework/Headers/AipCaptureCardVC.h; sourceTree = "<group>"; };
+		8996FD14B11972984F6469749DBFE062 /* guan@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "guan@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/guan@3x.png"; sourceTree = "<group>"; };
+		89986C77353DE8C23D9C02B18367331E /* Pods-TWRichTextEditorDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TWRichTextEditorDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8B4C46270943408571E4D4D35A2FCDF1 /* JSBeautifier.js */ = {isa = PBXFileReference; includeInIndex = 1; name = JSBeautifier.js; path = TWRichTextEditor/Resource/JSBeautifier.js; sourceTree = "<group>"; };
+		8CBFB7F348DC6386DAB6249AEB7DF305 /* dengpao_dianjihou@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "dengpao_dianjihou@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/dengpao_dianjihou@2x.png"; sourceTree = "<group>"; };
+		8CDFAC13FB23688EF355BCAE6739DAC5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		8DB575A41AB16CDC05E69F3845E5E861 /* ZSSBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZSSBarButtonItem.m; path = TWRichTextEditor/ZSSBarButtonItem.m; sourceTree = "<group>"; };
+		91A7ED38DC8D89E0C5ADD7D61F0EE926 /* t1@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t1@2x.png"; path = "TWRichTextEditor/Images/t1@2x.png"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9A34250E5042353CF1C2EC6962314904 /* guanbi@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "guanbi@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/guanbi@2x.png"; sourceTree = "<group>"; };
+		9C5DE566647D973E2BA882B716A06905 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		9C8F7B39519F343B8AB51C02EFA9FBD1 /* HRBrightnessCursor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRBrightnessCursor.h; path = TWRichTextEditor/ThirdParty/HRBrightnessCursor.h; sourceTree = "<group>"; };
+		9DD1024373D28E152A9FF6F9660FE3DE /* t6@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t6@2x.png"; path = "TWRichTextEditor/Images/t6@2x.png"; sourceTree = "<group>"; };
+		9EB5119C814EA2DBEAF3CE01B09C5672 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		9F2B79BF21CD9435D2A740F0D92C8A7E /* ZSSTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZSSTextView.h; path = TWRichTextEditor/ZSSTextView.h; sourceTree = "<group>"; };
+		A0766CCD785C4E57E7552ADA364A952F /* ZSSBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZSSBarButtonItem.h; path = TWRichTextEditor/ZSSBarButtonItem.h; sourceTree = "<group>"; };
+		A0BD7F22DC577C3E16580FDACCF8E776 /* t32@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t32@3x.png"; path = "TWRichTextEditor/Images/t32@3x.png"; sourceTree = "<group>"; };
+		A16E49B0384E8EABC28546102094241B /* IFlyISVDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyISVDelegate.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyISVDelegate.h; sourceTree = "<group>"; };
+		A65EF34AAA00AA97D1E94F8F8B761361 /* RYIndicatorBackgroudView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RYIndicatorBackgroudView.h; path = TWRichTextEditor/RYIndicatorBackgroudView.h; sourceTree = "<group>"; };
+		A76954AB22E441E180F9C6F55ECDA74C /* t52点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t52点击@3x.png"; path = "TWRichTextEditor/Images/t52点击@3x.png"; sourceTree = "<group>"; };
+		A79DD6BB1980D9A2667F76C12729D1A1 /* RYIndicatorBackgroudView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RYIndicatorBackgroudView.m; path = TWRichTextEditor/RYIndicatorBackgroudView.m; sourceTree = "<group>"; };
+		A956EE4CAA7E79622EE9AEC060CD8ABE /* t2点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t2点击@2x.png"; path = "TWRichTextEditor/Images/t2点击@2x.png"; sourceTree = "<group>"; };
+		AA5C4D27BE0164D3789BFCFEF634906B /* t32点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t32点击@3x.png"; path = "TWRichTextEditor/Images/t32点击@3x.png"; sourceTree = "<group>"; };
+		ABB8969B6731F61D504EA71F31535E55 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = TWRichTextEditor/ThirdParty/iflyMSC.framework; sourceTree = "<group>"; };
+		AD2EF36298BC790D74BD34027F7D0FB5 /* AipOcrDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AipOcrDelegate.h; path = TWRichTextEditor/ThirdParty/AipOcrSdk.framework/Headers/AipOcrDelegate.h; sourceTree = "<group>"; };
+		AD844E95D52535499862F66B011E322B /* Pods-TWRichTextEditorDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TWRichTextEditorDemo-dummy.m"; sourceTree = "<group>"; };
+		AFAF84D081655053286E60E341694107 /* HRCgUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRCgUtil.m; path = TWRichTextEditor/ThirdParty/HRCgUtil.m; sourceTree = "<group>"; };
+		AFEDBC2F2A3DA158126441C454DD158E /* queding@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "queding@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/queding@3x.png"; sourceTree = "<group>"; };
+		B14AC9DBD35D0376759432117E950C8F /* textrecognition@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "textrecognition@3x.png"; path = "TWRichTextEditor/Images/textrecognition@3x.png"; sourceTree = "<group>"; };
+		B609AAB237F00B13C56EE571186B7504 /* IFlySpeechUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechUtility.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechUtility.h; sourceTree = "<group>"; };
+		B69E8E33D1FAF7FD16C3F2B2913B3A84 /* HRColorUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorUtil.h; path = TWRichTextEditor/ThirdParty/HRColorUtil.h; sourceTree = "<group>"; };
+		B6C06847131F0856BD6FA8377A4AF06C /* IFlyVoiceWakeuper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyVoiceWakeuper.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyVoiceWakeuper.h; sourceTree = "<group>"; };
+		B76E6F2AA1D4CAAA138290D1A6990599 /* t41@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t41@3x.png"; path = "TWRichTextEditor/Images/t41@3x.png"; sourceTree = "<group>"; };
+		BC52534D8BB15E8D11DFC3E7F3278DF1 /* dengpao@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "dengpao@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/dengpao@3x.png"; sourceTree = "<group>"; };
+		C1D90C68DDD66797598990159697558B /* t31@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t31@2x.png"; path = "TWRichTextEditor/Images/t31@2x.png"; sourceTree = "<group>"; };
+		C2352997DFA1871A208FA5FC3F2CB6FA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		C3BFECC43DCF1632BD4B9BDDAA33D15A /* IFlySpeechEvaluator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechEvaluator.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechEvaluator.h; sourceTree = "<group>"; };
+		C54B45569CE87DD305A467A68AB60B7A /* ZSSFontsViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZSSFontsViewController.m; path = TWRichTextEditor/ZSSFontsViewController.m; sourceTree = "<group>"; };
+		C77E136790B7F5ACAC1AD983A40417CB /* IFlyRecognizerViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyRecognizerViewDelegate.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyRecognizerViewDelegate.h; sourceTree = "<group>"; };
+		C87AD77754AEC027E42DFC168184219A /* IFlyResourceUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyResourceUtil.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyResourceUtil.h; sourceTree = "<group>"; };
+		CA1596F04C856CADE3C28E179E5ED886 /* xuxian@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "xuxian@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/xuxian@3x.png"; sourceTree = "<group>"; };
+		CADE5006A794BBA8CD1BE3596B96565B /* IFlySetting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySetting.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySetting.h; sourceTree = "<group>"; };
+		CB152E590A6D97DD41CE13584E248F0E /* HRColorPickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HRColorPickerView.h; path = TWRichTextEditor/ThirdParty/HRColorPickerView.h; sourceTree = "<group>"; };
+		CDF7F11923CAA2CC43530EF0EE4672B7 /* IFlyVoiceWakeuperDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyVoiceWakeuperDelegate.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyVoiceWakeuperDelegate.h; sourceTree = "<group>"; };
+		CE9E25E9CF50A75B631FEFC342909F24 /* CYRLayoutManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CYRLayoutManager.m; path = TWRichTextEditor/ThirdParty/CYRLayoutManager.m; sourceTree = "<group>"; };
+		D0947F981F69B83422208F18930402C9 /* AipGeneralVC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AipGeneralVC.h; path = TWRichTextEditor/ThirdParty/AipOcrSdk.framework/Headers/AipGeneralVC.h; sourceTree = "<group>"; };
+		D378A5CD28ACDC9F11C7EB7038C885E0 /* Pods-TWRichTextEditorDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TWRichTextEditorDemo-resources.sh"; sourceTree = "<group>"; };
+		D39315F76CD52E0EEC4D1EA070A2F74A /* CYRTextStorage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CYRTextStorage.m; path = TWRichTextEditor/ThirdParty/CYRTextStorage.m; sourceTree = "<group>"; };
+		D39BBBA6A3AF8E579FFFE6B4DBC0074E /* libPods-TWRichTextEditorDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-TWRichTextEditorDemo.a"; path = "libPods-TWRichTextEditorDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6559B4A467AE77B9CDA8CB523CC9E9E /* IFlyPcmRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyPcmRecorder.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyPcmRecorder.h; sourceTree = "<group>"; };
+		D6DE42DEA2F7730803BD44C1E57EB5F3 /* CYRTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CYRTextView.m; path = TWRichTextEditor/ThirdParty/CYRTextView.m; sourceTree = "<group>"; };
+		D99E21166DBB3B0CE406B19A93C884D0 /* paizhaoanniu@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "paizhaoanniu@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/paizhaoanniu@3x.png"; sourceTree = "<group>"; };
+		D9DCD81B84AADD82F752778B3B58B30C /* t42点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t42点击@3x.png"; path = "TWRichTextEditor/Images/t42点击@3x.png"; sourceTree = "<group>"; };
+		DC8C5B54DB67CA8518DEED8F2938950C /* Text-bold-tilt@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Text-bold-tilt@2x.png"; path = "TWRichTextEditor/Images/Text-bold-tilt@2x.png"; sourceTree = "<group>"; };
+		DE99455C243E7A72CC59CF8FD19ADECF /* IFlyMSC.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyMSC.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyMSC.h; sourceTree = "<group>"; };
+		E1D2FAE6C0B97FC7B582F244C8C7B678 /* t2点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t2点击@3x.png"; path = "TWRichTextEditor/Images/t2点击@3x.png"; sourceTree = "<group>"; };
+		E1E8C6DE58E054C419293B7238E677C1 /* t4点击@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t4点击@3x.png"; path = "TWRichTextEditor/Images/t4点击@3x.png"; sourceTree = "<group>"; };
+		E2C6215188DD93B8C053E5F5AA119A47 /* CYRToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CYRToken.m; path = TWRichTextEditor/ThirdParty/CYRToken.m; sourceTree = "<group>"; };
+		E3F15E2FC90CEF7DA767BD828278C761 /* queding@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "queding@2x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/queding@2x.png"; sourceTree = "<group>"; };
+		E3F801222BC233026F0C7C332FA5D4E0 /* IFlyUserWords.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyUserWords.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyUserWords.h; sourceTree = "<group>"; };
+		E4DBFD671B34701E9266287EFADCCED7 /* t33@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t33@3x.png"; path = "TWRichTextEditor/Images/t33@3x.png"; sourceTree = "<group>"; };
+		E51BDA42325EC930C0BCCCE58033E9EE /* t2@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t2@3x.png"; path = "TWRichTextEditor/Images/t2@3x.png"; sourceTree = "<group>"; };
+		E69AF44AD20CE5914FE20E2C7AED1893 /* t3@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t3@2x.png"; path = "TWRichTextEditor/Images/t3@2x.png"; sourceTree = "<group>"; };
+		E7EBA540C37DD1FACDAC305461556CEF /* t6@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t6@3x.png"; path = "TWRichTextEditor/Images/t6@3x.png"; sourceTree = "<group>"; };
+		E8197995BEA73671D45670BFDC11E44C /* t4@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t4@2x.png"; path = "TWRichTextEditor/Images/t4@2x.png"; sourceTree = "<group>"; };
+		ED09CFC1FDAE370F5CDB48D90FA38CE9 /* IFlySpeechEvaluatorDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechEvaluatorDelegate.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechEvaluatorDelegate.h; sourceTree = "<group>"; };
+		ED0C4FCEEBC5144C5D0311E664162C8A /* Page 1@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "Page 1@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/Page 1@3x.png"; sourceTree = "<group>"; };
+		F58DB28208613AEC5EADCD43BB47369C /* IFlyAudioSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlyAudioSession.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlyAudioSession.h; sourceTree = "<group>"; };
+		F77F9B1C1F666C39616D99D81F278263 /* t53@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t53@3x.png"; path = "TWRichTextEditor/Images/t53@3x.png"; sourceTree = "<group>"; };
+		F8BE0E03675F63B670D7D5F256589DE9 /* HRColorPickerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HRColorPickerViewController.m; path = TWRichTextEditor/ThirdParty/HRColorPickerViewController.m; sourceTree = "<group>"; };
+		FA57B74C1C9D26587116209EAED59687 /* IFlySpeechRecognizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IFlySpeechRecognizer.h; path = TWRichTextEditor/ThirdParty/iflyMSC.framework/Headers/IFlySpeechRecognizer.h; sourceTree = "<group>"; };
+		FB2641E25F490DF459CBB29A8FDB5218 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Contacts.framework; sourceTree = DEVELOPER_DIR; };
+		FB994769F24ED73FDFE67FE0923ABB5F /* xuanzhuan@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "xuanzhuan@3x.png"; path = "TWRichTextEditor/ThirdParty/AipOcrSdk.framework/xuanzhuan@3x.png"; sourceTree = "<group>"; };
+		FD6CF6EC3308573B87A04AB8CD2579A8 /* t41点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t41点击@2x.png"; path = "TWRichTextEditor/Images/t41点击@2x.png"; sourceTree = "<group>"; };
+		FDD5347DB2CA1621472E42195AD77747 /* AipOpenUDID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AipOpenUDID.h; path = TWRichTextEditor/ThirdParty/AipBase.framework/Headers/AipOpenUDID.h; sourceTree = "<group>"; };
+		FE5E8EC8C4865C1957DB97086F63C6C2 /* t51点击@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t51点击@2x.png"; path = "TWRichTextEditor/Images/t51点击@2x.png"; sourceTree = "<group>"; };
+		FEFF96729902540A0A4EDB256A54304A /* Pods-TWRichTextEditorDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TWRichTextEditorDemo.release.xcconfig"; sourceTree = "<group>"; };
+		FFB3C6DEC03B216711B3A33DC9927719 /* t5@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "t5@3x.png"; path = "TWRichTextEditor/Images/t5@3x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		428849DA052860CAD2322959C4B85C44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C10B6F038DAAE232DFA56CFBD0C9B668 /* AddressBook.framework in Frameworks */,
+				0BEC8AF4BF72CAC352D1DFCF20D844B5 /* AudioToolbox.framework in Frameworks */,
+				ADBFAC9D9F8ED9DA903EBE94C987DA19 /* AVFoundation.framework in Frameworks */,
+				C3B2A43492BFE7333609C7B3A1D89121 /* Contacts.framework in Frameworks */,
+				C1F8C42CD2F1A0FC4086152101CFE6E6 /* CoreGraphics.framework in Frameworks */,
+				F342856414038D41CE84B67729820D8E /* CoreLocation.framework in Frameworks */,
+				595B3B78593EC4D244F63BB2668B3279 /* CoreTelephony.framework in Frameworks */,
+				F00DFC7DFDE67B3D603EDA24043A9885 /* Foundation.framework in Frameworks */,
+				0EF1CECC9EABCA7B453DB9B969BFE44B /* QuartzCore.framework in Frameworks */,
+				8604E5933C3744636EA282D2B7A2F878 /* SystemConfiguration.framework in Frameworks */,
+				23406466742C845846E02D5A6AD8C005 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79DD9E9E13F55F562A624227D870CB03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D58A7E94940AFDA37ECF569E5AD2C69A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		126C52834B3C7D2C744A84AE2A41C783 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D39BBBA6A3AF8E579FFFE6B4DBC0074E /* libPods-TWRichTextEditorDemo.a */,
+				6C82FB841FE08E8B05E85F2959C8AE83 /* libTWRichTextEditor.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30862BAEA851E72863AC983B7FD4FE0B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD4C3F10F89A2366C771DB287B9B4EEB /* Pods-TWRichTextEditorDemo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		408D5968F83ABBFE79244622E979F17D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				37AF2E33051BF8BD48F4757313AF462C /* AddressBook.framework */,
+				354798F5EDFCE25D2B3CE9B3838E5699 /* AudioToolbox.framework */,
+				186B72BA565C6D3841C670E86238CE83 /* AVFoundation.framework */,
+				FB2641E25F490DF459CBB29A8FDB5218 /* Contacts.framework */,
+				45DB6F1CAFF2426F8404AC8277D18680 /* CoreGraphics.framework */,
+				C2352997DFA1871A208FA5FC3F2CB6FA /* CoreLocation.framework */,
+				9EB5119C814EA2DBEAF3CE01B09C5672 /* CoreTelephony.framework */,
+				8CDFAC13FB23688EF355BCAE6739DAC5 /* Foundation.framework */,
+				4E0B54A97A1F2596E985CD980790BC7F /* QuartzCore.framework */,
+				06014E603DAFE06A51D5361C659EFCA7 /* SystemConfiguration.framework */,
+				9C5DE566647D973E2BA882B716A06905 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5F638DE767F6131543E48020C91DBA04 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA18786E16CE0CAB1BB9C83CBE119220 /* TWRichTextEditor */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		74B40F17ED9C4E884081DD554AB37B2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4473B2569322B67B3588B418C7FC898E /* AipBase.framework */,
+				3623CF9B85797396F8293B2774A950D1 /* AipOcrSdk.framework */,
+				ABB8969B6731F61D504EA71F31535E55 /* iflyMSC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				EB57DDB3388FBC701046A1E93218737F /* Frameworks */,
+				5F638DE767F6131543E48020C91DBA04 /* Pods */,
+				126C52834B3C7D2C744A84AE2A41C783 /* Products */,
+				30862BAEA851E72863AC983B7FD4FE0B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		AD4C3F10F89A2366C771DB287B9B4EEB /* Pods-TWRichTextEditorDemo */ = {
+			isa = PBXGroup;
+			children = (
+				0685A995625CF5756944033ED756E5AC /* Pods-TWRichTextEditorDemo-acknowledgements.markdown */,
+				78D30991A2A8AF11633806A8C4E765C2 /* Pods-TWRichTextEditorDemo-acknowledgements.plist */,
+				AD844E95D52535499862F66B011E322B /* Pods-TWRichTextEditorDemo-dummy.m */,
+				3EE25F0505190BB62825809DD7D61588 /* Pods-TWRichTextEditorDemo-frameworks.sh */,
+				D378A5CD28ACDC9F11C7EB7038C885E0 /* Pods-TWRichTextEditorDemo-resources.sh */,
+				89986C77353DE8C23D9C02B18367331E /* Pods-TWRichTextEditorDemo.debug.xcconfig */,
+				FEFF96729902540A0A4EDB256A54304A /* Pods-TWRichTextEditorDemo.release.xcconfig */,
+			);
+			name = "Pods-TWRichTextEditorDemo";
+			path = "Target Support Files/Pods-TWRichTextEditorDemo";
+			sourceTree = "<group>";
+		};
+		BA18786E16CE0CAB1BB9C83CBE119220 /* TWRichTextEditor */ = {
+			isa = PBXGroup;
+			children = (
+				7BEBB0886FE477C9F70E6EBEE64BC2C5 /* AipBase.h */,
+				8964881664B18AE7791A5769C055AF67 /* AipCaptureCardVC.h */,
+				D0947F981F69B83422208F18930402C9 /* AipGeneralVC.h */,
+				AD2EF36298BC790D74BD34027F7D0FB5 /* AipOcrDelegate.h */,
+				3003E028321CC70F7A1680C2D0A9107C /* AipOcrManager.h */,
+				6D6B1D37F4CCA3568D0D4A5E06361C20 /* AipOcrSdk.h */,
+				36FFC31789A93902DDF45FCBC7888AE7 /* AipOcrService.h */,
+				FDD5347DB2CA1621472E42195AD77747 /* AipOpenUDID.h */,
+				2390C8692496B04401EED57FE92EA5FB /* CYRLayoutManager.h */,
+				CE9E25E9CF50A75B631FEFC342909F24 /* CYRLayoutManager.m */,
+				699D5BBD257EB298BFD48D475B6015C1 /* CYRTextStorage.h */,
+				D39315F76CD52E0EEC4D1EA070A2F74A /* CYRTextStorage.m */,
+				833A97AE4EA5BDDCD9A8D1B96528F12F /* CYRTextView.h */,
+				D6DE42DEA2F7730803BD44C1E57EB5F3 /* CYRTextView.m */,
+				8677D894FE95062F1B6DD691A168F18C /* CYRToken.h */,
+				E2C6215188DD93B8C053E5F5AA119A47 /* CYRToken.m */,
+				9C8F7B39519F343B8AB51C02EFA9FBD1 /* HRBrightnessCursor.h */,
+				85F4BED4D2CEC659EE0DDDACC9091864 /* HRBrightnessCursor.m */,
+				7E92FD3F2C2C0B8891ED3A72FD51BC7A /* HRCgUtil.h */,
+				AFAF84D081655053286E60E341694107 /* HRCgUtil.m */,
+				858C2D91048D9796C4EDC1CA10D17043 /* HRColorCursor.h */,
+				0AE4FF1E365C71A7206D125AEFCDC630 /* HRColorCursor.m */,
+				507E650AF1318C64FD6913974F612D44 /* HRColorPickerMacros.h */,
+				CB152E590A6D97DD41CE13584E248F0E /* HRColorPickerView.h */,
+				531047D9DFBF2675A78BEF5D37883E5E /* HRColorPickerView.m */,
+				3FECAFCE97AC07092B770FD8A8CC66BF /* HRColorPickerViewController.h */,
+				F8BE0E03675F63B670D7D5F256589DE9 /* HRColorPickerViewController.m */,
+				B69E8E33D1FAF7FD16C3F2B2913B3A84 /* HRColorUtil.h */,
+				754FA14B72369AE2C288DC85C5937BFB /* HRColorUtil.m */,
+				651DC5AB0CD140B1EA7C3B6888EDDA51 /* IATConfig.h */,
+				70F22FC9D221C9E56BA4F80A13793893 /* IATConfig.m */,
+				F58DB28208613AEC5EADCD43BB47369C /* IFlyAudioSession.h */,
+				3A8BBFE0AAE2390EBED6F90EF03F8539 /* IFlyContact.h */,
+				843242FCC4E04F98D246C9F083C238B6 /* IFlyDataUploader.h */,
+				39B81E0465669582F2B22CDBE01E6CD4 /* IFlyDebugLog.h */,
+				A16E49B0384E8EABC28546102094241B /* IFlyISVDelegate.h */,
+				2BF3F0D4A59653C287FEFEC62F36E1C7 /* IFlyISVRecognizer.h */,
+				DE99455C243E7A72CC59CF8FD19ADECF /* IFlyMSC.h */,
+				D6559B4A467AE77B9CDA8CB523CC9E9E /* IFlyPcmRecorder.h */,
+				4E226E7CEC8296AD7107718BB408884E /* IFlyRecognizerView.h */,
+				C77E136790B7F5ACAC1AD983A40417CB /* IFlyRecognizerViewDelegate.h */,
+				C87AD77754AEC027E42DFC168184219A /* IFlyResourceUtil.h */,
+				CADE5006A794BBA8CD1BE3596B96565B /* IFlySetting.h */,
+				327F7552720281608779A6A4141EDB31 /* IFlySpeechConstant.h */,
+				62EC44F1BE3052107B98E20C446534A1 /* IFlySpeechError.h */,
+				C3BFECC43DCF1632BD4B9BDDAA33D15A /* IFlySpeechEvaluator.h */,
+				ED09CFC1FDAE370F5CDB48D90FA38CE9 /* IFlySpeechEvaluatorDelegate.h */,
+				759F85CAC3E1C87E811BE98BCF818868 /* IFlySpeechEvent.h */,
+				FA57B74C1C9D26587116209EAED59687 /* IFlySpeechRecognizer.h */,
+				45EFC32D4FB40672F399C71E4CDD8B4C /* IFlySpeechRecognizerDelegate.h */,
+				343F5F65753EEBFF41DD9625CFF5A428 /* IFlySpeechSynthesizer.h */,
+				1BBF8B481B2958E3ACA86B4A3A7811B8 /* IFlySpeechSynthesizerDelegate.h */,
+				314423CEFDEB4747A2065C74BD92B2C2 /* IFlySpeechUnderstander.h */,
+				B609AAB237F00B13C56EE571186B7504 /* IFlySpeechUtility.h */,
+				22B908D36AC058B538E0091B4760F423 /* IFlyTextUnderstander.h */,
+				E3F801222BC233026F0C7C332FA5D4E0 /* IFlyUserWords.h */,
+				B6C06847131F0856BD6FA8377A4AF06C /* IFlyVoiceWakeuper.h */,
+				CDF7F11923CAA2CC43530EF0EE4672B7 /* IFlyVoiceWakeuperDelegate.h */,
+				5A6A8191D1B5A82EBB377E4D6E8B38C0 /* ISRDataHelper.h */,
+				66D66531A3E1D10F010CAA3D3E0203A1 /* ISRDataHelper.m */,
+				A65EF34AAA00AA97D1E94F8F8B761361 /* RYIndicatorBackgroudView.h */,
+				A79DD6BB1980D9A2667F76C12729D1A1 /* RYIndicatorBackgroudView.m */,
+				A0766CCD785C4E57E7552ADA364A952F /* ZSSBarButtonItem.h */,
+				8DB575A41AB16CDC05E69F3845E5E861 /* ZSSBarButtonItem.m */,
+				2C880E2CBAC38207593A915647085DEA /* ZSSFontsViewController.h */,
+				C54B45569CE87DD305A467A68AB60B7A /* ZSSFontsViewController.m */,
+				2AC926D38DB6225F65400E6229559FAD /* ZSSRichTextEditor.h */,
+				1A7EAD301FC954D23A75C4FBCCD0F4C4 /* ZSSRichTextEditor.m */,
+				9F2B79BF21CD9435D2A740F0D92C8A7E /* ZSSTextView.h */,
+				06C12B6133141C2C018B329EE4DE9229 /* ZSSTextView.m */,
+				74B40F17ED9C4E884081DD554AB37B2F /* Frameworks */,
+				D8ADC3C643A3589BAD8114B382404180 /* Resources */,
+				CC30273F6523CEEC534B7055F010E5C0 /* Support Files */,
+			);
+			name = TWRichTextEditor;
+			path = TWRichTextEditor;
+			sourceTree = "<group>";
+		};
+		CC30273F6523CEEC534B7055F010E5C0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7734732929A1D9C1C5428D0C45EA6DDC /* TWRichTextEditor.xcconfig */,
+				473DCE1494D7703B6592DF56B88DB68C /* TWRichTextEditor-dummy.m */,
+				6FB5D512E92B27E3F020B01FD4C926C6 /* TWRichTextEditor-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TWRichTextEditor";
+			sourceTree = "<group>";
+		};
+		D8ADC3C643A3589BAD8114B382404180 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				261737CCDBAA11C40A06BCDAB4262650 /* dengpao@2x.png */,
+				BC52534D8BB15E8D11DFC3E7F3278DF1 /* dengpao@3x.png */,
+				8CBFB7F348DC6386DAB6249AEB7DF305 /* dengpao_dianjihou@2x.png */,
+				611D51699F37919F8E8A691463AD8A61 /* dengpao_dianjihou@3x.png */,
+				226F3DB1CCEE8ACC18C0D001F6CD6C3A /* editor.html */,
+				5AE96161E638ACF25F1C9917B70026CF /* guan@2x.png */,
+				8996FD14B11972984F6469749DBFE062 /* guan@3x.png */,
+				9A34250E5042353CF1C2EC6962314904 /* guanbi@2x.png */,
+				280B7183CD7597102BC5F7BCC99AC9FF /* guanbi@3x.png */,
+				141D9798BF011DFAF6366889C1978655 /* jQuery.js */,
+				8B4C46270943408571E4D4D35A2FCDF1 /* JSBeautifier.js */,
+				221D2BDA35D11C1C16BC3EC1C3311AAD /* Page 1@2x.png */,
+				ED0C4FCEEBC5144C5D0311E664162C8A /* Page 1@3x.png */,
+				1CB3EE2F63D25F5A1DE2BEB3DCEDF117 /* paizhaoanniu@2x.png */,
+				D99E21166DBB3B0CE406B19A93C884D0 /* paizhaoanniu@3x.png */,
+				5E94D22EC67C202379123F0F54F5E3DC /* paizhaoanniu_dianjihou@2x.png */,
+				13AC69FAA6A46B8ECDB861487EA6B097 /* paizhaoanniu_dianjihou@3x.png */,
+				E3F15E2FC90CEF7DA767BD828278C761 /* queding@2x.png */,
+				AFEDBC2F2A3DA158126441C454DD158E /* queding@3x.png */,
+				91A7ED38DC8D89E0C5ADD7D61F0EE926 /* t1@2x.png */,
+				2B50FEC68751A3794C04F07A8B28EE40 /* t1@3x.png */,
+				70983918714CC221E1734518760AD58C /* t2@2x.png */,
+				E51BDA42325EC930C0BCCCE58033E9EE /* t2@3x.png */,
+				A956EE4CAA7E79622EE9AEC060CD8ABE /* t2点击@2x.png */,
+				E1D2FAE6C0B97FC7B582F244C8C7B678 /* t2点击@3x.png */,
+				C1D90C68DDD66797598990159697558B /* t31@2x.png */,
+				564D1B279EBDBE953A301656229641AC /* t31@3x.png */,
+				4BE31190BC92E812989B71A145EC033B /* t31点击@2x.png */,
+				04A507F205FD6581EDFEBEEAFBEA6197 /* t31点击@3x.png */,
+				3430F6E30CD861A09193E02C8A193D88 /* t32@2x.png */,
+				A0BD7F22DC577C3E16580FDACCF8E776 /* t32@3x.png */,
+				4B784E7747145D46FB7313A35E747E48 /* t32点击@2x.png */,
+				AA5C4D27BE0164D3789BFCFEF634906B /* t32点击@3x.png */,
+				5F41F81D4CB74BF81E7046F6C764D474 /* t33@2x.png */,
+				E4DBFD671B34701E9266287EFADCCED7 /* t33@3x.png */,
+				119EAD92A64F5513B7289640527F99E5 /* t33点击@2x.png */,
+				4B9BA5043BF0464AA43673F3B2B11593 /* t33点击@3x.png */,
+				E69AF44AD20CE5914FE20E2C7AED1893 /* t3@2x.png */,
+				28516C78A54E976504E8478365530773 /* t3@3x.png */,
+				45C4A37CD233472F01D6F0EE9105B7D4 /* t3点击@2x.png */,
+				1FE0E1C9014C37B41F3E56922C291036 /* t3点击@3x.png */,
+				037970A8B8DB7DBFF3F553CAF1E7DBF1 /* t41@2x.png */,
+				B76E6F2AA1D4CAAA138290D1A6990599 /* t41@3x.png */,
+				FD6CF6EC3308573B87A04AB8CD2579A8 /* t41点击@2x.png */,
+				8395275AB7153BDE5DFC163752B6D770 /* t41点击@3x.png */,
+				4DE5D60DB09ED11BF24C7EFDD81E08D7 /* t42@2x.png */,
+				2BB78445B1C17DE6E31193DA995A9BBD /* t42@3x.png */,
+				165F6A72FD46A3904698D7C291AEC807 /* t42点击@2x.png */,
+				D9DCD81B84AADD82F752778B3B58B30C /* t42点击@3x.png */,
+				E8197995BEA73671D45670BFDC11E44C /* t4@2x.png */,
+				747751AEEBAA1776335078876C1DA1A7 /* t4@3x.png */,
+				779BD0E4BC676160F8235803F5E4EE0D /* t4点击@2x.png */,
+				E1E8C6DE58E054C419293B7238E677C1 /* t4点击@3x.png */,
+				066FCF9F5A58F49421E1425CBA021A33 /* t51@2x.png */,
+				1CF2AF7E8FEDCDE40B657BF581035392 /* t51@3x.png */,
+				FE5E8EC8C4865C1957DB97086F63C6C2 /* t51点击@2x.png */,
+				01D87EE5B0BEDB442D2AF80025B940C1 /* t51点击@3x.png */,
+				403143B61A268E3F06371761B1758347 /* t52@2x.png */,
+				1356206F7D3E55F1FC11D2B15C97E9A8 /* t52@3x.png */,
+				2FFFA504EE13AD19825908ADDEAC5F8C /* t52点击@2x.png */,
+				A76954AB22E441E180F9C6F55ECDA74C /* t52点击@3x.png */,
+				3CF879A8DF3F911B36D629A064C68ACD /* t53@2x.png */,
+				F77F9B1C1F666C39616D99D81F278263 /* t53@3x.png */,
+				046877241D6524B055691850BB6E8B3A /* t53点击@2x.png */,
+				395D57353231B238DE5FCDBA7B77B03B /* t53点击@3x.png */,
+				41EA22B0FEA0C1C70886949250939C94 /* t5@2x.png */,
+				FFB3C6DEC03B216711B3A33DC9927719 /* t5@3x.png */,
+				127066789FFDFF52C0F789340A72EDD3 /* t5点击@2x.png */,
+				701C8BD714F64E39AFE99EC24B4C4347 /* t5点击@3x.png */,
+				9DD1024373D28E152A9FF6F9660FE3DE /* t6@2x.png */,
+				E7EBA540C37DD1FACDAC305461556CEF /* t6@3x.png */,
+				DC8C5B54DB67CA8518DEED8F2938950C /* Text-bold-tilt@2x.png */,
+				73637106B6C7077E76B3B3E5D674E1CE /* Text-bold-tilt@3x.png */,
+				095F609A015292181C9B03671725F4FB /* textrecognition@2x.png */,
+				B14AC9DBD35D0376759432117E950C8F /* textrecognition@3x.png */,
+				3D3233CEA1ACCE33EE4722982B810287 /* tuku@2x.png */,
+				4B564D0A8E6E38558E26C47F58A656EE /* tuku@3x.png */,
+				6ACBAFB49A733F6406F62435FD0F52F5 /* xuanzhuan@2x.png */,
+				FB994769F24ED73FDFE67FE0923ABB5F /* xuanzhuan@3x.png */,
+				5917775A9356BC50FF6FC8B66793A194 /* xuxian@2x.png */,
+				CA1596F04C856CADE3C28E179E5ED886 /* xuxian@3x.png */,
+				78728E74B4261497F1EDD41CFAD8AD76 /* ZSSRichTextEditor.js */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EB57DDB3388FBC701046A1E93218737F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				408D5968F83ABBFE79244622E979F17D /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CD3F4869FEF449851418153753CAB590 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A571DF6513428E8FD29DF5C33D0C31C7 /* AipBase.h in Headers */,
+				1A0E4DC45027CAEC137338AAB1CE3152 /* AipCaptureCardVC.h in Headers */,
+				0331EBE66ACFCDB27DD000A8E9352A98 /* AipGeneralVC.h in Headers */,
+				74A2ECC6B49AC9F4238ED2F33651A367 /* AipOcrDelegate.h in Headers */,
+				FECFAEF6F55B4FD7DB4210EDCA05FA81 /* AipOcrManager.h in Headers */,
+				56E1E4E70367F2250ED71C12D16F10CD /* AipOcrSdk.h in Headers */,
+				6A4D6D347EEAE60D9DA8B2ADC530BDF7 /* AipOcrService.h in Headers */,
+				EA681F53DCB3A2FA347D6DC786B37F03 /* AipOpenUDID.h in Headers */,
+				1007C73F9D112B65D30DC6EDB9B2669B /* CYRLayoutManager.h in Headers */,
+				755B4BE3E1CCD605AEF0D1B0DB714BBC /* CYRTextStorage.h in Headers */,
+				62A83FE7DDA0CEEE428BACF34DB08009 /* CYRTextView.h in Headers */,
+				1E3911AEF9D92B8CD7781DDABAD5C7D8 /* CYRToken.h in Headers */,
+				8D753EE3DC02FB4675433FFEC76E75EC /* HRBrightnessCursor.h in Headers */,
+				6289A8E7C5C2E0FDF2D71124EE1DA7CB /* HRCgUtil.h in Headers */,
+				C36A0F659C8A6BC8953E3D21666BB4E1 /* HRColorCursor.h in Headers */,
+				0341C7A4EA8A4EBD1D525344E0C3C8D5 /* HRColorPickerMacros.h in Headers */,
+				52A71143F838129D52A8B9790B0814D9 /* HRColorPickerView.h in Headers */,
+				FC749E26CAE3B68C4D563258DD15F8CE /* HRColorPickerViewController.h in Headers */,
+				952EB7AA102CEEDE680611AE2CCCB815 /* HRColorUtil.h in Headers */,
+				ED6390AD6D02F58246592442AB299B19 /* IATConfig.h in Headers */,
+				69BFA6049AF994B24E406C14FDB759B4 /* IFlyAudioSession.h in Headers */,
+				EED629AB176B558B8565291C8EB72836 /* IFlyContact.h in Headers */,
+				38D95F3517230A08C56D338478CB44A1 /* IFlyDataUploader.h in Headers */,
+				7939DFA964368C0F8A2B98CF01C78539 /* IFlyDebugLog.h in Headers */,
+				6349BAF3E911F4A5A52B8C987CAC9188 /* IFlyISVDelegate.h in Headers */,
+				93DF71C4BD02089F1F135E9CB7B52AFD /* IFlyISVRecognizer.h in Headers */,
+				55377774F47611D3B9C91496D1918C86 /* IFlyMSC.h in Headers */,
+				FD25D1D8F404F13F8D8780D54ED81C18 /* IFlyPcmRecorder.h in Headers */,
+				C6AC5430145EA0CE0F855491C14A746E /* IFlyRecognizerView.h in Headers */,
+				0A3D89705AE6F6858A6874D29520A987 /* IFlyRecognizerViewDelegate.h in Headers */,
+				42712B0B8A4472C392F9BE539CCEC06B /* IFlyResourceUtil.h in Headers */,
+				B73713D1FE33A8A4151864C446F363AD /* IFlySetting.h in Headers */,
+				4A67A4429C9ED66024525D8677A5137E /* IFlySpeechConstant.h in Headers */,
+				74CBD60A35599F0343956B7528166398 /* IFlySpeechError.h in Headers */,
+				6616108842CBBE6B219AEC51E1597AE5 /* IFlySpeechEvaluator.h in Headers */,
+				7FA06CD6A551EBC287D1670E33CEA444 /* IFlySpeechEvaluatorDelegate.h in Headers */,
+				28B86CB27810D18DDDC26B55B69258A4 /* IFlySpeechEvent.h in Headers */,
+				4389517EA477F0463F59ABC0A189E12F /* IFlySpeechRecognizer.h in Headers */,
+				F458196CDBD41C4D086BFA4CBFCE662C /* IFlySpeechRecognizerDelegate.h in Headers */,
+				69CE53F9AC271B45ECB9F381D8CC5B87 /* IFlySpeechSynthesizer.h in Headers */,
+				D9B783EF078B090FDFBBD22F52F5BDF6 /* IFlySpeechSynthesizerDelegate.h in Headers */,
+				EB99708B7E6AFE969D0ED3D42B335935 /* IFlySpeechUnderstander.h in Headers */,
+				1EAEEC7225C61AFFBE6F5AC3B7BDB978 /* IFlySpeechUtility.h in Headers */,
+				BA408B10547C4E4F9171FDA6EF5D5769 /* IFlyTextUnderstander.h in Headers */,
+				7A57DB832E72180E3C777EEBAEA921E9 /* IFlyUserWords.h in Headers */,
+				30E08A9DA48B44F838C66126D8D8F6D6 /* IFlyVoiceWakeuper.h in Headers */,
+				829500B20B28F1507E9E4D8C89387C82 /* IFlyVoiceWakeuperDelegate.h in Headers */,
+				2267A84ECC9FC971FAB952535B8E9D8A /* ISRDataHelper.h in Headers */,
+				C7CEE1855EECEBC0AE38216849B5A991 /* RYIndicatorBackgroudView.h in Headers */,
+				A2ED1813D212B6E5EC93DED677C9D6F1 /* ZSSBarButtonItem.h in Headers */,
+				0E87511B49D0EE51D7A96E24930D79E2 /* ZSSFontsViewController.h in Headers */,
+				AC178704B161DBF671BE2104E1C2D6BB /* ZSSRichTextEditor.h in Headers */,
+				38FE7637FFD414C6CF03C956757180DA /* ZSSTextView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7F607CF7C13E9C84A040B0FBD60CFAA0 /* Pods-TWRichTextEditorDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 976D92E2088863F0ABA0AF5700C06699 /* Build configuration list for PBXNativeTarget "Pods-TWRichTextEditorDemo" */;
+			buildPhases = (
+				BACDAA8E0C8498DBF64D858F32E160FA /* Sources */,
+				79DD9E9E13F55F562A624227D870CB03 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				128088788DF6FF5A46B946FB69ABE96F /* PBXTargetDependency */,
+			);
+			name = "Pods-TWRichTextEditorDemo";
+			productName = "Pods-TWRichTextEditorDemo";
+			productReference = D39BBBA6A3AF8E579FFFE6B4DBC0074E /* libPods-TWRichTextEditorDemo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F22BEFF071E785CDE46F20EE736D2737 /* TWRichTextEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C7AD8FB3DA1E23DFC20F654024A4414 /* Build configuration list for PBXNativeTarget "TWRichTextEditor" */;
+			buildPhases = (
+				4D95CB03E7CB1A9AEA2CBE81AA0AF324 /* Sources */,
+				428849DA052860CAD2322959C4B85C44 /* Frameworks */,
+				CD3F4869FEF449851418153753CAB590 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TWRichTextEditor;
+			productName = TWRichTextEditor;
+			productReference = 6C82FB841FE08E8B05E85F2959C8AE83 /* libTWRichTextEditor.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 126C52834B3C7D2C744A84AE2A41C783 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7F607CF7C13E9C84A040B0FBD60CFAA0 /* Pods-TWRichTextEditorDemo */,
+				F22BEFF071E785CDE46F20EE736D2737 /* TWRichTextEditor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D95CB03E7CB1A9AEA2CBE81AA0AF324 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				783C4E25D5FA79B68460735879BCDFB6 /* CYRLayoutManager.m in Sources */,
+				E1D4F3E311B27A8A052119BDD9B40F2C /* CYRTextStorage.m in Sources */,
+				861259DD7F889FC9B19E1A710AB41D28 /* CYRTextView.m in Sources */,
+				F472E6CDAA61E35F2E2A2C350685219F /* CYRToken.m in Sources */,
+				4E15DDF30CCFDE138C290B1E64A87F15 /* HRBrightnessCursor.m in Sources */,
+				7F64F7C1A0C2D5CBD95D069E74C10E95 /* HRCgUtil.m in Sources */,
+				4AB534E5D03654A5FE1E72BA38668DE6 /* HRColorCursor.m in Sources */,
+				BF0CF15EC0D12743084F0F2AA08001EE /* HRColorPickerView.m in Sources */,
+				E4CD8B462AAD5693F4DFE20EB14B6132 /* HRColorPickerViewController.m in Sources */,
+				10979137E7A5724C9B82B48A8CEC05C7 /* HRColorUtil.m in Sources */,
+				9E917C004F5E94F9E62A4F8ED2B03E26 /* IATConfig.m in Sources */,
+				B07BE3A43F5201B018946FAEF31480B9 /* ISRDataHelper.m in Sources */,
+				4057D9A4F815EE46A1042B8444DBFC99 /* RYIndicatorBackgroudView.m in Sources */,
+				6214F4213C49308D2AC3081965774508 /* TWRichTextEditor-dummy.m in Sources */,
+				9E4B0EC435B6DE3264BB43F34C3936E3 /* ZSSBarButtonItem.m in Sources */,
+				1FC000094A48AD5B71011DF32C7F87B1 /* ZSSFontsViewController.m in Sources */,
+				96FDB4ADA8CDBF670552FEFB83343F86 /* ZSSRichTextEditor.m in Sources */,
+				A08349D5933ED45D7FBDE6545AF0110C /* ZSSTextView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BACDAA8E0C8498DBF64D858F32E160FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E5E2ADD727149B5DA9182207F031090 /* Pods-TWRichTextEditorDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		128088788DF6FF5A46B946FB69ABE96F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TWRichTextEditor;
+			target = F22BEFF071E785CDE46F20EE736D2737 /* TWRichTextEditor */;
+			targetProxy = 521E0822A6381F623840CD365CA7333D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		015A368F878AC3E2CEAE21DDE8026304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1AD7FF315BADD4C8857FF2C76C5CB793 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89986C77353DE8C23D9C02B18367331E /* Pods-TWRichTextEditorDemo.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		274C39D7426FF64E6A77DC18F1ECC978 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7734732929A1D9C1C5428D0C45EA6DDC /* TWRichTextEditor.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TWRichTextEditor/TWRichTextEditor-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B493B513D7B3FFB88F97561EAFC565CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEFF96729902540A0A4EDB256A54304A /* Pods-TWRichTextEditorDemo.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C453A8CFD5691D960514050E382CC44A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7734732929A1D9C1C5428D0C45EA6DDC /* TWRichTextEditor.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/TWRichTextEditor/TWRichTextEditor-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				015A368F878AC3E2CEAE21DDE8026304 /* Debug */,
+				44CDBB6D11DE06DB64D6268622BDC47E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C7AD8FB3DA1E23DFC20F654024A4414 /* Build configuration list for PBXNativeTarget "TWRichTextEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				274C39D7426FF64E6A77DC18F1ECC978 /* Debug */,
+				C453A8CFD5691D960514050E382CC44A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		976D92E2088863F0ABA0AF5700C06699 /* Build configuration list for PBXNativeTarget "Pods-TWRichTextEditorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AD7FF315BADD4C8857FF2C76C5CB793 /* Debug */,
+				B493B513D7B3FFB88F97561EAFC565CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

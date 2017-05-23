@@ -1,0 +1,21 @@
+PODS:
+  - TWRichTextEditor (0.1.5)
+
+DEPENDENCIES:
+  - TWRichTextEditor (from `https://github.com/1001hotel/TWRichTextEditor.git`)
+
+EXTERNAL SOURCES:
+  TWRichTextEditor:
+    :git: https://github.com/1001hotel/TWRichTextEditor.git
+
+CHECKOUT OPTIONS:
+  TWRichTextEditor:
+    :commit: b3805cb92ae03bade6da53481690f0adde062a2c
+    :git: https://github.com/1001hotel/TWRichTextEditor.git
+
+SPEC CHECKSUMS:
+  TWRichTextEditor: 89909985ae32210841e404f3c390425b8584e7de
+
+PODFILE CHECKSUM: e4e122459d4a0e31ceeca4e392ca866a178306f3
+
+COCOAPODS: 1.2.0

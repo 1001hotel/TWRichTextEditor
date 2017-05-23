@@ -1,0 +1,49 @@
+{
+  "name": "TWRichTextEditor",
+  "version": "0.1.5",
+  "summary": "A rich text editor used on iOS.",
+  "description": "It is a rich text editor used on iOS, which implement by Objective-C.",
+  "homepage": "https://github.com/1001hotel/TWRichTextEditor",
+  "license": "MIT",
+  "authors": {
+    "xurenyan": "812610313@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/1001hotel/TWRichTextEditor.git",
+    "tag": "0.1.5"
+  },
+  "source_files": "TWRichTextEditor/**/*.{h,m}",
+  "vendored_frameworks": [
+    "TWRichTextEditor/ThirdParty/iflyMSC.framework",
+    "TWRichTextEditor/ThirdParty/AipBase.framework",
+    "TWRichTextEditor/ThirdParty/AipOcrSdk.framework"
+  ],
+  "resources": [
+    "TWRichTextEditor/**/*.png",
+    "TWRichTextEditor/**/ZSSRichTextEditor.js",
+    "TWRichTextEditor/**/editor.html",
+    "TWRichTextEditor/**/jQuery.js",
+    "TWRichTextEditor/**/JSBeautifier.js"
+  ],
+  "frameworks": [
+    "AVFoundation",
+    "SystemConfiguration",
+    "Foundation",
+    "CoreTelephony",
+    "AudioToolbox",
+    "UIKit",
+    "CoreLocation",
+    "Contacts",
+    "AddressBook",
+    "QuartzCore",
+    "CoreGraphics"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ]
+}
