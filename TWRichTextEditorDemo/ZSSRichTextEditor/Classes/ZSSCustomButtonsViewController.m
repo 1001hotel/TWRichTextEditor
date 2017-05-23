@@ -30,7 +30,6 @@
     [self setHTML:html];
     
     // Don't allow editor toolbar buttons (you can if you want)
-    self.enabledToolbarItems = @[ZSSRichTextEditorToolbarNone];
     
     // Create the custom buttons
     UIButton *myButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 50, 28.0f)];

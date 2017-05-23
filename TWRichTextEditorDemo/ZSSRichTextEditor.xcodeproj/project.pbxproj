@@ -94,31 +94,43 @@
 		6C0C24131ED3E3DD00C12BA4 /* textrecognition@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C0C23DB1ED3E3DD00C12BA4 /* textrecognition@3x.png */; };
 		6C0C24181ED3E3FF00C12BA4 /* IATConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C24151ED3E3FF00C12BA4 /* IATConfig.m */; };
 		6C0C24191ED3E3FF00C12BA4 /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C24171ED3E3FF00C12BA4 /* ISRDataHelper.m */; };
-		6C0C24221ED3E49F00C12BA4 /* CYRLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C241B1ED3E49F00C12BA4 /* CYRLayoutManager.m */; };
-		6C0C24231ED3E49F00C12BA4 /* CYRTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C241D1ED3E49F00C12BA4 /* CYRTextStorage.m */; };
-		6C0C24241ED3E49F00C12BA4 /* CYRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C241F1ED3E49F00C12BA4 /* CYRTextView.m */; };
-		6C0C24251ED3E49F00C12BA4 /* CYRToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C24211ED3E49F00C12BA4 /* CYRToken.m */; };
-		6C0C24331ED3E4C100C12BA4 /* HRBrightnessCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C24271ED3E4C100C12BA4 /* HRBrightnessCursor.m */; };
-		6C0C24341ED3E4C100C12BA4 /* HRCgUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C24291ED3E4C100C12BA4 /* HRCgUtil.m */; };
-		6C0C24351ED3E4C100C12BA4 /* HRColorCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C242B1ED3E4C100C12BA4 /* HRColorCursor.m */; };
-		6C0C24361ED3E4C100C12BA4 /* HRColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C242E1ED3E4C100C12BA4 /* HRColorPickerView.m */; };
-		6C0C24371ED3E4C100C12BA4 /* HRColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C24301ED3E4C100C12BA4 /* HRColorPickerViewController.m */; };
-		6C0C24381ED3E4C100C12BA4 /* HRColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C24321ED3E4C100C12BA4 /* HRColorUtil.m */; };
-		6C0C243A1ED3E73000C12BA4 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C24391ED3E73000C12BA4 /* iflyMSC.framework */; };
-		6C0C244D1ED3E9C400C12BA4 /* AipBase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C244B1ED3E9C400C12BA4 /* AipBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6C0C244E1ED3E9C400C12BA4 /* AipOcrSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0C244C1ED3E9C400C12BA4 /* AipOcrSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6CC96F341ED41B3000715A50 /* CYRLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F2D1ED41B3000715A50 /* CYRLayoutManager.m */; };
+		6CC96F351ED41B3000715A50 /* CYRTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F2F1ED41B3000715A50 /* CYRTextStorage.m */; };
+		6CC96F361ED41B3000715A50 /* CYRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F311ED41B3000715A50 /* CYRTextView.m */; };
+		6CC96F371ED41B3000715A50 /* CYRToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F331ED41B3000715A50 /* CYRToken.m */; };
+		6CC96F451ED41B3E00715A50 /* HRBrightnessCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F391ED41B3E00715A50 /* HRBrightnessCursor.m */; };
+		6CC96F461ED41B3E00715A50 /* HRCgUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F3B1ED41B3E00715A50 /* HRCgUtil.m */; };
+		6CC96F471ED41B3E00715A50 /* HRColorCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F3D1ED41B3E00715A50 /* HRColorCursor.m */; };
+		6CC96F481ED41B3E00715A50 /* HRColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F401ED41B3E00715A50 /* HRColorPickerView.m */; };
+		6CC96F491ED41B3E00715A50 /* HRColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F421ED41B3E00715A50 /* HRColorPickerViewController.m */; };
+		6CC96F4A1ED41B3E00715A50 /* HRColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC96F441ED41B3E00715A50 /* HRColorUtil.m */; };
+		6CFBF8D81ED41B9D003D574C /* AipBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8D61ED41B9D003D574C /* AipBase.framework */; };
+		6CFBF8D91ED41B9D003D574C /* AipBase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8D61ED41B9D003D574C /* AipBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6CFBF8DA1ED41B9D003D574C /* AipOcrSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8D71ED41B9D003D574C /* AipOcrSdk.framework */; };
+		6CFBF8DB1ED41B9D003D574C /* AipOcrSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8D71ED41B9D003D574C /* AipOcrSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6CFBF8DD1ED41BB6003D574C /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8DC1ED41BB6003D574C /* iflyMSC.framework */; };
+		6CFBF8DF1ED41CF9003D574C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8DE1ED41CF9003D574C /* AVFoundation.framework */; };
+		6CFBF8E11ED41D01003D574C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8E01ED41D01003D574C /* SystemConfiguration.framework */; };
+		6CFBF8E31ED41D0D003D574C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8E21ED41D0D003D574C /* CoreTelephony.framework */; };
+		6CFBF8E51ED41D17003D574C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8E41ED41D17003D574C /* AudioToolbox.framework */; };
+		6CFBF8E71ED41D20003D574C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8E61ED41D20003D574C /* CoreLocation.framework */; };
+		6CFBF8E91ED41D26003D574C /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8E81ED41D26003D574C /* Contacts.framework */; };
+		6CFBF8EB1ED41D2C003D574C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8EA1ED41D2C003D574C /* AddressBook.framework */; };
+		6CFBF8ED1ED41D37003D574C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8EC1ED41D37003D574C /* QuartzCore.framework */; };
+		6CFBF8EF1ED41D56003D574C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8EE1ED41D56003D574C /* libz.tbd */; };
+		6CFBF8F11ED41D5D003D574C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFBF8F01ED41D5D003D574C /* libc++.tbd */; };
 		DB1D27A61D79F62D00EC1CBD /* DemoModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1D27A51D79F62D00EC1CBD /* DemoModalViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6C0C24461ED3E8C600C12BA4 /* Embed Frameworks */ = {
+		6CC96F2B1ED41A8000715A50 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6C0C244D1ED3E9C400C12BA4 /* AipBase.framework in Embed Frameworks */,
-				6C0C244E1ED3E9C400C12BA4 /* AipOcrSdk.framework in Embed Frameworks */,
+				6CFBF8D91ED41B9D003D574C /* AipBase.framework in Embed Frameworks */,
+				6CFBF8DB1ED41B9D003D574C /* AipOcrSdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,32 +246,43 @@
 		6C0C24151ED3E3FF00C12BA4 /* IATConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IATConfig.m; path = TWRichTextEditor/IATConfig.m; sourceTree = "<group>"; };
 		6C0C24161ED3E3FF00C12BA4 /* ISRDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISRDataHelper.h; path = TWRichTextEditor/ISRDataHelper.h; sourceTree = "<group>"; };
 		6C0C24171ED3E3FF00C12BA4 /* ISRDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISRDataHelper.m; path = TWRichTextEditor/ISRDataHelper.m; sourceTree = "<group>"; };
-		6C0C241A1ED3E49F00C12BA4 /* CYRLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRLayoutManager.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/CYRLayoutManager.h"; sourceTree = SOURCE_ROOT; };
-		6C0C241B1ED3E49F00C12BA4 /* CYRLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRLayoutManager.m; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/CYRLayoutManager.m"; sourceTree = SOURCE_ROOT; };
-		6C0C241C1ED3E49F00C12BA4 /* CYRTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRTextStorage.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/CYRTextStorage.h"; sourceTree = SOURCE_ROOT; };
-		6C0C241D1ED3E49F00C12BA4 /* CYRTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRTextStorage.m; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/CYRTextStorage.m"; sourceTree = SOURCE_ROOT; };
-		6C0C241E1ED3E49F00C12BA4 /* CYRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRTextView.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/CYRTextView.h"; sourceTree = SOURCE_ROOT; };
-		6C0C241F1ED3E49F00C12BA4 /* CYRTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRTextView.m; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/CYRTextView.m"; sourceTree = SOURCE_ROOT; };
-		6C0C24201ED3E49F00C12BA4 /* CYRToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRToken.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/CYRToken.h"; sourceTree = SOURCE_ROOT; };
-		6C0C24211ED3E49F00C12BA4 /* CYRToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRToken.m; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/CYRToken.m"; sourceTree = SOURCE_ROOT; };
-		6C0C24261ED3E4C100C12BA4 /* HRBrightnessCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRBrightnessCursor.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRBrightnessCursor.h"; sourceTree = SOURCE_ROOT; };
-		6C0C24271ED3E4C100C12BA4 /* HRBrightnessCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRBrightnessCursor.m; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRBrightnessCursor.m"; sourceTree = SOURCE_ROOT; };
-		6C0C24281ED3E4C100C12BA4 /* HRCgUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRCgUtil.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRCgUtil.h"; sourceTree = SOURCE_ROOT; };
-		6C0C24291ED3E4C100C12BA4 /* HRCgUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRCgUtil.m; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRCgUtil.m"; sourceTree = SOURCE_ROOT; };
-		6C0C242A1ED3E4C100C12BA4 /* HRColorCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRColorCursor.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRColorCursor.h"; sourceTree = SOURCE_ROOT; };
-		6C0C242B1ED3E4C100C12BA4 /* HRColorCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRColorCursor.m; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRColorCursor.m"; sourceTree = SOURCE_ROOT; };
-		6C0C242C1ED3E4C100C12BA4 /* HRColorPickerMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRColorPickerMacros.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRColorPickerMacros.h"; sourceTree = SOURCE_ROOT; };
-		6C0C242D1ED3E4C100C12BA4 /* HRColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRColorPickerView.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRColorPickerView.h"; sourceTree = SOURCE_ROOT; };
-		6C0C242E1ED3E4C100C12BA4 /* HRColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRColorPickerView.m; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRColorPickerView.m"; sourceTree = SOURCE_ROOT; };
-		6C0C242F1ED3E4C100C12BA4 /* HRColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRColorPickerViewController.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRColorPickerViewController.h"; sourceTree = SOURCE_ROOT; };
-		6C0C24301ED3E4C100C12BA4 /* HRColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRColorPickerViewController.m; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRColorPickerViewController.m"; sourceTree = SOURCE_ROOT; };
-		6C0C24311ED3E4C100C12BA4 /* HRColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRColorUtil.h; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRColorUtil.h"; sourceTree = SOURCE_ROOT; };
-		6C0C24321ED3E4C100C12BA4 /* HRColorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRColorUtil.m; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/HRColorUtil.m"; sourceTree = SOURCE_ROOT; };
 		6C0C24391ED3E73000C12BA4 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/iflyMSC.framework"; sourceTree = "<group>"; };
 		6C0C243B1ED3E75400C12BA4 /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipBase.framework; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/AipBase.framework"; sourceTree = "<group>"; };
 		6C0C243C1ED3E75400C12BA4 /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipOcrSdk.framework; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/AipOcrSdk.framework"; sourceTree = "<group>"; };
-		6C0C244B1ED3E9C400C12BA4 /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipBase.framework; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/AipBase.framework"; sourceTree = "<group>"; };
-		6C0C244C1ED3E9C400C12BA4 /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipOcrSdk.framework; path = "ZSSRichTextEditor/TWRichTextEditor/Third Party/AipOcrSdk.framework"; sourceTree = "<group>"; };
+		6CC96F2C1ED41B3000715A50 /* CYRLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRLayoutManager.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRLayoutManager.h; sourceTree = SOURCE_ROOT; };
+		6CC96F2D1ED41B3000715A50 /* CYRLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRLayoutManager.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRLayoutManager.m; sourceTree = SOURCE_ROOT; };
+		6CC96F2E1ED41B3000715A50 /* CYRTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRTextStorage.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextStorage.h; sourceTree = SOURCE_ROOT; };
+		6CC96F2F1ED41B3000715A50 /* CYRTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRTextStorage.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextStorage.m; sourceTree = SOURCE_ROOT; };
+		6CC96F301ED41B3000715A50 /* CYRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRTextView.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextView.h; sourceTree = SOURCE_ROOT; };
+		6CC96F311ED41B3000715A50 /* CYRTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRTextView.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRTextView.m; sourceTree = SOURCE_ROOT; };
+		6CC96F321ED41B3000715A50 /* CYRToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYRToken.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRToken.h; sourceTree = SOURCE_ROOT; };
+		6CC96F331ED41B3000715A50 /* CYRToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYRToken.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/CYRToken.m; sourceTree = SOURCE_ROOT; };
+		6CC96F381ED41B3E00715A50 /* HRBrightnessCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRBrightnessCursor.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRBrightnessCursor.h; sourceTree = SOURCE_ROOT; };
+		6CC96F391ED41B3E00715A50 /* HRBrightnessCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRBrightnessCursor.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRBrightnessCursor.m; sourceTree = SOURCE_ROOT; };
+		6CC96F3A1ED41B3E00715A50 /* HRCgUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRCgUtil.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRCgUtil.h; sourceTree = SOURCE_ROOT; };
+		6CC96F3B1ED41B3E00715A50 /* HRCgUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRCgUtil.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRCgUtil.m; sourceTree = SOURCE_ROOT; };
+		6CC96F3C1ED41B3E00715A50 /* HRColorCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRColorCursor.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRColorCursor.h; sourceTree = SOURCE_ROOT; };
+		6CC96F3D1ED41B3E00715A50 /* HRColorCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRColorCursor.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRColorCursor.m; sourceTree = SOURCE_ROOT; };
+		6CC96F3E1ED41B3E00715A50 /* HRColorPickerMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRColorPickerMacros.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRColorPickerMacros.h; sourceTree = SOURCE_ROOT; };
+		6CC96F3F1ED41B3E00715A50 /* HRColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRColorPickerView.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRColorPickerView.h; sourceTree = SOURCE_ROOT; };
+		6CC96F401ED41B3E00715A50 /* HRColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRColorPickerView.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRColorPickerView.m; sourceTree = SOURCE_ROOT; };
+		6CC96F411ED41B3E00715A50 /* HRColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRColorPickerViewController.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRColorPickerViewController.h; sourceTree = SOURCE_ROOT; };
+		6CC96F421ED41B3E00715A50 /* HRColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRColorPickerViewController.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRColorPickerViewController.m; sourceTree = SOURCE_ROOT; };
+		6CC96F431ED41B3E00715A50 /* HRColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRColorUtil.h; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRColorUtil.h; sourceTree = SOURCE_ROOT; };
+		6CC96F441ED41B3E00715A50 /* HRColorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRColorUtil.m; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/HRColorUtil.m; sourceTree = SOURCE_ROOT; };
+		6CFBF8D61ED41B9D003D574C /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipBase.framework; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/AipBase.framework; sourceTree = "<group>"; };
+		6CFBF8D71ED41B9D003D574C /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AipOcrSdk.framework; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/AipOcrSdk.framework; sourceTree = "<group>"; };
+		6CFBF8DC1ED41BB6003D574C /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = ZSSRichTextEditor/TWRichTextEditor/ThirdParty/iflyMSC.framework; sourceTree = "<group>"; };
+		6CFBF8DE1ED41CF9003D574C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6CFBF8E01ED41D01003D574C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6CFBF8E21ED41D0D003D574C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		6CFBF8E41ED41D17003D574C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6CFBF8E61ED41D20003D574C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6CFBF8E81ED41D26003D574C /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		6CFBF8EA1ED41D2C003D574C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		6CFBF8EC1ED41D37003D574C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6CFBF8EE1ED41D56003D574C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		6CFBF8F01ED41D5D003D574C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		DB1D27A41D79F62D00EC1CBD /* DemoModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoModalViewController.h; sourceTree = "<group>"; };
 		DB1D27A51D79F62D00EC1CBD /* DemoModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoModalViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -269,10 +292,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C0C243A1ED3E73000C12BA4 /* iflyMSC.framework in Frameworks */,
+				6CFBF8F11ED41D5D003D574C /* libc++.tbd in Frameworks */,
+				6CFBF8EF1ED41D56003D574C /* libz.tbd in Frameworks */,
 				4581EB82184845790048CAB0 /* CoreGraphics.framework in Frameworks */,
+				6CFBF8ED1ED41D37003D574C /* QuartzCore.framework in Frameworks */,
+				6CFBF8EB1ED41D2C003D574C /* AddressBook.framework in Frameworks */,
+				6CFBF8E91ED41D26003D574C /* Contacts.framework in Frameworks */,
+				6CFBF8E71ED41D20003D574C /* CoreLocation.framework in Frameworks */,
+				6CFBF8E51ED41D17003D574C /* AudioToolbox.framework in Frameworks */,
+				6CFBF8E31ED41D0D003D574C /* CoreTelephony.framework in Frameworks */,
+				6CFBF8E11ED41D01003D574C /* SystemConfiguration.framework in Frameworks */,
+				6CFBF8DF1ED41CF9003D574C /* AVFoundation.framework in Frameworks */,
+				6CFBF8DD1ED41BB6003D574C /* iflyMSC.framework in Frameworks */,
+				6CFBF8D81ED41B9D003D574C /* AipBase.framework in Frameworks */,
 				4581EB84184845790048CAB0 /* UIKit.framework in Frameworks */,
 				4581EB80184845790048CAB0 /* Foundation.framework in Frameworks */,
+				6CFBF8DA1ED41B9D003D574C /* AipOcrSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,14 +342,14 @@
 		4552C4821899DD1D004EF847 /* CYRTextView */ = {
 			isa = PBXGroup;
 			children = (
-				6C0C241A1ED3E49F00C12BA4 /* CYRLayoutManager.h */,
-				6C0C241B1ED3E49F00C12BA4 /* CYRLayoutManager.m */,
-				6C0C241C1ED3E49F00C12BA4 /* CYRTextStorage.h */,
-				6C0C241D1ED3E49F00C12BA4 /* CYRTextStorage.m */,
-				6C0C241E1ED3E49F00C12BA4 /* CYRTextView.h */,
-				6C0C241F1ED3E49F00C12BA4 /* CYRTextView.m */,
-				6C0C24201ED3E49F00C12BA4 /* CYRToken.h */,
-				6C0C24211ED3E49F00C12BA4 /* CYRToken.m */,
+				6CC96F2C1ED41B3000715A50 /* CYRLayoutManager.h */,
+				6CC96F2D1ED41B3000715A50 /* CYRLayoutManager.m */,
+				6CC96F2E1ED41B3000715A50 /* CYRTextStorage.h */,
+				6CC96F2F1ED41B3000715A50 /* CYRTextStorage.m */,
+				6CC96F301ED41B3000715A50 /* CYRTextView.h */,
+				6CC96F311ED41B3000715A50 /* CYRTextView.m */,
+				6CC96F321ED41B3000715A50 /* CYRToken.h */,
+				6CC96F331ED41B3000715A50 /* CYRToken.m */,
 			);
 			path = CYRTextView;
 			sourceTree = "<group>";
@@ -400,8 +435,8 @@
 		4581EB73184845780048CAB0 = {
 			isa = PBXGroup;
 			children = (
-				6C0C244B1ED3E9C400C12BA4 /* AipBase.framework */,
-				6C0C244C1ED3E9C400C12BA4 /* AipOcrSdk.framework */,
+				6CFBF8D61ED41B9D003D574C /* AipBase.framework */,
+				6CFBF8D71ED41B9D003D574C /* AipOcrSdk.framework */,
 				23065BF41A06BA67001BA0B0 /* Images.xcassets */,
 				4581EB85184845790048CAB0 /* View Controllers */,
 				4581EB7E184845790048CAB0 /* Frameworks */,
@@ -420,6 +455,17 @@
 		4581EB7E184845790048CAB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CFBF8F01ED41D5D003D574C /* libc++.tbd */,
+				6CFBF8EE1ED41D56003D574C /* libz.tbd */,
+				6CFBF8EC1ED41D37003D574C /* QuartzCore.framework */,
+				6CFBF8EA1ED41D2C003D574C /* AddressBook.framework */,
+				6CFBF8E81ED41D26003D574C /* Contacts.framework */,
+				6CFBF8E61ED41D20003D574C /* CoreLocation.framework */,
+				6CFBF8E41ED41D17003D574C /* AudioToolbox.framework */,
+				6CFBF8E21ED41D0D003D574C /* CoreTelephony.framework */,
+				6CFBF8E01ED41D01003D574C /* SystemConfiguration.framework */,
+				6CFBF8DE1ED41CF9003D574C /* AVFoundation.framework */,
+				6CFBF8DC1ED41BB6003D574C /* iflyMSC.framework */,
 				6C0C243B1ED3E75400C12BA4 /* AipBase.framework */,
 				6C0C243C1ED3E75400C12BA4 /* AipOcrSdk.framework */,
 				6C0C24391ED3E73000C12BA4 /* iflyMSC.framework */,
@@ -501,19 +547,19 @@
 		45EC1D6218763BDE009B6B61 /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
-				6C0C24261ED3E4C100C12BA4 /* HRBrightnessCursor.h */,
-				6C0C24271ED3E4C100C12BA4 /* HRBrightnessCursor.m */,
-				6C0C24281ED3E4C100C12BA4 /* HRCgUtil.h */,
-				6C0C24291ED3E4C100C12BA4 /* HRCgUtil.m */,
-				6C0C242A1ED3E4C100C12BA4 /* HRColorCursor.h */,
-				6C0C242B1ED3E4C100C12BA4 /* HRColorCursor.m */,
-				6C0C242C1ED3E4C100C12BA4 /* HRColorPickerMacros.h */,
-				6C0C242D1ED3E4C100C12BA4 /* HRColorPickerView.h */,
-				6C0C242E1ED3E4C100C12BA4 /* HRColorPickerView.m */,
-				6C0C242F1ED3E4C100C12BA4 /* HRColorPickerViewController.h */,
-				6C0C24301ED3E4C100C12BA4 /* HRColorPickerViewController.m */,
-				6C0C24311ED3E4C100C12BA4 /* HRColorUtil.h */,
-				6C0C24321ED3E4C100C12BA4 /* HRColorUtil.m */,
+				6CC96F381ED41B3E00715A50 /* HRBrightnessCursor.h */,
+				6CC96F391ED41B3E00715A50 /* HRBrightnessCursor.m */,
+				6CC96F3A1ED41B3E00715A50 /* HRCgUtil.h */,
+				6CC96F3B1ED41B3E00715A50 /* HRCgUtil.m */,
+				6CC96F3C1ED41B3E00715A50 /* HRColorCursor.h */,
+				6CC96F3D1ED41B3E00715A50 /* HRColorCursor.m */,
+				6CC96F3E1ED41B3E00715A50 /* HRColorPickerMacros.h */,
+				6CC96F3F1ED41B3E00715A50 /* HRColorPickerView.h */,
+				6CC96F401ED41B3E00715A50 /* HRColorPickerView.m */,
+				6CC96F411ED41B3E00715A50 /* HRColorPickerViewController.h */,
+				6CC96F421ED41B3E00715A50 /* HRColorPickerViewController.m */,
+				6CC96F431ED41B3E00715A50 /* HRColorUtil.h */,
+				6CC96F441ED41B3E00715A50 /* HRColorUtil.m */,
 			);
 			path = ColorPicker;
 			sourceTree = "<group>";
@@ -528,7 +574,7 @@
 				4581EB78184845790048CAB0 /* Sources */,
 				4581EB79184845790048CAB0 /* Frameworks */,
 				4581EB7A184845790048CAB0 /* Resources */,
-				6C0C24461ED3E8C600C12BA4 /* Embed Frameworks */,
+				6CC96F2B1ED41A8000715A50 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -654,31 +700,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C0C24231ED3E49F00C12BA4 /* CYRTextStorage.m in Sources */,
 				2343B1DA199B2C9300349048 /* ZSSDemoList.m in Sources */,
 				2343B22F199D6E6700349048 /* ZSSCustomButtonsViewController.m in Sources */,
 				2343B22C199D6D6400349048 /* ZSSSelectiveViewController.m in Sources */,
 				6C0C239B1ED3E38600C12BA4 /* ZSSRichTextEditor.m in Sources */,
-				6C0C24241ED3E49F00C12BA4 /* CYRTextView.m in Sources */,
-				6C0C24351ED3E4C100C12BA4 /* HRColorCursor.m in Sources */,
 				6C0C23961ED3E36800C12BA4 /* ZSSBarButtonItem.m in Sources */,
 				6C0C23981ED3E36800C12BA4 /* ZSSTextView.m in Sources */,
-				6C0C24371ED3E4C100C12BA4 /* HRColorPickerViewController.m in Sources */,
+				6CC96F471ED41B3E00715A50 /* HRColorCursor.m in Sources */,
 				2343B1E0199BE4D000349048 /* ZSSLargeViewController.m in Sources */,
+				6CC96F351ED41B3000715A50 /* CYRTextStorage.m in Sources */,
+				6CC96F491ED41B3E00715A50 /* HRColorPickerViewController.m in Sources */,
 				4581EB8C1848457A0048CAB0 /* main.m in Sources */,
 				2343B1DD199B34B500349048 /* ZSSColorViewController.m in Sources */,
-				6C0C24331ED3E4C100C12BA4 /* HRBrightnessCursor.m in Sources */,
 				6C0C23971ED3E36800C12BA4 /* ZSSFontsViewController.m in Sources */,
-				6C0C24361ED3E4C100C12BA4 /* HRColorPickerView.m in Sources */,
+				6CC96F451ED41B3E00715A50 /* HRBrightnessCursor.m in Sources */,
+				6CC96F361ED41B3000715A50 /* CYRTextView.m in Sources */,
+				6CC96F481ED41B3E00715A50 /* HRColorPickerView.m in Sources */,
 				4581EB901848457A0048CAB0 /* ZSSAppDelegate.m in Sources */,
 				6C0C24191ED3E3FF00C12BA4 /* ISRDataHelper.m in Sources */,
-				6C0C24341ED3E4C100C12BA4 /* HRCgUtil.m in Sources */,
-				6C0C24381ED3E4C100C12BA4 /* HRColorUtil.m in Sources */,
-				6C0C24251ED3E49F00C12BA4 /* CYRToken.m in Sources */,
+				6CC96F461ED41B3E00715A50 /* HRCgUtil.m in Sources */,
+				6CC96F4A1ED41B3E00715A50 /* HRColorUtil.m in Sources */,
 				2343B229199D237100349048 /* ZSSPlaceholderViewController.m in Sources */,
-				6C0C24221ED3E49F00C12BA4 /* CYRLayoutManager.m in Sources */,
 				6C0C24181ED3E3FF00C12BA4 /* IATConfig.m in Sources */,
 				4581EBB81848F8190048CAB0 /* ZSSDemoViewController.m in Sources */,
+				6CC96F341ED41B3000715A50 /* CYRLayoutManager.m in Sources */,
+				6CC96F371ED41B3000715A50 /* CYRToken.m in Sources */,
 				6C0C23951ED3E36800C12BA4 /* RYIndicatorBackgroudView.m in Sources */,
 				DB1D27A61D79F62D00EC1CBD /* DemoModalViewController.m in Sources */,
 				45F80458189B1E9300A1EDD9 /* ZSSDemoPickerViewController.m in Sources */,
@@ -746,17 +792,18 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZSSRichTextEditor",
-					"$(PROJECT_DIR)/ZSSRichTextEditor/TWRichTextEditor/Third",
-					Party,
+					"$(PROJECT_DIR)/ZSSRichTextEditor/TWRichTextEditor/ThirdParty",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZSSRichTextEditor/ZSSRichTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "ZSSRichTextEditor/ZSSRichTextEditor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zedsaid.${PRODUCT_NAME:rfc1034identifier}";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.Gallery;
 				PRODUCT_NAME = ZSSRichTextEditor;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -856,17 +903,18 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZSSRichTextEditor",
-					"$(PROJECT_DIR)/ZSSRichTextEditor/TWRichTextEditor/Third",
-					Party,
+					"$(PROJECT_DIR)/ZSSRichTextEditor/TWRichTextEditor/ThirdParty",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZSSRichTextEditor/ZSSRichTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "ZSSRichTextEditor/ZSSRichTextEditor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zedsaid.${PRODUCT_NAME:rfc1034identifier}";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.Gallery;
 				PRODUCT_NAME = ZSSRichTextEditor;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -881,17 +929,18 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = BTM4Y3L66C;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZSSRichTextEditor",
-					"$(PROJECT_DIR)/ZSSRichTextEditor/TWRichTextEditor/Third",
-					Party,
+					"$(PROJECT_DIR)/ZSSRichTextEditor/TWRichTextEditor/ThirdParty",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZSSRichTextEditor/ZSSRichTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "ZSSRichTextEditor/ZSSRichTextEditor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zedsaid.${PRODUCT_NAME:rfc1034identifier}";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.Gallery;
 				PRODUCT_NAME = ZSSRichTextEditor;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
