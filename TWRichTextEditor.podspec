@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.requires_arc = true
   s.source       = { :git => "https://github.com/1001hotel/TWRichTextEditor.git", :tag => s.version.to_s }
-  s.source_files  = "TWRichTextEditor/**/*.{h,m,pch,plist}"
+  s.source_files  = "TWRichTextEditor/**/*.{h,m}"
   s.vendored_frameworks = "TWRichTextEditor/Third Party/iflyMSC.framework", "TWRichTextEditor/Third Party/AipBase.framework", "TWRichTextEditor/Third Party/AipOcrSdk.framework"
 
   #s.exclude_files = "Classes/Exclude"
