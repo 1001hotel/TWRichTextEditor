@@ -38,46 +38,57 @@ zss_editor.updateScrollOffset = false;
  */
 zss_editor.init = function() {
     
-    $('#zss_editor_content').on('touchend', function(e) {
+    $('#zss_editor_content').on('touchend',
+                                function(e) {
                                 zss_editor.enabledEditingItems(e);
                                 var clicked = $(e.target);
                                 if (!clicked.hasClass('zs_active')) {
                                 $('img').removeClass('zs_active');
                                 }
+                                
+                             
+                                
                                 });
     
-    $(document).on('selectionchange',function(e){
+    $(document).on('selectionchange',
+                   function(e) {
                    zss_editor.calculateEditorHeightWithCaretPosition();
                    zss_editor.setScrollPosition();
                    zss_editor.enabledEditingItems(e);
                    });
     
-    $(window).on('scroll', function(e) {
+    $(window).on('scroll',
+                 function(e) {
                  zss_editor.updateOffset();
                  });
     
     // Make sure that when we tap anywhere in the document we focus on the editor
-    $(window).on('touchmove', function(e) {
+    $(window).on('touchmove',
+                 function(e) {
                  zss_editor.isDragging = true;
                  zss_editor.updateScrollOffset = true;
                  zss_editor.setScrollPosition();
                  zss_editor.enabledEditingItems(e);
                  });
-    $(window).on('touchstart', function(e) {
+    $(window).on('touchstart',
+                 function(e) {
                  zss_editor.isDragging = false;
                  });
-    $(window).on('touchend', function(e) {
-                 if (!zss_editor.isDragging && (e.target.id == "zss_editor_footer"||e.target.nodeName.toLowerCase() == "html")) {
+    $(window).on('touchend',
+                 function(e) {
+                 if (!zss_editor.isDragging && (e.target.id == "zss_editor_footer" || e.target.nodeName.toLowerCase() == "html")) {
                  zss_editor.focusEditor();
+                 
+                 
                  }
+                
+                 resultParams('touchend');
                  });
     
-}//end
-
+} //end
 zss_editor.updateOffset = function() {
     
-    if (!zss_editor.updateScrollOffset)
-        return;
+    if (!zss_editor.updateScrollOffset) return;
     
     var offsetY = window.document.body.scrollTop;
     
@@ -85,11 +96,9 @@ zss_editor.updateOffset = function() {
     
     var maxOffsetY = footer.offset().top - zss_editor.contentHeight;
     
-    if (maxOffsetY < 0)
-        maxOffsetY = 0;
+    if (maxOffsetY < 0) maxOffsetY = 0;
     
-    if (offsetY > maxOffsetY)
-    {
+    if (offsetY > maxOffsetY) {
         window.scrollTo(0, maxOffsetY);
     }
     
@@ -98,32 +107,28 @@ zss_editor.updateOffset = function() {
 
 // This will show up in the XCode console as we are able to push this into an NSLog.
 zss_editor.debug = function(msg) {
-    window.location = 'debug://'+msg;
+    window.location = 'debug://' + msg;
 }
-
 
 zss_editor.setScrollPosition = function() {
     var position = window.pageYOffset;
-    window.location = 'scroll://'+position;
+    window.location = 'scroll://' + position;
 }
-
 
 zss_editor.setPlaceholder = function(placeholder) {
     
     var editor = $('#zss_editor_content');
     
     //set placeHolder
-	editor.attr("placeholder",placeholder);
-	
-    //set focus			 
-	editor.focusout(function(){
-        var element = $(this);        
-        if (!element.text().trim().length) {
-            element.empty();
-        }
-    });
-	
-	
+    editor.attr("placeholder", placeholder);
+    
+    //set focus
+    editor.focusout(function() {
+                    var element = $(this);
+                    if (!element.text().trim().length) {
+                    element.empty();
+                    }
+                    });
     
 }
 
@@ -137,7 +142,7 @@ zss_editor.getCaretYPosition = function() {
     // Next line is comented to prevent deselecting selection. It looks like work but if there are any issues will appear then uconmment it as well as code above.
     //sel.collapseToStart();
     var range = sel.getRangeAt(0);
-    var span = document.createElement('span');// something happening here preventing selection of elements
+    var span = document.createElement('span'); // something happening here preventing selection of elements
     range.collapse(false);
     range.insertNode(span);
     var topPosition = span.offsetTop;
@@ -166,13 +171,18 @@ zss_editor.calculateEditorHeightWithCaretPosition = function() {
     window.scrollTo(0, newPos);
 }
 
-zss_editor.backuprange = function(){
+zss_editor.backuprange = function() {
     var selection = window.getSelection();
     var range = selection.getRangeAt(0);
-    zss_editor.currentSelection = {"startContainer": range.startContainer, "startOffset":range.startOffset,"endContainer":range.endContainer, "endOffset":range.endOffset};
+    zss_editor.currentSelection = {
+        "startContainer": range.startContainer,
+        "startOffset": range.startOffset,
+        "endContainer": range.endContainer,
+        "endOffset": range.endOffset
+    };
 }
 
-zss_editor.restorerange = function(){
+zss_editor.restorerange = function() {
     var selection = window.getSelection();
     selection.removeAllRanges();
     var range = document.createRange();
@@ -182,7 +192,7 @@ zss_editor.restorerange = function(){
 }
 
 zss_editor.getSelectedNode = function() {
-    var node,selection;
+    var node, selection;
     if (window.getSelection) {
         selection = getSelection();
         node = selection.anchorNode;
@@ -190,11 +200,10 @@ zss_editor.getSelectedNode = function() {
     if (!node && document.selection) {
         selection = document.selection
         var range = selection.getRangeAt ? selection.getRangeAt(0) : selection.createRange();
-        node = range.commonAncestorContainer ? range.commonAncestorContainer :
-        range.parentElement ? range.parentElement() : range.item(0);
+        node = range.commonAncestorContainer ? range.commonAncestorContainer: range.parentElement ? range.parentElement() : range.item(0);
     }
     if (node) {
-        return (node.nodeName == "#text" ? node.parentNode : node);
+        return (node.nodeName == "#text" ? node.parentNode: node);
     }
 };
 
@@ -251,7 +260,7 @@ zss_editor.setHeading = function(heading) {
         var c = current_selection.html();
         current_selection.replaceWith(c);
     } else {
-        document.execCommand('formatBlock', false, '<'+heading+'>');
+        document.execCommand('formatBlock', false, '<' + heading + '>');
     }
     
     zss_editor.enabledEditingItems();
@@ -325,17 +334,17 @@ zss_editor.setOutdent = function() {
 }
 
 zss_editor.setFontFamily = function(fontFamily) {
-
-	zss_editor.restorerange();
-	document.execCommand("styleWithCSS", null, true);
-	document.execCommand("fontName", false, fontFamily);
-	document.execCommand("styleWithCSS", null, false);
-	zss_editor.enabledEditingItems();
-		
+    
+    zss_editor.restorerange();
+    document.execCommand("styleWithCSS", null, true);
+    document.execCommand("fontName", false, fontFamily);
+    document.execCommand("styleWithCSS", null, false);
+    zss_editor.enabledEditingItems();
+    
 }
 
 zss_editor.setTextColor = function(color) {
-		
+    
     zss_editor.restorerange();
     document.execCommand("styleWithCSS", null, true);
     document.execCommand('foreColor', false, color);
@@ -353,7 +362,6 @@ zss_editor.setBackgroundColor = function(color) {
 }
 
 // Needs addClass method
-
 zss_editor.insertLink = function(url, title) {
     
     zss_editor.restorerange();
@@ -371,10 +379,8 @@ zss_editor.insertLink = function(url, title) {
             sel.removeAllRanges();
             sel.addRange(range);
         }
-    }
-    else
-    {
-        document.execCommand("insertHTML",false,"<a href='"+url+"'>"+title+"</a>");
+    } else {
+        document.execCommand("insertHTML", false, "<a href='" + url + "'>" + title + "</a>");
     }
     
     zss_editor.enabledEditingItems();
@@ -391,8 +397,7 @@ zss_editor.updateLink = function(url, title) {
     }
     zss_editor.enabledEditingItems();
     
-}//end
-
+} //end
 zss_editor.updateImage = function(url, alt) {
     
     zss_editor.restorerange();
@@ -404,8 +409,7 @@ zss_editor.updateImage = function(url, alt) {
     }
     zss_editor.enabledEditingItems();
     
-}//end
-
+} //end
 zss_editor.updateImageBase64String = function(imageBase64String, alt) {
     
     zss_editor.restorerange();
@@ -418,8 +422,7 @@ zss_editor.updateImageBase64String = function(imageBase64String, alt) {
     }
     zss_editor.enabledEditingItems();
     
-}//end
-
+} //end
 
 zss_editor.unlink = function() {
     
@@ -468,14 +471,14 @@ zss_editor.prepareInsert = function() {
 
 zss_editor.insertImage = function(url, alt) {
     zss_editor.restorerange();
-    var html = '<img src="'+url+'" alt="'+alt+'" />';
+    var html = '<img src="' + url + '" alt="' + alt + '" />';
     zss_editor.insertHTML(html);
     zss_editor.enabledEditingItems();
 }
 
 zss_editor.insertImageBase64String = function(imageBase64String, alt) {
     zss_editor.restorerange();
-    var html = '<img src="data:image/jpeg;base64,'+imageBase64String+'" alt="'+alt+'" />';
+    var html = '<img src="data:image/jpeg;base64,' + imageBase64String + '" alt="' + alt + '" />';
     zss_editor.insertHTML(html);
     zss_editor.enabledEditingItems();
 }
@@ -486,6 +489,7 @@ zss_editor.setHTML = function(html) {
 }
 
 zss_editor.insertHTML = function(html) {
+    
     document.execCommand('insertHTML', false, html);
     zss_editor.enabledEditingItems();
 }
@@ -513,10 +517,14 @@ zss_editor.getHTML = function() {
         bq.each(function() {
                 var b = $(this);
                 if (b.css('border').indexOf('none') != -1) {
-                b.css({'border': ''});
+                b.css({
+                      'border': ''
+                      });
                 }
                 if (b.css('padding').indexOf('0px') != -1) {
-                b.css({'padding': ''});
+                b.css({
+                      'padding': ''
+                      });
                 }
                 });
     }
@@ -583,7 +591,8 @@ zss_editor.enabledEditingItems = function(e) {
         items.push(formatBlock);
     }
     // Images
-    $('img').bind('touchstart', function(e) {
+    $('img').bind('touchstart',
+                  function(e) {
                   $('img').removeClass('zs_active');
                   $(this).addClass('zs_active');
                   });
@@ -602,28 +611,30 @@ zss_editor.enabledEditingItems = function(e) {
             items.push('backgroundColor');
         }
         // Text Color
-        var textColor = t.css('color');
-        textColor = textColor.replace(/\s+/g,'');
+//        var textColor = t.css('color');
+       var textColor = document.queryCommandValue('ForeColor');
+        textColor = textColor.replace(/\s+/g, '');
         textColor = zss_editor.rgb2hex(textColor);
         
         if (textColor.length != 0 && textColor != 'rgba(0, 0, 0, 0)' && textColor != 'rgb(0, 0, 0)' && textColor != 'transparent') {
-            
+
             items.push(textColor);
         }
+
         
-		//Fonts
-		var font = t.css('font-family');
-		if (font.length != 0 && font != 'Arial, Helvetica, sans-serif') {
-			items.push('fonts');	
-		}
-		
+        //Fonts
+        var font = t.css('font-family');
+        if (font.length != 0 && font != 'Arial, Helvetica, sans-serif') {
+            items.push('fonts');
+        }
+        
         // Link
         if (nodeName == 'a') {
             zss_editor.currentEditingLink = t;
             var title = t.attr('title');
-            items.push('link:'+t.attr('href'));
+            items.push('link:' + t.attr('href'));
             if (t.attr('title') !== undefined) {
-                items.push('link-title:'+t.attr('title'));
+                items.push('link-title:' + t.attr('title'));
             }
             
         } else {
@@ -636,9 +647,9 @@ zss_editor.enabledEditingItems = function(e) {
         // Image
         if (nodeName == 'img') {
             zss_editor.currentEditingImage = t;
-            items.push('image:'+t.attr('src'));
+            items.push('image:' + t.attr('src'));
             if (t.attr('alt') !== undefined) {
-                items.push('image-alt:'+t.attr('alt'));
+                items.push('image-alt:' + t.attr('alt'));
             }
             
         } else {
@@ -646,13 +657,24 @@ zss_editor.enabledEditingItems = function(e) {
         }
         
     }
+    else{
+    
+        var textColor = document.queryCommandValue('ForeColor');
+        textColor = textColor.replace(/\s+/g, '');
+        textColor = zss_editor.rgb2hex(textColor);
+        
+        if (textColor.length != 0 && textColor != 'rgba(0, 0, 0, 0)' && textColor != 'rgb(0, 0, 0)' && textColor != 'transparent') {
+            
+            items.push(textColor);
+        }
+    }
     
     if (items.length > 0) {
         if (zss_editor.isUsingiOS) {
             //window.location = "zss-callback/"+items.join(',');
-            window.location = "callback://0/"+items.join(',');
+            window.location = "callback://0/" + items.join(',');
         } else {
-            console.log("callback://"+items.join(','));
+            console.log("callback://" + items.join(','));
         }
     } else {
         if (zss_editor.isUsingiOS) {
@@ -662,7 +684,6 @@ zss_editor.enabledEditingItems = function(e) {
             console.log("callback://");
         }
     }
-    
     
 }
 
@@ -686,17 +707,15 @@ zss_editor.blurEditor = function() {
 
 zss_editor.setCustomCSS = function(customCSS) {
     
-    document.getElementsByTagName('style')[0].innerHTML=customCSS;
+    document.getElementsByTagName('style')[0].innerHTML = customCSS;
     
     //set focus
     /*editor.focusout(function(){
-                    var element = $(this);
-                    if (!element.text().trim().length) {
-                    element.empty();
-                    }
-                    });*/
-    
-    
+     var element = $(this);
+     if (!element.text().trim().length) {
+     element.empty();
+     }
+     });*/
     
 }
 
@@ -708,26 +727,25 @@ zss_editor.selectAll = function() {
 zss_editor.turnSmall = function() {
     // Text size
     var fontSize = document.queryCommandValue('fontSize');
-    if(fontSize > 1) fontSize--;
-    document.execCommand('FontSize' , false, fontSize);
+    if (fontSize > 1) fontSize--;
+    document.execCommand('FontSize', false, fontSize);
     zss_editor.enabledEditingItems();
 }
 
 zss_editor.turnBig = function() {
     // Text size
     var fontSize = document.queryCommandValue('fontSize');
-    if(fontSize < 7) fontSize++;
-    document.execCommand('FontSize' , false, fontSize);
+    if (fontSize < 7) fontSize++;
+    document.execCommand('FontSize', false, fontSize);
     zss_editor.enabledEditingItems();
 }
 
 zss_editor.clearStyle = function() {
     
     if (zss_editor.isCommandEnabled('bold')) {
-
+        
         zss_editor.setBold();
-    }
-    else{
+    } else {
         
         zss_editor.setBold();
         zss_editor.setBold();
@@ -736,8 +754,7 @@ zss_editor.clearStyle = function() {
     if (zss_editor.isCommandEnabled('italic')) {
         
         zss_editor.setItalic();
-    }
-    else{
+    } else {
         
         zss_editor.setItalic();
         zss_editor.setItalic();
@@ -746,8 +763,7 @@ zss_editor.clearStyle = function() {
     if (zss_editor.isCommandEnabled('underline')) {
         
         zss_editor.setUnderline();
-    }
-    else{
+    } else {
         
         zss_editor.setUnderline();
         zss_editor.setUnderline();
@@ -756,26 +772,44 @@ zss_editor.clearStyle = function() {
     zss_editor.enabledEditingItems();
 }
 
-zss_editor.rgb2hex = function (rgb) {
-    var pattern=/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/;
-    if(!pattern.test(rgb)) return rgb;
+zss_editor.rgb2hex = function(rgb) {
+    var pattern = /^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/;
+    if (!pattern.test(rgb)) return rgb;
     rgb = rgb.match(pattern);
     function hex(x) {
-        return ("0" + parseInt(x).toString(16)).slice(-2);
+        return ("0" + parseInt(x).toString(16)).slice( - 2);
     }
     return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
 }
 
 zss_editor.insertText = function(text) {
     
-    document.execCommand('insertHTML', false, html);
+    document.execCommand('insertText', false, html);
     zss_editor.enabledEditingItems(e);
-
+    
 }
 
 //end
-$(function(){
-  $('#zss_editor_content').on('paste',function(e){
-    var pastedData = e.originalEvent.clipboardData.getData('text');
+$(function() {
+  $('#zss_editor_content').on('paste',
+                              function(e) {
+                              var pastedData = e.originalEvent.clipboardData.getData('text');
+                              })
   })
-})
+
+$(function() {
+  $('#zss_editor_content').on('keyup',
+                              function(e) {
+                              
+                              var KEY_LEFT = 37,
+                              KEY_RIGHT = 39;
+                              if (e.which == KEY_LEFT || e.which == KEY_RIGHT) {
+                              zss_editor.enabledEditingItems(e);
+                              }
+                              
+                              resultParams('keyup');
+                              
+                              })
+  
+  })
+
