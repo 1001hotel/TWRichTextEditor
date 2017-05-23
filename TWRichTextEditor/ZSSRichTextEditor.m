@@ -1254,8 +1254,7 @@ static CGFloat kDefaultScale = 0.5;
     
     
     CGFloat gapHeight = hundredLenthForIPhone6s;
-    MyLog(@"%f-----%f",self.view.frame.size.height,SCREEN_HEIGHT);
-    __block UIView *alertDefineView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*0.25*0.5, self.view.frame.size.height-gapHeight-_keyBoardHeight, SCREEN_WIDTH*0.75, 30)];
+    __block UIView *alertDefineView = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_SIZE.width * 0.25 * 0.5, self.view.frame.size.height - gapHeight - _keyBoardHeight, SCREEN_SIZE.width * 0.75, 30)];
     alertDefineView.backgroundColor = [UIColor colorTransferToRGB:@"#333333"];
     alertDefineView.alpha = 0;
     alertDefineView.layer.cornerRadius = 6;
