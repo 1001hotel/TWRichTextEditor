@@ -77,6 +77,7 @@ ZSSFontsViewControllerDelegate,
 AipOcrDelegate
 >
 
+@property (nonatomic ,strong) NSString *htmlText;
 
 /**
  *  The base URL to use for the webView

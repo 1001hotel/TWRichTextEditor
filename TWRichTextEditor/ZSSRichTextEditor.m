@@ -1210,7 +1210,7 @@ static CGFloat kDefaultScale = 0.5;
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     
-    if ([self getText].length == 0) {
+    if (self.htmlText.length == 0) {
         
         _isActionColor = NO;
         _isActionStyle = NO;
