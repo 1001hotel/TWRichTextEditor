@@ -18,5 +18,9 @@
 - (void) ocrOnGeneralSuccessful:(id)resut;
 
 @optional
+- (void) ocrOnGeneralImageResult:(id)resut;
+
+
+@optional
 - (void) ocrOnFail:(NSError *)error;
 @end
