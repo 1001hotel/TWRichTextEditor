@@ -42,11 +42,11 @@
 		48297EA4AD59741BD21F24ADC22FF67F /* TWFreshLoading42@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading42@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading42@2x.png"; sourceTree = "<group>"; };
 		4872DB4C9F6AE9B192EF57875B650CEE /* TWFreshLoading10@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading10@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading10@2x.png"; sourceTree = "<group>"; };
 		55A4A2F76739980519156BC2C01C92BA /* Pods-ZSSRichTextEditor-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZSSRichTextEditor-resources.sh"; sourceTree = "<group>"; };
-		5AF52C130BAE7951422955113ACD6A3F /* libTWFreshLoadingView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libTWFreshLoadingView.a; path = libTWFreshLoadingView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF52C130BAE7951422955113ACD6A3F /* libTWFreshLoadingView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTWFreshLoadingView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C376C77EB907C2C91EF4AFA0F3DD3C9 /* TWFreshLoading23@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading23@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading23@2x.png"; sourceTree = "<group>"; };
 		6087E5B18531FC55A8D62FA14729EE33 /* FreshLoadingView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FreshLoadingView.m; path = TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/FreshLoadingView.m; sourceTree = "<group>"; };
 		6182BFD05C3765C7FE711772585E3FAE /* TWFreshLoading38@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading38@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading38@2x.png"; sourceTree = "<group>"; };
-		662ABB215CFF91CD8056E977CE273143 /* libPods-ZSSRichTextEditor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ZSSRichTextEditor.a"; path = "libPods-ZSSRichTextEditor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		662ABB215CFF91CD8056E977CE273143 /* libPods-ZSSRichTextEditor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZSSRichTextEditor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B6184075861F407279D46FA43C067F /* TWFreshLoading44@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading44@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading44@2x.png"; sourceTree = "<group>"; };
 		6C2222E558EE7F1CAEFC2DF3E11D5EDD /* TWFreshLoading52@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading52@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading52@2x.png"; sourceTree = "<group>"; };
 		6F295AF08F8244E7EA5C4487AC239C00 /* TWFreshLoading47@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading47@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading47@2x.png"; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		8851C98A6FAAA666907713DC0C682F36 /* TWFreshLoadingView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TWFreshLoadingView-dummy.m"; sourceTree = "<group>"; };
 		899CCA5901F5AEE7ACAAF98BBA804273 /* FreshLoadingView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FreshLoadingView.h; path = TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/FreshLoadingView.h; sourceTree = "<group>"; };
 		922C41FDBFE145BF0D075DB93BA5BF14 /* TWFreshLoading20@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading20@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading20@2x.png"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		958B8E3E00FB236FCC8997E160D726A9 /* TWFreshLoading51@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading51@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading51@2x.png"; sourceTree = "<group>"; };
 		9620B8F9CA135738B4137C46A9EAE8D7 /* TWFreshLoading18@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading18@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading18@2x.png"; sourceTree = "<group>"; };
 		99726186514F019CAB599210EB0138BF /* TWFreshLoading41@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "TWFreshLoading41@2x.png"; path = "TWFreshLoadingView/TWFreshLoadingView/TWFreshLoadingView/Images/TWFreshLoading41@2x.png"; sourceTree = "<group>"; };
@@ -267,7 +267,6 @@
 				924055392C1C2CB83935BA51C9DBA11F /* Resources */,
 				A39821355261AF624D39EEB98EC491E7 /* Support Files */,
 			);
-			name = TWFreshLoadingView;
 			path = TWFreshLoadingView;
 			sourceTree = "<group>";
 		};
@@ -547,6 +546,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TWFreshLoadingView/TWFreshLoadingView-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -593,6 +593,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";

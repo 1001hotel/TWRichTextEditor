@@ -18,6 +18,7 @@
 #import <iflyMSC/iflyMSC.h>
 #import "IATConfig.h"
 #import "ISRDataHelper.h"
+#import <FreshLoadingView.h>
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -127,7 +128,7 @@ IFlyPcmRecorderDelegate
     BOOL _isActionStyle;
     BOOL _isActionColor;
     BOOL _isActionAlignment;
-    
+    FreshLoadingView *_loadingView;
 }
 
 @property (nonatomic, strong) NSString *pcmFilePath;//音频文件路径
@@ -1100,7 +1101,12 @@ IFlyPcmRecorderDelegate
 
 - (void)_setAipOcr{
     
+#pragma gallery
     [[AipOcrService shardService] authWithAK:@"dO3s3M785v8q5l2D8i8ne3yG" andSK:@"3o16M5QECFC8PVzwZdtlUXGCL1qLt3y4"];
+    
+#pragma test
+    //[[AipOcrService shardService] authWithAK:@"BKahGmIO0h4qn6um2juGzRDR" andSK:@"hZHBi7k3k7wOvEEh9Sp2nCN7mjMFT6Xu"];
+
     
     /*
     // 授权方法2： 下载授权文件，添加至资源
@@ -1210,7 +1216,7 @@ static CGFloat kDefaultScale = 0.5;
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
     
-    if ([self getText].length == 0) {
+    if (self.htmlText.length == 0) {
         
         _isActionColor = NO;
         _isActionStyle = NO;
@@ -1302,6 +1308,97 @@ static CGFloat kDefaultScale = 0.5;
         });
     }];
 }
+
+
+#pragma mark -
+#pragma mark - Loading
+- (void)startLoading{
+    
+    if (!_loadingView) {
+        _loadingView = [[FreshLoadingView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    }
+    
+    if ([[NSThread mainThread] isMainThread]) {
+        
+        [_loadingView startAnimating];
+        [self.view addSubview:_loadingView];
+        [self.view bringSubviewToFront:_loadingView];
+        @try {
+            // 可能会出现崩溃的代码
+            self.view.userInteractionEnabled = NO;
+            
+        }
+        @catch (NSException *exception) {
+            // 捕获到的异常exception
+        }
+        @finally {
+            // 结果处理
+        }
+        
+    }
+    else{
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            [_loadingView startAnimating];
+            [self.view addSubview:_loadingView];
+            [self.view bringSubviewToFront:_loadingView];
+            @try {
+                // 可能会出现崩溃的代码
+                self.view.userInteractionEnabled = NO;
+                
+            }
+            @catch (NSException *exception) {
+                // 捕获到的异常exception
+            }
+            @finally {
+                // 结果处理
+            }
+        });
+    }
+}
+- (void)stopLoading{
+    
+    
+    if ([[NSThread mainThread] isMainThread]) {
+        
+        [_loadingView stopAnimating];
+        [_loadingView removeFromSuperview];
+        _loadingView = nil;
+        @try {
+            // 可能会出现崩溃的代码
+            self.view.userInteractionEnabled = YES;
+            
+        }
+        @catch (NSException *exception) {
+            // 捕获到的异常exception
+        }
+        @finally {
+            // 结果处理
+        }
+    }
+    else{
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            [_loadingView stopAnimating];
+            [_loadingView removeFromSuperview];
+            _loadingView = nil;
+            @try {
+                // 可能会出现崩溃的代码
+                self.view.userInteractionEnabled = YES;
+                
+            }
+            @catch (NSException *exception) {
+                // 捕获到的异常exception
+            }
+            @finally {
+                // 结果处理
+            }
+        });
+    }
+}
+
 
 
 #pragma mark -
@@ -2546,76 +2643,52 @@ static CGFloat kDefaultScale = 0.5;
 
 #pragma mark -
 #pragma mark - AipOcrResultDelegate
-- (void)ocrOnIdCardSuccessful:(id)result {
+- (void)ocrOnGeneralImageResult:(id)resut {
 
-    NSString *title = nil;
-    NSMutableString *message = [NSMutableString string];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
-    if(result[@"words_result"]){
-        [result[@"words_result"] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            [message appendFormat:@"%@: %@\n", key, obj[@"words"]];
-        }];
-    }
+    NSDictionary *options = @{@"language_type": @"CHN_ENG", @"detect_direction": @"true"};
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alertView show];
-    }];
-}
-- (void)ocrOnBankCardSuccessful:(id)result {
-
-    NSString *title = nil;
-    NSMutableString *message = [NSMutableString string];
-    title = @"银行卡信息";
-    //    [message appendFormat:@"%@", result[@"result"]];
-    [message appendFormat:@"卡号：%@\n", result[@"result"][@"bank_card_number"]];
-    [message appendFormat:@"类型：%@\n", result[@"result"][@"bank_card_type"]];
-    [message appendFormat:@"发卡行：%@\n", result[@"result"][@"bank_name"]];
-    
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alertView show];
-    }];
-}
-- (void)ocrOnGeneralSuccessful:(id)result {
-    
-    NSMutableString *message = [NSMutableString string];
-    if(result[@"words_result"]){
+    [self startLoading];
+    [[AipOcrService shardService] detectTextFromImage:(UIImage *)resut withOptions:options successHandler:^(id result) {
         
-        for(NSDictionary *obj in result[@"words_result"]){
-            
-            [message appendFormat:@"%@", obj[@"words"]];
-        }
-    }
-    else{
-        [message appendFormat:@"%@", result];
-    }
-    
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        
-        
-        [self dismissViewControllerAnimated:YES completion:^{
+        [self stopLoading];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSMutableString *message = [NSMutableString string];
+            if(result[@"words_result"]){
+                
+                for(NSDictionary *obj in result[@"words_result"]){
+                    
+                    [message appendFormat:@"%@", obj[@"words"]];
+                }
+            }
+            else{
+                [message appendFormat:@"%@", result];
+            }
             
             [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.restorerange()"];
-
+            
             if (message.length == 0) {
-                
                 
                 [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
             }
             else{
-            
+                
                 [self insertHTML:message];
-
+                
             }
-            
-        }];
-    });
+        });
+        
+    } failHandler:^(NSError *err) {
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+
+            [self stopLoading];
+        [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
+        });
+    }];
 }
-- (void)ocrOnFail:(NSError *)error {
-    
-    [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
-}
+
 
 
 

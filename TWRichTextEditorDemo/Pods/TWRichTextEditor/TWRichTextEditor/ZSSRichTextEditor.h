@@ -77,6 +77,7 @@ ZSSFontsViewControllerDelegate,
 AipOcrDelegate
 >
 
+@property (nonatomic ,strong) NSString *htmlText;
 
 /**
  *  The base URL to use for the webView
@@ -243,6 +244,9 @@ AipOcrDelegate
 - (void)setCSS:(NSString *)css;
 
 - (void)alertMessage:(NSString *)message delayFordisimissComplete:(float)delay;
+
+- (void)startLoading;
+- (void)stopLoading;
 
 @end
 

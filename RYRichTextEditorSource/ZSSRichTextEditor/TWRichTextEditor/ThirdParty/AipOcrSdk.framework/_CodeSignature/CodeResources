@@ -6,23 +6,23 @@
 	<dict>
 		<key>AipOcrSdk.storyboardc/ANZ-N0-y67-view-Tv2-ge-o8Q.nib</key>
 		<data>
-		lUxX828EYK8Nsvv6hGJyGKUNwKQ=
+		C1mLu9dApn3MjA2TwwRG4Lfng54=
 		</data>
 		<key>AipOcrSdk.storyboardc/AipCaptureCardVC.nib</key>
 		<data>
-		ppY9SIIbur0MqHve7+aw7EWqHbw=
+		lszvCEMT1Ds2na95nbDxyp+frQo=
 		</data>
 		<key>AipOcrSdk.storyboardc/AipGeneralVC.nib</key>
 		<data>
-		MxlP3nzdarE+RfdhNGcAuLaAp1c=
+		Lzuf4+qGFslSgcrXHiqGwCdKKuE=
 		</data>
 		<key>AipOcrSdk.storyboardc/Info.plist</key>
 		<data>
-		WDDlpd/83ujNqffiB5VzUaccsio=
+		qYNMyGMOxQy8P8LvIYSjB3J3IAo=
 		</data>
 		<key>AipOcrSdk.storyboardc/qVB-bS-VcD-view-pEK-B6-uAC.nib</key>
 		<data>
-		ToqBiwCXyOfGsdkH8v2vlnRRxYE=
+		oDIdPdVjjhy4aW/OABCEyPwLx1M=
 		</data>
 		<key>Headers/AipCaptureCardVC.h</key>
 		<data>
@@ -147,55 +147,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lUxX828EYK8Nsvv6hGJyGKUNwKQ=
+			C1mLu9dApn3MjA2TwwRG4Lfng54=
 			</data>
 			<key>hash2</key>
 			<data>
-			2WB84h+5TLY0dBtzYoVlMj2yaTpf50ViHOlduZNobgw=
+			Z34X/kJ+oaMM9WfgkUGn6PEivJjjV4+dfNppMwRygZs=
 			</data>
 		</dict>
 		<key>AipOcrSdk.storyboardc/AipCaptureCardVC.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ppY9SIIbur0MqHve7+aw7EWqHbw=
+			lszvCEMT1Ds2na95nbDxyp+frQo=
 			</data>
 			<key>hash2</key>
 			<data>
-			P9xGppvIoy1YFyQCGc9DV61NHa4E/GA6sRM/Cad7QiQ=
+			AsxvHD+TC5XzVo+JgcV6ORx0JlgwL70w2pxU5xmsoSI=
 			</data>
 		</dict>
 		<key>AipOcrSdk.storyboardc/AipGeneralVC.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MxlP3nzdarE+RfdhNGcAuLaAp1c=
+			Lzuf4+qGFslSgcrXHiqGwCdKKuE=
 			</data>
 			<key>hash2</key>
 			<data>
-			skdCe3dgKdgeQSqd5D4EH56Z/IrHpNKA7TYbhgeYspg=
+			DKeDx+8g+bJa9FdXTe+OfHEJC9sQnNbi3v18PD5RRRM=
 			</data>
 		</dict>
 		<key>AipOcrSdk.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WDDlpd/83ujNqffiB5VzUaccsio=
+			qYNMyGMOxQy8P8LvIYSjB3J3IAo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Aojyk2WMe2Mzr9xD5AnZYmTACSiDdZeSx2jF1pDcb0w=
+			zaMu0RfHOEcgi0LQTbySuDZEFD0JTbOdfdnY3jSIKPo=
 			</data>
 		</dict>
 		<key>AipOcrSdk.storyboardc/qVB-bS-VcD-view-pEK-B6-uAC.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ToqBiwCXyOfGsdkH8v2vlnRRxYE=
+			oDIdPdVjjhy4aW/OABCEyPwLx1M=
 			</data>
 			<key>hash2</key>
 			<data>
-			X17j3WNB+i91hXyQU+2Zl6Yi6yjL0vJ6SMhF8GIee3g=
+			3US+an8kHhihLbiv40QC6gl5XgzUjt2DDxEqESf0jqA=
 			</data>
 		</dict>
 		<key>Headers/AipCaptureCardVC.h</key>

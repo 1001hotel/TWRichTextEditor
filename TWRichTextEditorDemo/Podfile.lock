@@ -1,5 +1,7 @@
 PODS:
-  - TWRichTextEditor (0.1.5)
+  - TWFreshLoadingView (0.8.0)
+  - TWRichTextEditor (1.0.0):
+    - TWFreshLoadingView (~> 0.8.0)
 
 DEPENDENCIES:
   - TWRichTextEditor (from `https://github.com/1001hotel/TWRichTextEditor.git`)
@@ -10,12 +12,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   TWRichTextEditor:
-    :commit: b3805cb92ae03bade6da53481690f0adde062a2c
+    :commit: 867dd582bb0cb71a2e2b1d44dca08bbb8fed797b
     :git: https://github.com/1001hotel/TWRichTextEditor.git
 
 SPEC CHECKSUMS:
-  TWRichTextEditor: 89909985ae32210841e404f3c390425b8584e7de
+  TWFreshLoadingView: e6f6b857455fc0dc52986f229af29b78c6536018
+  TWRichTextEditor: 0eb08f68d78c2066e685047426960673f28fbee8
 
 PODFILE CHECKSUM: e4e122459d4a0e31ceeca4e392ca866a178306f3
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

@@ -1,6 +1,6 @@
 {
   "name": "TWRichTextEditor",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "summary": "A rich text editor used on iOS.",
   "description": "It is a rich text editor used on iOS, which implement by Objective-C.",
   "homepage": "https://github.com/1001hotel/TWRichTextEditor",
@@ -14,7 +14,7 @@
   "requires_arc": true,
   "source": {
     "git": "https://github.com/1001hotel/TWRichTextEditor.git",
-    "tag": "0.1.5"
+    "tag": "1.0.0"
   },
   "source_files": "TWRichTextEditor/**/*.{h,m}",
   "vendored_frameworks": [
@@ -45,5 +45,10 @@
   "libraries": [
     "z",
     "c++"
-  ]
+  ],
+  "dependencies": {
+    "TWFreshLoadingView": [
+      "~> 0.8.0"
+    ]
+  }
 }
