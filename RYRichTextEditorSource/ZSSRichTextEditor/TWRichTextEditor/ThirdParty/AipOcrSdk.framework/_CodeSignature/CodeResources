@@ -6,15 +6,15 @@
 	<dict>
 		<key>AipOcrSdk.storyboardc/ANZ-N0-y67-view-Tv2-ge-o8Q.nib</key>
 		<data>
-		C1mLu9dApn3MjA2TwwRG4Lfng54=
+		R7IL8RoGCv0hjxgntHDPHEXygCM=
 		</data>
 		<key>AipOcrSdk.storyboardc/AipCaptureCardVC.nib</key>
 		<data>
-		lszvCEMT1Ds2na95nbDxyp+frQo=
+		BLbfpAv0Su5uiTy9QMGfeHegHhk=
 		</data>
 		<key>AipOcrSdk.storyboardc/AipGeneralVC.nib</key>
 		<data>
-		Lzuf4+qGFslSgcrXHiqGwCdKKuE=
+		bguAHBJp1Z6s1xuejXYVNDh6lFk=
 		</data>
 		<key>AipOcrSdk.storyboardc/Info.plist</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>AipOcrSdk.storyboardc/qVB-bS-VcD-view-pEK-B6-uAC.nib</key>
 		<data>
-		oDIdPdVjjhy4aW/OABCEyPwLx1M=
+		fdFHzSraYp9yUprDaVLdbn8TpP4=
 		</data>
 		<key>Headers/AipCaptureCardVC.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		8VTJX+XRBth6+e9B4cW728ZyoO0=
+		v7CRe82iJdJzVY+9mRGP24WG80s=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -147,33 +147,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			C1mLu9dApn3MjA2TwwRG4Lfng54=
+			R7IL8RoGCv0hjxgntHDPHEXygCM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z34X/kJ+oaMM9WfgkUGn6PEivJjjV4+dfNppMwRygZs=
+			RlvkR/heqx8RWTO5AdJUTXtMY92zYFIUVEnaiZ3dejk=
 			</data>
 		</dict>
 		<key>AipOcrSdk.storyboardc/AipCaptureCardVC.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lszvCEMT1Ds2na95nbDxyp+frQo=
+			BLbfpAv0Su5uiTy9QMGfeHegHhk=
 			</data>
 			<key>hash2</key>
 			<data>
-			AsxvHD+TC5XzVo+JgcV6ORx0JlgwL70w2pxU5xmsoSI=
+			QPRiyUABZk7QedMAdl60WZFurH8RbEzXFn3vJbY27tc=
 			</data>
 		</dict>
 		<key>AipOcrSdk.storyboardc/AipGeneralVC.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Lzuf4+qGFslSgcrXHiqGwCdKKuE=
+			bguAHBJp1Z6s1xuejXYVNDh6lFk=
 			</data>
 			<key>hash2</key>
 			<data>
-			DKeDx+8g+bJa9FdXTe+OfHEJC9sQnNbi3v18PD5RRRM=
+			uUhOw+MwbW4M/qBGeC9jqkiGBvJ/A7IF3NEllT0PgAI=
 			</data>
 		</dict>
 		<key>AipOcrSdk.storyboardc/Info.plist</key>
@@ -191,11 +191,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oDIdPdVjjhy4aW/OABCEyPwLx1M=
+			fdFHzSraYp9yUprDaVLdbn8TpP4=
 			</data>
 			<key>hash2</key>
 			<data>
-			3US+an8kHhihLbiv40QC6gl5XgzUjt2DDxEqESf0jqA=
+			I+IFpTSqSw+RS3vmX7Vgz8sBV3lPBblZksvUZoH/1w0=
 			</data>
 		</dict>
 		<key>Headers/AipCaptureCardVC.h</key>
