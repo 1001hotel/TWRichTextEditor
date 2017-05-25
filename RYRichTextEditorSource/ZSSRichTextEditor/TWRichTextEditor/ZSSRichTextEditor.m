@@ -1101,7 +1101,12 @@ IFlyPcmRecorderDelegate
 
 - (void)_setAipOcr{
     
+#pragma gallery
     [[AipOcrService shardService] authWithAK:@"dO3s3M785v8q5l2D8i8ne3yG" andSK:@"3o16M5QECFC8PVzwZdtlUXGCL1qLt3y4"];
+    
+#pragma test
+    //[[AipOcrService shardService] authWithAK:@"BKahGmIO0h4qn6um2juGzRDR" andSK:@"hZHBi7k3k7wOvEEh9Sp2nCN7mjMFT6Xu"];
+
     
     /*
     // 授权方法2： 下载授权文件，添加至资源
@@ -1303,6 +1308,8 @@ static CGFloat kDefaultScale = 0.5;
         });
     }];
 }
+
+
 #pragma mark -
 #pragma mark - Loading
 - (void)startLoading{
@@ -2642,9 +2649,10 @@ static CGFloat kDefaultScale = 0.5;
     
     NSDictionary *options = @{@"language_type": @"CHN_ENG", @"detect_direction": @"true"};
     
-    
+    [self startLoading];
     [[AipOcrService shardService] detectTextFromImage:(UIImage *)resut withOptions:options successHandler:^(id result) {
         
+        [self stopLoading];
         dispatch_sync(dispatch_get_main_queue(), ^{
             NSMutableString *message = [NSMutableString string];
             if(result[@"words_result"]){
@@ -2675,14 +2683,12 @@ static CGFloat kDefaultScale = 0.5;
         
         dispatch_sync(dispatch_get_main_queue(), ^{
 
+            [self stopLoading];
         [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
         });
     }];
 }
-- (void)ocrOnFail:(NSError *)error {
-    
-    [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
-}
+
 
 
 

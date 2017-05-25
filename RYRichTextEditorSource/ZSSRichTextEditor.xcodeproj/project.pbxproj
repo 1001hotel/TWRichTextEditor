@@ -873,7 +873,7 @@
 				INFOPLIST_FILE = "ZSSRichTextEditor/ZSSRichTextEditor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.Gallery;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.RichTextEditor;
 				PRODUCT_NAME = ZSSRichTextEditor;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -985,7 +985,7 @@
 				INFOPLIST_FILE = "ZSSRichTextEditor/ZSSRichTextEditor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.Gallery;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.RichTextEditor;
 				PRODUCT_NAME = ZSSRichTextEditor;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -1012,7 +1012,7 @@
 				INFOPLIST_FILE = "ZSSRichTextEditor/ZSSRichTextEditor-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.Gallery;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1001nights.RichTextEditor;
 				PRODUCT_NAME = ZSSRichTextEditor;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
