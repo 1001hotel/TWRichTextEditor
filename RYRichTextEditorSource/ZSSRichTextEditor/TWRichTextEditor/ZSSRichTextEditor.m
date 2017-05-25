@@ -2652,8 +2652,9 @@ static CGFloat kDefaultScale = 0.5;
     [self startLoading];
     [[AipOcrService shardService] detectTextFromImage:(UIImage *)resut withOptions:options successHandler:^(id result) {
         
-        [self stopLoading];
         dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            [self stopLoading];
             NSMutableString *message = [NSMutableString string];
             if(result[@"words_result"]){
                 
@@ -2684,6 +2685,7 @@ static CGFloat kDefaultScale = 0.5;
         dispatch_sync(dispatch_get_main_queue(), ^{
 
             [self stopLoading];
+            [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.restorerange()"];
         [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
         });
     }];
