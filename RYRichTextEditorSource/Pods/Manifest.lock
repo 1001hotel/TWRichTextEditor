@@ -1,0 +1,12 @@
+PODS:
+  - TWFreshLoadingView (0.8.0)
+
+DEPENDENCIES:
+  - TWFreshLoadingView (~> 0.8.0)
+
+SPEC CHECKSUMS:
+  TWFreshLoadingView: e6f6b857455fc0dc52986f229af29b78c6536018
+
+PODFILE CHECKSUM: 523e62e64f04a6cb214b495aca28cee680a72bf0
+
+COCOAPODS: 1.2.1

@@ -18,6 +18,7 @@
 #import <iflyMSC/iflyMSC.h>
 #import "IATConfig.h"
 #import "ISRDataHelper.h"
+#import <FreshLoadingView.h>
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -127,7 +128,7 @@ IFlyPcmRecorderDelegate
     BOOL _isActionStyle;
     BOOL _isActionColor;
     BOOL _isActionAlignment;
-    
+    FreshLoadingView *_loadingView;
 }
 
 @property (nonatomic, strong) NSString *pcmFilePath;//音频文件路径
@@ -1302,6 +1303,95 @@ static CGFloat kDefaultScale = 0.5;
         });
     }];
 }
+#pragma mark -
+#pragma mark - Loading
+- (void)startLoading{
+    
+    if (!_loadingView) {
+        _loadingView = [[FreshLoadingView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    }
+    
+    if ([[NSThread mainThread] isMainThread]) {
+        
+        [_loadingView startAnimating];
+        [self.view addSubview:_loadingView];
+        [self.view bringSubviewToFront:_loadingView];
+        @try {
+            // 可能会出现崩溃的代码
+            self.view.userInteractionEnabled = NO;
+            
+        }
+        @catch (NSException *exception) {
+            // 捕获到的异常exception
+        }
+        @finally {
+            // 结果处理
+        }
+        
+    }
+    else{
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            [_loadingView startAnimating];
+            [self.view addSubview:_loadingView];
+            [self.view bringSubviewToFront:_loadingView];
+            @try {
+                // 可能会出现崩溃的代码
+                self.view.userInteractionEnabled = NO;
+                
+            }
+            @catch (NSException *exception) {
+                // 捕获到的异常exception
+            }
+            @finally {
+                // 结果处理
+            }
+        });
+    }
+}
+- (void)stopLoading{
+    
+    
+    if ([[NSThread mainThread] isMainThread]) {
+        
+        [_loadingView stopAnimating];
+        [_loadingView removeFromSuperview];
+        _loadingView = nil;
+        @try {
+            // 可能会出现崩溃的代码
+            self.view.userInteractionEnabled = YES;
+            
+        }
+        @catch (NSException *exception) {
+            // 捕获到的异常exception
+        }
+        @finally {
+            // 结果处理
+        }
+    }
+    else{
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            [_loadingView stopAnimating];
+            [_loadingView removeFromSuperview];
+            _loadingView = nil;
+            @try {
+                // 可能会出现崩溃的代码
+                self.view.userInteractionEnabled = YES;
+                
+            }
+            @catch (NSException *exception) {
+                // 捕获到的异常exception
+            }
+            @finally {
+                // 结果处理
+            }
+        });
+    }
+}
+
 
 
 #pragma mark -
@@ -2546,71 +2636,48 @@ static CGFloat kDefaultScale = 0.5;
 
 #pragma mark -
 #pragma mark - AipOcrResultDelegate
-- (void)ocrOnIdCardSuccessful:(id)result {
+- (void)ocrOnGeneralImageResult:(id)resut {
 
-    NSString *title = nil;
-    NSMutableString *message = [NSMutableString string];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
-    if(result[@"words_result"]){
-        [result[@"words_result"] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            [message appendFormat:@"%@: %@\n", key, obj[@"words"]];
-        }];
-    }
+    NSDictionary *options = @{@"language_type": @"CHN_ENG", @"detect_direction": @"true"};
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alertView show];
-    }];
-}
-- (void)ocrOnBankCardSuccessful:(id)result {
-
-    NSString *title = nil;
-    NSMutableString *message = [NSMutableString string];
-    title = @"银行卡信息";
-    //    [message appendFormat:@"%@", result[@"result"]];
-    [message appendFormat:@"卡号：%@\n", result[@"result"][@"bank_card_number"]];
-    [message appendFormat:@"类型：%@\n", result[@"result"][@"bank_card_type"]];
-    [message appendFormat:@"发卡行：%@\n", result[@"result"][@"bank_name"]];
     
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alertView show];
-    }];
-}
-- (void)ocrOnGeneralSuccessful:(id)result {
-    
-    NSMutableString *message = [NSMutableString string];
-    if(result[@"words_result"]){
+    [[AipOcrService shardService] detectTextFromImage:(UIImage *)resut withOptions:options successHandler:^(id result) {
         
-        for(NSDictionary *obj in result[@"words_result"]){
-            
-            [message appendFormat:@"%@", obj[@"words"]];
-        }
-    }
-    else{
-        [message appendFormat:@"%@", result];
-    }
-    
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        
-        
-        [self dismissViewControllerAnimated:YES completion:^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSMutableString *message = [NSMutableString string];
+            if(result[@"words_result"]){
+                
+                for(NSDictionary *obj in result[@"words_result"]){
+                    
+                    [message appendFormat:@"%@", obj[@"words"]];
+                }
+            }
+            else{
+                [message appendFormat:@"%@", result];
+            }
             
             [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.restorerange()"];
-
+            
             if (message.length == 0) {
-                
                 
                 [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
             }
             else{
-            
+                
                 [self insertHTML:message];
-
+                
             }
-            
-        }];
-    });
+        });
+        
+    } failHandler:^(NSError *err) {
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+
+        [self alertMessage:@"无法检测到文字" delayFordisimissComplete:2];
+        });
+    }];
 }
 - (void)ocrOnFail:(NSError *)error {
     

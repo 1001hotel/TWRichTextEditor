@@ -245,6 +245,9 @@ AipOcrDelegate
 
 - (void)alertMessage:(NSString *)message delayFordisimissComplete:(float)delay;
 
+- (void)startLoading;
+- (void)stopLoading;
+
 @end
 
 

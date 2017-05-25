@@ -1,0 +1,8 @@
+
+platform :ios, '8.0'
+
+target 'ZSSRichTextEditor' do
+    
+pod 'TWFreshLoadingView', '~> 0.8.0'
+
+end
