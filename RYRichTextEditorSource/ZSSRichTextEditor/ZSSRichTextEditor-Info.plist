@@ -21,13 +21,15 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.9.0</string>
+	<string>1.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>201705231536</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Camers used in ZSSRichTextEditor</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Microphone used in ZSSRichTextEditor</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -36,8 +38,6 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Camers used in ZSSRichTextEditor</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

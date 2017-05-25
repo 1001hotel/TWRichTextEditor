@@ -6,15 +6,15 @@
 	<dict>
 		<key>AipOcrSdk.storyboardc/ANZ-N0-y67-view-Tv2-ge-o8Q.nib</key>
 		<data>
-		zRjHMjxRYZj8K1o2uybOA37j4Ac=
+		lUxX828EYK8Nsvv6hGJyGKUNwKQ=
 		</data>
 		<key>AipOcrSdk.storyboardc/AipCaptureCardVC.nib</key>
 		<data>
-		8DE0n7XR7ds7ApWqNUX3JGuGeUM=
+		ppY9SIIbur0MqHve7+aw7EWqHbw=
 		</data>
 		<key>AipOcrSdk.storyboardc/AipGeneralVC.nib</key>
 		<data>
-		IrWzy++YWt3P1mDSdf0tNs7zBV4=
+		MxlP3nzdarE+RfdhNGcAuLaAp1c=
 		</data>
 		<key>AipOcrSdk.storyboardc/Info.plist</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>AipOcrSdk.storyboardc/qVB-bS-VcD-view-pEK-B6-uAC.nib</key>
 		<data>
-		lh+XXjPJGJLvSGR8ZXV/RQatvaA=
+		ToqBiwCXyOfGsdkH8v2vlnRRxYE=
 		</data>
 		<key>Headers/AipCaptureCardVC.h</key>
 		<data>
@@ -147,33 +147,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zRjHMjxRYZj8K1o2uybOA37j4Ac=
+			lUxX828EYK8Nsvv6hGJyGKUNwKQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			UtY3uUZsEK8wQvhVK2TTGk+SIf+SzYLnHtamqSug4iE=
+			2WB84h+5TLY0dBtzYoVlMj2yaTpf50ViHOlduZNobgw=
 			</data>
 		</dict>
 		<key>AipOcrSdk.storyboardc/AipCaptureCardVC.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8DE0n7XR7ds7ApWqNUX3JGuGeUM=
+			ppY9SIIbur0MqHve7+aw7EWqHbw=
 			</data>
 			<key>hash2</key>
 			<data>
-			OSEsTzk6zUi2ySm6JOObQsJWQ5DzdkWNLomrrHufM6Q=
+			P9xGppvIoy1YFyQCGc9DV61NHa4E/GA6sRM/Cad7QiQ=
 			</data>
 		</dict>
 		<key>AipOcrSdk.storyboardc/AipGeneralVC.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IrWzy++YWt3P1mDSdf0tNs7zBV4=
+			MxlP3nzdarE+RfdhNGcAuLaAp1c=
 			</data>
 			<key>hash2</key>
 			<data>
-			ENEW0S94uSAGbMm/QEZEpB7NMUHycQqBw0chY+7kXV8=
+			skdCe3dgKdgeQSqd5D4EH56Z/IrHpNKA7TYbhgeYspg=
 			</data>
 		</dict>
 		<key>AipOcrSdk.storyboardc/Info.plist</key>
@@ -191,11 +191,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lh+XXjPJGJLvSGR8ZXV/RQatvaA=
+			ToqBiwCXyOfGsdkH8v2vlnRRxYE=
 			</data>
 			<key>hash2</key>
 			<data>
-			iYyLYx/++vYb99mjQlODoc7zPGSjqEp6R4NWL9ImNwk=
+			X17j3WNB+i91hXyQU+2Zl6Yi6yjL0vJ6SMhF8GIee3g=
 			</data>
 		</dict>
 		<key>Headers/AipCaptureCardVC.h</key>
