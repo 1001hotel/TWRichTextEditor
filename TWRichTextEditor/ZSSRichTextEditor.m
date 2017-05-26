@@ -19,6 +19,7 @@
 #import "IATConfig.h"
 #import "ISRDataHelper.h"
 #import <FreshLoadingView.h>
+#import <AVFoundation/AVFoundation.h>
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -408,6 +409,16 @@ IFlyPcmRecorderDelegate
     
     [self _removeLast];
     
+    [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.prepareInsert();"];
+    
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+    
+    if (status == AVAuthorizationStatusDenied) {
+        
+        [self _showNoAcceessWithTitle:@"在设置—途遇图记—权限中开启麦克风权限，以正常使用快捷的语音输入等功能。" message:@""];
+        return;
+    }
+    
     if (!self.voiceView) {
         
         self.voiceView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, TOOL_BAR_HEIGHT)];
@@ -456,21 +467,10 @@ IFlyPcmRecorderDelegate
             [self.voiceView addSubview:rightView];
         }
     }
-    
-    
     self.voiceView.backgroundColor = [UIColor whiteColor];
     [self.toolBarScroll addSubview:self.voiceView];
     
     [self startBtnHandler:nil];
-    
-    [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        
-        
-    }];
-    
-    
-    
-    
 }
 - (IBAction)startBtnHandler:(id)sender {
     
@@ -686,7 +686,16 @@ IFlyPcmRecorderDelegate
 #pragma mark - recognitionText
 - (void)_recognition{
     
-    [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.prepareInsert();"];
+     [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.prepareInsert();"];
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    
+    if (status == AVAuthorizationStatusDenied) {
+        
+        [self _showNoAcceessWithTitle:@"在设置—途遇图记—权限中开启相机权限，以正常使用拍照、图像文字编译、创建图记等功能。" message:@""];
+        return;
+    }
+    
+   
     UIViewController *vc = [AipGeneralVC ViewControllerWithDelegate:self];
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -1125,6 +1134,30 @@ IFlyPcmRecorderDelegate
     
     
 }
+- (void)_showNoAcceessWithTitle:(NSString *)title message:(NSString *)message{
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"去设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];//ios8以上可用
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self.editorView stringByEvaluatingJavaScriptFromString:@"zss_editor.restorerange()"];
+
+    }];
+    [alert addAction:cancel];
+    [alert addAction:ok];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
 
 
 @end
