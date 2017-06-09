@@ -165,7 +165,9 @@ zss_editor.calculateEditorHeightWithCaretPosition = function() {
     if (c < offsetY) {
         newPos = c;
     } else if (c > (offsetY + height - padding)) {
-        newPos = c - height + padding - 18;
+        //解决字号变大无法定位到底部问题
+        //newPos = c - height + padding - 18;
+        newPos = c - height + padding;
     }
     
     window.scrollTo(0, newPos);
@@ -808,8 +810,25 @@ $(function() {
                               }
                               
                               resultParams('keyup');
-                              
-                              })
+                              });
   
   })
 
+zss_editor.scrollTobottom = function() {
+    
+    var c = zss_editor.getCaretYPosition();
+    
+    var editor = $('#zss_editor_content');
+    
+    var offsetY = window.document.body.scrollTop;
+    var height = zss_editor.contentHeight;
+    
+    var newPos = window.pageYOffset;
+    
+    if (c < offsetY) {
+        newPos = c;
+    } else if (c > (offsetY + height - padding)) {
+        newPos = c - height + padding;
+    }
+    window.scrollTo(0, newPos);
+}
