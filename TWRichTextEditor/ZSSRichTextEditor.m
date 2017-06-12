@@ -2092,8 +2092,8 @@ static CGFloat kDefaultScale = 0.5;
         // We recieved the callback
         NSString *className = [urlString stringByReplacingOccurrencesOfString:@"callback://0/" withString:@""];
 
-        NSLog(@"%@", [self getHTML]);
-        NSLog(@"%@", className);
+        //NSLog(@"%@", [self getHTML]);
+        //NSLog(@"%@", className);
         //if (self.lastHtmlString.length > 0) {
             
             [self updateToolViewWithButtonName:className];
@@ -2171,6 +2171,10 @@ static CGFloat kDefaultScale = 0.5;
     {
         
         [self _removeLast];
+    };
+    context[@"consolePosition"]= ^(NSString *jsonStr){
+    
+        NSLog(@"%@", jsonStr);
     };
 }
 

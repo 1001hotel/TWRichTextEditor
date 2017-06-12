@@ -52,6 +52,7 @@ zss_editor.init = function() {
     
     $(document).on('selectionchange',
                    function(e) {
+                   resultParams('keyup');
                    zss_editor.calculateEditorHeightWithCaretPosition();
                    zss_editor.setScrollPosition();
                    zss_editor.enabledEditingItems(e);
@@ -115,6 +116,23 @@ zss_editor.setScrollPosition = function() {
     window.location = 'scroll://' + position;
 }
 
+zss_editor.setScrollPositionByLimit = function() {
+    if (!zss_editor.updateScrollOffset) return;
+    
+    var offsetY = window.pageYOffset;
+    
+    var footer = $('#zss_editor_footer');
+    
+    var maxOffsetY = footer.offset().top - zss_editor.contentHeight;
+    
+    if (maxOffsetY < 0) maxOffsetY = 0;
+    
+    if (offsetY > maxOffsetY) {
+        offsetY =maxOffsetY;
+    }
+    window.location = 'scroll://' + offsetY;
+}
+
 zss_editor.setPlaceholder = function(placeholder) {
     
     var editor = $('#zss_editor_content');
@@ -161,6 +179,7 @@ zss_editor.calculateEditorHeightWithCaretPosition = function() {
     var height = zss_editor.contentHeight;
     
     var newPos = window.pageYOffset;
+    var fontSize = document.queryCommandValue('fontSize');
     
     if (c < offsetY) {
         newPos = c;
@@ -168,9 +187,13 @@ zss_editor.calculateEditorHeightWithCaretPosition = function() {
         //解决字号变大无法定位到底部问题
         //newPos = c - height + padding - 18;
         newPos = c - height + padding;
+        
     }
-    
-    window.scrollTo(0, newPos);
+    consolePosition('c:'+c+',height:'+height+',newPos：'+newPos+',fontSize:'+fontSize);    if(newPos!==(window.oldScrollPos||0))
+    {
+        window.scrollTo(0, newPos);
+        window.oldScrollPos =newPos;
+    }
 }
 
 zss_editor.backuprange = function() {
@@ -747,7 +770,8 @@ zss_editor.clearStyle = function() {
     if (zss_editor.isCommandEnabled('bold')) {
         
         zss_editor.setBold();
-    } else {
+    }
+    else {
         
         zss_editor.setBold();
         zss_editor.setBold();
@@ -756,7 +780,8 @@ zss_editor.clearStyle = function() {
     if (zss_editor.isCommandEnabled('italic')) {
         
         zss_editor.setItalic();
-    } else {
+    }
+    else {
         
         zss_editor.setItalic();
         zss_editor.setItalic();
@@ -765,7 +790,8 @@ zss_editor.clearStyle = function() {
     if (zss_editor.isCommandEnabled('underline')) {
         
         zss_editor.setUnderline();
-    } else {
+    }
+    else {
         
         zss_editor.setUnderline();
         zss_editor.setUnderline();
@@ -784,13 +810,6 @@ zss_editor.rgb2hex = function(rgb) {
     return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
 }
 
-zss_editor.insertText = function(text) {
-    
-    document.execCommand('insertText', false, html);
-    zss_editor.enabledEditingItems(e);
-    
-}
-
 //end
 $(function() {
   $('#zss_editor_content').on('paste',
@@ -799,6 +818,7 @@ $(function() {
                               })
   })
 
+/*
 $(function() {
   $('#zss_editor_content').on('keyup',
                               function(e) {
@@ -813,7 +833,8 @@ $(function() {
                               });
   
   })
-
+//*/
+/*
 zss_editor.scrollTobottom = function() {
     
     var c = zss_editor.getCaretYPosition();
@@ -832,3 +853,4 @@ zss_editor.scrollTobottom = function() {
     }
     window.scrollTo(0, newPos);
 }
+//*/
