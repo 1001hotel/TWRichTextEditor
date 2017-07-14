@@ -130,6 +130,9 @@ IFlyPcmRecorderDelegate
     BOOL _isActionColor;
     BOOL _isActionAlignment;
     FreshLoadingView *_loadingView;
+    
+    NSInteger _index;
+    float _height;
 }
 
 @property (nonatomic, strong) NSString *pcmFilePath;//音频文件路径
@@ -2543,42 +2546,88 @@ static CGFloat kDefaultScale = 0.5;
         return;
     }
     
-    __block NSInteger index = 0;
+   __block NSInteger index = 0;
+    _index = index;
     
-    NSInteger height = 3 + 27.0 /  30 * volume;
-    [NSTimer scheduledTimerWithTimeInterval:0.01 repeats:YES block:^(NSTimer * _Nonnull timer) {
+    float height = 3 + 27.0 /  30 * volume;
+    _height = height;
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 10.0) {
         
-        float origalY = (TOOL_BAR_HEIGHT - height - 6) / 2.0;
-        
-        float doneButtonWidth = 59;
-        
-        float width = (SCREEN_SIZE.width - doneButtonWidth) / 2.0 - 6 - 30;
-        
-        NSInteger count = ceilf(width / (3.0 + 6.0));
-        
-        NSArray *subviews = self.voiceView.subviews;
-        for (int i = 0; i < count; i ++ ) {
+        [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(_change:) userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:_height], @"height", nil] repeats:YES];
+    }
+    else{
+    
+        ///*
+        [NSTimer scheduledTimerWithTimeInterval:0.01 repeats:YES block:^(NSTimer * _Nonnull timer) {
             
-            for (UIView *view in subviews) {
-                if (view.tag == (100 + index)) {
-                    
-                    [UIView animateWithDuration:0.05 animations:^{
+            float origalY = (TOOL_BAR_HEIGHT - height - 6) / 2.0;
+            
+            float doneButtonWidth = 59;
+            
+            float width = (SCREEN_SIZE.width - doneButtonWidth) / 2.0 - 6 - 30;
+            
+            NSInteger count = ceilf(width / (3.0 + 6.0));
+            
+            NSArray *subviews = self.voiceView.subviews;
+            for (int i = 0; i < count; i ++ ) {
+                
+                for (UIView *view in subviews) {
+                    if (view.tag == (100 + index)) {
                         
-                        view.frame = CGRectMake(view.frame.origin.x, origalY, view.frame.size.width, height);
-                        
-                    }];
+                        [UIView animateWithDuration:0.05 animations:^{
+                            
+                            view.frame = CGRectMake(view.frame.origin.x, origalY, view.frame.size.width, height);
+                            
+                        }];
+                    }
                 }
             }
-        }
-        index = index + 1;
-        
-        if (index >= count) {
+            index = index + 1;
             
-            [timer invalidate];
+            if (index >= count) {
+                
+                [timer invalidate];
+            }
+        }];
+        //*/
+ 
+    }
+    
+    
+}
+- (void)_change:(NSTimer *)timer{
+
+    NSInteger height = [[[timer userInfo] objectForKey:@"height"] floatValue];
+    float origalY = (TOOL_BAR_HEIGHT - height - 6) / 2.0;
+    
+    float doneButtonWidth = 59;
+    
+    float width = (SCREEN_SIZE.width - doneButtonWidth) / 2.0 - 6 - 30;
+    
+    NSInteger count = ceilf(width / (3.0 + 6.0));
+    
+    NSArray *subviews = self.voiceView.subviews;
+    for (int i = 0; i < count; i ++ ) {
+        
+        for (UIView *view in subviews) {
+            if (view.tag == (100 + _index)) {
+                
+                [UIView animateWithDuration:0.05 animations:^{
+                    
+                    view.frame = CGRectMake(view.frame.origin.x, origalY, view.frame.size.width, height);
+                    
+                }];
+            }
         }
-    }];
+    }
+    _index = _index + 1;
     
-    
+    if (_index >= count) {
+        
+        [timer invalidate];
+    }
+ 
 }
 /**
  开始识别回调
