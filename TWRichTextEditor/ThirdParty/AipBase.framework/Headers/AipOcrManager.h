@@ -17,12 +17,40 @@
 
 - (instancetype) initWithAK: (NSString *)ak andSK: (NSString *)sk;
 
-- (instancetype) initWithToken: (NSString *)token;
+//- (instancetype) initWithToken: (NSString *)token;
 
+/**
+ * 获取身份证前端检测Token
+ * @param successHandler
+ * @param failHandler
+ */
+
+- (void)_getIdcardTokenWithSuccessHandler:(void (^)(NSString *token))successHandler
+                              failHandler:(void (^)(NSError *error))failHandler;
+
+/**
+ * 通用位置识别
+ * @param image
+ * @param options
+ * @param successHandler
+ * @param failHandler
+ */
 - (void) detectTextFromImage: (UIImage*)image
                  withOptions: (NSDictionary *)options
               successHandler: (void (^)(id result))successHandler
                  failHandler: (void (^)(NSError* err))failHandler;
+
+/**
+ * 通用文字识别 不含位置信息版
+ * @param image
+ * @param options
+ * @param successHandler
+ * @param failHandler
+ */
+- (void) detectTextBasicFromImage: (UIImage*)image
+                      withOptions: (NSDictionary *)options
+                   successHandler: (void (^)(id result))successHandler
+                      failHandler: (void (^)(NSError* err))failHandler;
 
 
 - (void) detectIdCardFromImage: (UIImage*)image
@@ -35,6 +63,65 @@
                   successHandler: (void (^)(id result))successHandler
                      failHandler: (void (^)(NSError* err))failHandler;
 
+/**
+ * 通用文字识别 含生僻字版
+ * @param image
+ * @param options
+ * @param successHandler
+ * @param failHandler
+ */
+- (void) detectTextEnhancedFromImage: (UIImage *)image
+                         withOptions: (NSDictionary *)options
+                      successHandler: (void (^)(id result))successHandler
+                         failHandler: (void (^)(NSError* err))failHandler;
+
+/**
+ * 网图识别
+ * @param image
+ * @param options
+ * @param successHandler
+ * @param failHandler
+ */
+- (void) detectWebImageFromImage: (UIImage *)image
+                     withOptions: (NSDictionary *)options
+                  successHandler: (void (^)(id result))successHandler
+                     failHandler: (void (^)(NSError* err))failHandler;
+
+/**
+ * 驾驶证识别
+ * @param image
+ * @param options
+ * @param successHandler
+ * @param failHandler
+ */
+- (void) detectDrivingLicenseFromImage: (UIImage *)image
+                           withOptions: (NSDictionary *)options
+                        successHandler: (void (^)(id result))successHandler
+                           failHandler: (void (^)(NSError* err))failHandler;
+
+/**
+ * 行驶证证识别
+ * @param image
+ * @param options
+ * @param successHandler
+ * @param failHandler
+ */
+- (void) detectVehicleLicenseFromImage: (UIImage *)image
+                           withOptions: (NSDictionary *)options
+                        successHandler: (void (^)(id result))successHandler
+                           failHandler: (void (^)(NSError* err))failHandler;
+
+/**
+ * 车牌证识别
+ * @param image
+ * @param options
+ * @param successHandler
+ * @param failHandler
+ */
+- (void) detectPlateLicenseFromImage: (UIImage *)image
+                         withOptions: (NSDictionary *)options
+                      successHandler: (void (^)(id result))successHandler
+                         failHandler: (void (^)(NSError* err))failHandler;
 
 - (void) clearCache;
 @end
