@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TWRichTextEditor"
-  s.version      = "1.1.9"
+  s.version      = "1.2.0"
   s.summary      = "A rich text editor used on iOS."
   s.description  = <<-DESC
                    It is a rich text editor used on iOS, which implement by Objective-C.
@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
  s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics"
  s.libraries = "z", "c++"
  s.dependency "TWFreshLoadingView", "~> 0.8.0"
- s.dependency "TWCommonMoudle", "~> 1.4.0"
+ s.dependency "TWCommonMoudle", "~> 1.3.0"
 
 end
