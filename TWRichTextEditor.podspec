@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TWRichTextEditor"
-  s.version      = "1.1.8"
+  s.version      = "1.1.9"
   s.summary      = "A rich text editor used on iOS."
   s.description  = <<-DESC
                    It is a rich text editor used on iOS, which implement by Objective-C.
