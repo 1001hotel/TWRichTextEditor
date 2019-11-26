@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TWRichTextEditor"
-  s.version      = "1.2.0"
+  s.version      = "1.2.1"
   s.summary      = "A rich text editor used on iOS."
   s.description  = <<-DESC
                    It is a rich text editor used on iOS, which implement by Objective-C.
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
  s.resources = "TWRichTextEditor/**/*.png", "TWRichTextEditor/**/ZSSRichTextEditor.js", "TWRichTextEditor/**/editor.html", "TWRichTextEditor/**/jQuery.js", "TWRichTextEditor/**/JSBeautifier.js"
  s.frameworks = "AVFoundation", "SystemConfiguration", "Foundation", "CoreTelephony", "AudioToolbox", "UIKit", "CoreLocation", "Contacts", "AddressBook", "QuartzCore", "CoreGraphics"
  s.libraries = "z", "c++"
- s.dependency "TWFreshLoadingView", "~> 0.8.0"
- s.dependency "TWCommonMoudle", "~> 1.3.0"
+ s.dependency "TWFreshLoadingView"
+ s.dependency "TWCommonMoudle"
 
 end
